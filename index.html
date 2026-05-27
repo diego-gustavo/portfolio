@@ -1,0 +1,1537 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diego Gustavo — Portfolio v1.0.0</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ===== CSS RESET & BASE ===== */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #9c9a9d;
+        --bg-panel: #9c9a9d;
+        --bg-header: #01019c;
+        --bg-footer: #01019c;
+        --text: #000000;
+        --text-on-blue: #ffffff;
+        --text-bright: #ffffff;
+        --accent: #01019c;
+        --border: #01019c;
+        --highlight-bg: #01019c;
+        --highlight-fg: #ffffff;
+        --popup-bg: #01019c;
+        --popup-fg: #ffffff;
+        --shadow-light: #ffffff;
+        --shadow-dark: #5a585b;
+        --font-mono: "Share Tech Mono", "JetBrains Mono", monospace;
+        --logo-green: #00ff41;
+        --logo-amber: #ffd700;
+      }
+
+      html,
+      body {
+        height: 100%;
+        font-family: var(--font-mono);
+        background: #000;
+        color: var(--text);
+        overflow: hidden;
+        cursor: default;
+        user-select: none;
+      }
+
+      /* ===== SCANLINES OVERLAY ===== */
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 0, 0, 0.03) 2px,
+          rgba(0, 0, 0, 0.03) 4px
+        );
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      /* ===== BOOT SCREEN ===== */
+      #boot-screen {
+        position: fixed;
+        inset: 0;
+        background: #000;
+        color: #fff;
+        font-family: var(--font-mono);
+        font-size: clamp(11px, 1.4vw, 14px);
+        line-height: 1.7;
+        padding: 3vh 4vw;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        transition: opacity 0.6s ease;
+      }
+      #boot-screen.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #boot-screen.hidden {
+        display: none;
+      }
+
+      .boot-logo {
+        position: absolute;
+        top: 3vh;
+        right: 4vw;
+        text-align: right;
+        font-size: clamp(10px, 1.2vw, 13px);
+        line-height: 1.3;
+      }
+      .boot-logo .logo-line-green {
+        color: var(--logo-green);
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+      .boot-logo .logo-line-amber {
+        color: var(--logo-amber);
+        font-weight: 700;
+      }
+      .boot-logo .logo-box {
+        display: inline-block;
+        border: 1px solid var(--logo-green);
+        padding: 6px 14px;
+        margin-bottom: 4px;
+        box-shadow: 0 0 8px rgba(0, 255, 65, 0.3);
+      }
+
+      .boot-content {
+        margin-top: 2vh;
+        max-width: 700px;
+      }
+
+      .boot-line {
+        opacity: 0;
+        transform: translateX(-4px);
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+        white-space: pre;
+      }
+      .boot-line.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .boot-line.dim {
+        color: #cccccc;
+      }
+      .boot-line.bold {
+        color: #ffffff;
+        font-weight: 700;
+      }
+      .boot-line.blank {
+        height: 1.7em;
+      }
+
+      .boot-line .ok {
+        color: #ffffff;
+      }
+      .boot-line .dots {
+        color: #cccccc;
+      }
+
+      .boot-skip {
+        position: absolute;
+        bottom: 4vh;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #888;
+        font-size: 12px;
+        animation: blink-slow 1.2s step-end infinite;
+      }
+      @keyframes blink-slow {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      /* ===== MAIN INTERFACE ===== */
+      #main-interface {
+        display: none;
+        flex-direction: column;
+        height: 100vh;
+        background: var(--bg);
+        position: relative;
+      }
+      #main-interface.visible {
+        display: flex;
+      }
+
+      /* Bevel / raised-panel helper */
+      .raised {
+        box-shadow:
+          inset -1px -1px 0 var(--shadow-dark),
+          inset 1px 1px 0 var(--shadow-light);
+      }
+      .sunken {
+        box-shadow:
+          inset 1px 1px 0 var(--shadow-dark),
+          inset -1px -1px 0 var(--shadow-light);
+      }
+
+      /* ===== HEADER / NAV ===== */
+      #header {
+        background: var(--bg-header);
+        color: var(--text-on-blue);
+        display: flex;
+        align-items: stretch;
+        height: 36px;
+        flex-shrink: 0;
+        padding: 0 8px;
+        gap: 2px;
+        border-bottom: 2px solid #000;
+      }
+
+      .header-logo {
+        display: flex;
+        align-items: center;
+        padding: 0 12px 0 4px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        margin-right: 6px;
+        gap: 6px;
+        flex-shrink: 0;
+      }
+      .logo-slot {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .logo-slot svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .nav-tab {
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        font-size: 13px;
+        color: var(--text-on-blue);
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        font-family: var(--font-mono);
+        letter-spacing: 0.5px;
+        position: relative;
+        outline: none;
+        transition: background 0.1s;
+      }
+      .nav-tab:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+      .nav-tab.active {
+        background: var(--bg);
+        color: var(--text);
+        font-weight: 700;
+        margin-top: 2px;
+        border-top: 2px solid #fff;
+        border-left: 1px solid #888;
+        border-right: 1px solid #888;
+        border-bottom: none;
+      }
+      .nav-tab .bracket {
+        opacity: 0.6;
+      }
+
+      .header-right {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        padding-right: 4px;
+        gap: 8px;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .blink-cursor {
+        display: inline-block;
+        width: 8px;
+        height: 14px;
+        background: #fff;
+        animation: blink 1s step-end infinite;
+        vertical-align: middle;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      /* ===== MAIN AREA ===== */
+      #main-area {
+        flex: 1;
+        display: flex;
+        overflow: hidden;
+        padding: 8px;
+        gap: 8px;
+      }
+
+      /* ===== PANELS ===== */
+      .panel {
+        background: var(--bg-panel);
+        border: 2px solid;
+        border-color: var(--shadow-light) var(--shadow-dark) var(--shadow-dark)
+          var(--shadow-light);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .panel-title {
+        background: var(--bg-header);
+        color: var(--text-on-blue);
+        font-size: 12px;
+        font-weight: 700;
+        padding: 3px 12px;
+        letter-spacing: 1px;
+        flex-shrink: 0;
+      }
+      .panel-body {
+        flex: 1;
+        padding: 12px 14px;
+        overflow-y: auto;
+        font-size: clamp(11px, 1.3vw, 13px);
+        line-height: 1.8;
+      }
+      .panel-body::-webkit-scrollbar {
+        width: 8px;
+      }
+      .panel-body::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+      .panel-body::-webkit-scrollbar-thumb {
+        background: var(--border);
+      }
+
+      #left-panel {
+        flex: 3;
+      }
+      #right-panel {
+        flex: 1.2;
+        min-width: 200px;
+      }
+
+      /* Section visibility */
+      .section {
+        display: none;
+      }
+      .section.active {
+        display: block;
+      }
+
+      /* ===== ABOUT ===== */
+      .bios-row {
+        display: grid;
+        grid-template-columns: 130px 1fr;
+        gap: 0 8px;
+        padding: 2px 0;
+        align-items: start;
+      }
+      .bios-row:hover {
+        background: var(--highlight-bg);
+        color: var(--highlight-fg);
+      }
+      .bios-label {
+        color: #333;
+        font-weight: 700;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+      .bios-row:hover .bios-label {
+        color: #aaa;
+      }
+      .bios-sep {
+        color: #555;
+      }
+      .bios-value {
+        color: #000;
+      }
+      .bios-row:hover .bios-value {
+        color: #fff;
+      }
+
+      .divider {
+        border: none;
+        border-top: 1px solid var(--shadow-dark);
+        border-bottom: 1px solid var(--shadow-light);
+        margin: 8px 0;
+      }
+
+      .status-badge {
+        display: inline-block;
+        background: var(--bg-header);
+        color: #fff;
+        padding: 1px 8px;
+        font-size: 11px;
+        letter-spacing: 1px;
+      }
+
+      /* ===== SKILLS ===== */
+      .skill-row {
+        display: grid;
+        grid-template-columns: 130px 1fr 48px 80px;
+        gap: 0 8px;
+        padding: 3px 4px;
+        align-items: center;
+        cursor: pointer;
+      }
+      .skill-row:hover,
+      .skill-row.selected {
+        background: var(--highlight-bg);
+        color: var(--highlight-fg);
+      }
+      .skill-name {
+        font-weight: 700;
+        font-size: 12px;
+      }
+      .skill-bar-wrap {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+      }
+      .skill-bar {
+        display: inline-block;
+        font-size: 13px;
+        letter-spacing: -1px;
+        color: var(--accent);
+      }
+      .skill-row:hover .skill-bar,
+      .skill-row.selected .skill-bar {
+        color: #fff;
+      }
+      .skill-pct {
+        font-size: 11px;
+        text-align: right;
+      }
+      .skill-badge {
+        font-size: 10px;
+        background: var(--bg-header);
+        color: #fff;
+        padding: 0 6px;
+        text-align: center;
+      }
+      .skill-row:hover .skill-badge,
+      .skill-row.selected .skill-badge {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      /* ===== PROJECTS ===== */
+      .project-entry {
+        padding: 6px 8px;
+        cursor: pointer;
+        border-bottom: 1px dotted #888;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .project-entry:last-child {
+        border-bottom: none;
+      }
+      .project-entry:hover,
+      .project-entry.selected {
+        background: var(--highlight-bg);
+        color: var(--highlight-fg);
+      }
+      .proj-arrow {
+        flex-shrink: 0;
+        font-size: 11px;
+        margin-top: 2px;
+      }
+      .proj-body {
+        flex: 1;
+      }
+      .proj-name {
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .proj-sub {
+        font-size: 11px;
+        color: #444;
+      }
+      .project-entry:hover .proj-sub,
+      .project-entry.selected .proj-sub {
+        color: #aaa;
+      }
+
+      .proj-link {
+        display: inline-block;
+        margin-top: 4px;
+        font-size: 11px;
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        padding: 1px 8px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .proj-link:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      /* ===== CONTACT ===== */
+      .contact-row {
+        display: grid;
+        grid-template-columns: 110px 18px 1fr;
+        gap: 0 4px;
+        padding: 4px 4px;
+        cursor: pointer;
+        align-items: center;
+      }
+      .contact-row:hover {
+        background: var(--highlight-bg);
+        color: var(--highlight-fg);
+      }
+      .contact-label {
+        font-weight: 700;
+        font-size: 12px;
+      }
+      .contact-sep {
+        color: #555;
+      }
+      .contact-row:hover .contact-sep {
+        color: #aaa;
+      }
+      .contact-value {
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 12px;
+      }
+      .contact-row:hover .contact-value {
+        color: #fff;
+      }
+
+      /* ===== HELP PANEL ===== */
+      .help-content {
+        font-size: 12px;
+        line-height: 1.9;
+        color: #111;
+      }
+      .help-title {
+        font-weight: 700;
+        font-size: 12px;
+        margin-bottom: 8px;
+        color: var(--accent);
+        letter-spacing: 0.5px;
+      }
+      .help-divider {
+        border: none;
+        border-top: 1px solid #888;
+        border-bottom: 1px solid #eee;
+        margin: 10px 0;
+      }
+      .help-tip {
+        font-size: 11px;
+        color: #555;
+        margin-top: 10px;
+        padding-top: 8px;
+        border-top: 1px dotted #888;
+      }
+      .help-key {
+        display: inline-block;
+        background: var(--bg-header);
+        color: #fff;
+        font-size: 10px;
+        padding: 0 5px;
+        margin: 1px;
+      }
+
+      /* ===== FOOTER ===== */
+      #footer {
+        background: var(--bg-footer);
+        color: var(--text-on-blue);
+        height: 30px;
+        display: flex;
+        align-items: center;
+        padding: 0 8px;
+        gap: 0;
+        font-size: 11px;
+        border-top: 2px solid #000;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+      .footer-item {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        padding: 0 8px;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        height: 100%;
+        white-space: nowrap;
+      }
+      .footer-item:last-child {
+        border-right: none;
+      }
+      .footer-key {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 1px 6px;
+        margin-right: 4px;
+        font-size: 10px;
+        font-weight: 700;
+      }
+      .footer-link {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        transition: opacity 0.15s;
+      }
+      .footer-link:hover {
+        opacity: 0.7;
+      }
+      .footer-right {
+        margin-left: auto;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.6);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* ===== POPUP / MODAL (mobile detail) ===== */
+      #detail-modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 500;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+      }
+      #detail-modal.open {
+        display: flex;
+      }
+      .modal-box {
+        background: var(--popup-bg);
+        color: var(--popup-fg);
+        font-family: var(--font-mono);
+        font-size: 13px;
+        line-height: 1.8;
+        padding: 16px 20px;
+        max-width: 360px;
+        width: 100%;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        position: relative;
+      }
+      .modal-close {
+        position: absolute;
+        top: 8px;
+        right: 12px;
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        cursor: pointer;
+        font-family: var(--font-mono);
+      }
+
+      /* ===== MOBILE HAMBURGER ===== */
+      #hamburger {
+        display: none;
+        position: fixed;
+        top: 8px;
+        right: 8px;
+        background: var(--bg-header);
+        color: #fff;
+        border: none;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        padding: 4px 10px;
+        cursor: pointer;
+        z-index: 200;
+        letter-spacing: 1px;
+      }
+      #mobile-menu {
+        display: none;
+        position: fixed;
+        top: 36px;
+        right: 0;
+        background: var(--bg-header);
+        color: #fff;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        z-index: 199;
+        border-left: 2px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+      }
+      #mobile-menu.open {
+        display: block;
+      }
+      .mobile-menu-item {
+        padding: 10px 20px;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .mobile-menu-item:hover,
+      .mobile-menu-item.active {
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 700px) {
+        #right-panel {
+          display: none;
+        }
+        #hamburger {
+          display: block;
+        }
+        #header .nav-tab {
+          display: none;
+        }
+        .header-logo {
+          font-size: 10px;
+        }
+        .footer-item:not(.footer-keep) {
+          display: none;
+        }
+        #main-area {
+          padding: 6px;
+        }
+        .panel-body {
+          font-size: 12px;
+          padding: 8px 10px;
+        }
+        .bios-row {
+          grid-template-columns: 100px 1fr;
+        }
+        .skill-row {
+          grid-template-columns: 100px 1fr 40px 70px;
+          font-size: 11px;
+        }
+        .contact-row {
+          grid-template-columns: 80px 14px 1fr;
+          font-size: 11px;
+        }
+      }
+
+      /* ===== UTILITY ===== */
+      .mt-8 {
+        margin-top: 8px;
+      }
+      .mt-16 {
+        margin-top: 16px;
+      }
+      .dimtext {
+        color: #555;
+        font-size: 11px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════ BOOT SCREEN ═══════════════════════════════════════ -->
+    <div id="boot-screen">
+      <!-- Logo slot (top-right) -->
+      <div class="boot-logo">
+        <div class="logo-box">
+          <div class="logo-line-green">DG.DEV</div>
+          <div class="logo-line-amber">v 1.0.0</div>
+        </div>
+        <div style="color: #666; font-size: 10px">
+          Full-Stack Portfolio BIOS
+        </div>
+      </div>
+
+      <!-- Boot lines -->
+      <div class="boot-content" id="boot-lines"></div>
+
+      <div class="boot-skip" id="boot-skip">
+        [ Press any key or click to skip ]
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════ MAIN INTERFACE ═══════════════════════════════════════ -->
+    <div id="main-interface">
+      <!-- HEADER -->
+      <div id="header">
+        <div class="header-logo">
+          <div class="logo-slot">
+            <!-- SVG Logo slot — swap src/content here -->
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="20" height="20" rx="2" fill="none" />
+              <text
+                x="2"
+                y="15"
+                font-family="monospace"
+                font-size="12"
+                font-weight="bold"
+                fill="#00FF41"
+              >
+                DG
+              </text>
+            </svg>
+          </div>
+          <span>DIEGO.G</span>
+        </div>
+
+        <button class="nav-tab active" data-section="about" tabindex="1">
+          <span class="bracket">[</span>&nbsp;About&nbsp;<span class="bracket"
+            >]</span
+          >
+        </button>
+        <button class="nav-tab" data-section="skills" tabindex="2">
+          <span class="bracket">[</span>&nbsp;Skills&nbsp;<span class="bracket"
+            >]</span
+          >
+        </button>
+        <button class="nav-tab" data-section="projects" tabindex="3">
+          <span class="bracket">[</span>&nbsp;Projects&nbsp;<span
+            class="bracket"
+            >]</span
+          >
+        </button>
+        <button class="nav-tab" data-section="contact" tabindex="4">
+          <span class="bracket">[</span>&nbsp;Contact&nbsp;<span class="bracket"
+            >]</span
+          >
+        </button>
+
+        <div class="header-right">
+          <span>SETUP UTILITY</span>
+          <span class="blink-cursor"></span>
+        </div>
+      </div>
+
+      <!-- MAIN AREA -->
+      <div id="main-area">
+        <!-- LEFT PANEL -->
+        <div class="panel" id="left-panel">
+          <div class="panel-title" id="left-panel-title">
+            ▸ SYSTEM INFORMATION
+          </div>
+          <div class="panel-body" id="left-panel-body">
+            <!-- ── ABOUT ── -->
+            <div class="section active" id="sec-about">
+              <div class="bios-row">
+                <span class="bios-label">Name</span>
+                <span class="bios-sep">:</span>
+                <span class="bios-value">Diego Gustavo</span>
+              </div>
+              <div class="bios-row">
+                <span class="bios-label">Role</span>
+                <span class="bios-sep">:</span>
+                <span class="bios-value"
+                  >Full-stack Web Developer (Student)</span
+                >
+              </div>
+              <div class="bios-row">
+                <span class="bios-label">Location</span>
+                <span class="bios-sep">:</span>
+                <span class="bios-value">Brazil</span>
+              </div>
+
+              <hr class="divider" />
+
+              <div class="bios-row" style="align-items: flex-start">
+                <span class="bios-label">Bio</span>
+                <span class="bios-sep">:</span>
+                <span
+                  class="bios-value"
+                  style="white-space: normal; line-height: 1.9"
+                >
+                  Apaixonado por tecnologia e desenvolvimento web, estou em
+                  jornada de aprendizado contínuo, construindo projetos reais
+                  que combinam design e funcionalidade. Busco oportunidades para
+                  crescer como desenvolvedor e contribuir com soluções criativas
+                  e eficientes.
+                </span>
+              </div>
+
+              <hr class="divider" />
+
+              <div class="bios-row">
+                <span class="bios-label">Stack</span>
+                <span class="bios-sep">:</span>
+                <span class="bios-value">React / PHP / SQL</span>
+              </div>
+              <div class="bios-row">
+                <span class="bios-label">Status</span>
+                <span class="bios-sep">:</span>
+                <span class="bios-value"
+                  ><span class="status-badge"
+                    >▶ Open to Opportunities</span
+                  ></span
+                >
+              </div>
+
+              <hr class="divider" />
+
+              <div class="dimtext mt-8">
+                Use &nbsp;<kbd
+                  style="
+                    background: var(--bg-header);
+                    color: #fff;
+                    padding: 0 4px;
+                    font-family: var(--font-mono);
+                    font-size: 10px;
+                  "
+                  >Tab</kbd
+                >&nbsp; para navegar entre seções.
+              </div>
+            </div>
+
+            <!-- ── SKILLS ── -->
+            <div class="section" id="sec-skills">
+              <div class="dimtext" style="margin-bottom: 8px">
+                ▸ INSTALLED COMPONENTS &amp; EXPERIENCE LEVEL
+              </div>
+
+              <div class="skill-row selected" data-skill="react" tabindex="0">
+                <span class="skill-name">React</span>
+                <span class="skill-bar-wrap">
+                  <span class="skill-bar">████████░░</span>
+                </span>
+                <span class="skill-pct">80%</span>
+                <span class="skill-badge">[Enabled]</span>
+              </div>
+              <div class="skill-row" data-skill="php" tabindex="0">
+                <span class="skill-name">PHP</span>
+                <span class="skill-bar-wrap">
+                  <span class="skill-bar">███████░░░</span>
+                </span>
+                <span class="skill-pct">70%</span>
+                <span class="skill-badge">[Enabled]</span>
+              </div>
+              <div class="skill-row" data-skill="sql" tabindex="0">
+                <span class="skill-name">SQL</span>
+                <span class="skill-bar-wrap">
+                  <span class="skill-bar">███████░░░</span>
+                </span>
+                <span class="skill-pct">70%</span>
+                <span class="skill-badge">[Enabled]</span>
+              </div>
+              <div class="skill-row" data-skill="htmlcss" tabindex="0">
+                <span class="skill-name">HTML / CSS</span>
+                <span class="skill-bar-wrap">
+                  <span class="skill-bar">█████████░</span>
+                </span>
+                <span class="skill-pct">90%</span>
+                <span class="skill-badge">[Enabled]</span>
+              </div>
+              <div class="skill-row" data-skill="javascript" tabindex="0">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-bar-wrap">
+                  <span class="skill-bar">████████░░</span>
+                </span>
+                <span class="skill-pct">80%</span>
+                <span class="skill-badge">[Enabled]</span>
+              </div>
+              <div class="skill-row" data-skill="git" tabindex="0">
+                <span class="skill-name">Git</span>
+                <span class="skill-bar-wrap">
+                  <span class="skill-bar">███████░░░</span>
+                </span>
+                <span class="skill-pct">70%</span>
+                <span class="skill-badge">[Enabled]</span>
+              </div>
+
+              <hr class="divider" />
+              <div class="dimtext">
+                ▸ MEMORY TESTING : All skills loaded... <strong>OK</strong>
+              </div>
+            </div>
+
+            <!-- ── PROJECTS ── -->
+            <div class="section" id="sec-projects">
+              <div class="dimtext" style="margin-bottom: 8px">
+                ▸ PRIMARY MASTER : 4 entries found
+              </div>
+
+              <div
+                class="project-entry selected"
+                data-project="jornada"
+                tabindex="0"
+              >
+                <span class="proj-arrow">▶</span>
+                <div class="proj-body">
+                  <div class="proj-name">Jornada Viagens</div>
+                  <div class="proj-sub">
+                    Alura — Carreira Full Stack com React
+                  </div>
+                  <a
+                    class="proj-link"
+                    href="https://github.com/diego-rodrigues-git/jornada-viagens"
+                    target="_blank"
+                    rel="noopener"
+                    onclick="event.stopPropagation()"
+                    >[ Ver no GitHub ]</a
+                  >
+                </div>
+              </div>
+
+              <div class="project-entry" data-project="culturama" tabindex="0">
+                <span class="proj-arrow">▶</span>
+                <div class="proj-body">
+                  <div class="proj-name">Pesquisa Culturama</div>
+                  <div class="proj-sub">
+                    Alura — Carreira Full Stack com React
+                  </div>
+                  <a
+                    class="proj-link"
+                    href="https://github.com/diego-rodrigues-git/pesquisa-culturama"
+                    target="_blank"
+                    rel="noopener"
+                    onclick="event.stopPropagation()"
+                    >[ Ver no GitHub ]</a
+                  >
+                </div>
+              </div>
+
+              <div class="project-entry" data-project="tecboard" tabindex="0">
+                <span class="proj-arrow">▶</span>
+                <div class="proj-body">
+                  <div class="proj-name">TecBoard</div>
+                  <div class="proj-sub">
+                    Alura — Carreira Full Stack com React
+                  </div>
+                  <a
+                    class="proj-link"
+                    href="https://github.com/diego-rodrigues-git/tecboard"
+                    target="_blank"
+                    rel="noopener"
+                    onclick="event.stopPropagation()"
+                    >[ Ver no GitHub ]</a
+                  >
+                </div>
+              </div>
+
+              <div class="project-entry" data-project="galarts" tabindex="0">
+                <span class="proj-arrow">▶</span>
+                <div class="proj-body">
+                  <div class="proj-name">GalArts</div>
+                  <div class="proj-sub">
+                    ETEC Fernando Prestes — Técnico de Informática para Internet
+                  </div>
+                  <a
+                    class="proj-link"
+                    href="https://github.com/diego-rodrigues-git/galarts"
+                    target="_blank"
+                    rel="noopener"
+                    onclick="event.stopPropagation()"
+                    >[ Ver no GitHub ]</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- ── CONTACT ── -->
+            <div class="section" id="sec-contact">
+              <div class="dimtext" style="margin-bottom: 12px">
+                ▸ SYSTEM INTERFACES — select an item to open
+              </div>
+
+              <a
+                class="contact-row"
+                href="https://github.com/diego-rodrigues-git"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="contact-label">GitHub</span>
+                <span class="contact-sep">:</span>
+                <span class="contact-value"
+                  >github.com/diego-rodrigues-git</span
+                >
+              </a>
+
+              <a
+                class="contact-row"
+                href="https://linkedin.com/in/diego-gustavo"
+                target="_blank"
+                rel="noopener"
+              >
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-sep">:</span>
+                <span class="contact-value">linkedin.com/in/diego-gustavo</span>
+              </a>
+
+              <a
+                class="contact-row"
+                href="mailto:diego.gda.rodrigues@gmail.com"
+              >
+                <span class="contact-label">Email</span>
+                <span class="contact-sep">:</span>
+                <span class="contact-value">diego.gda.rodrigues@gmail.com</span>
+              </a>
+
+              <hr class="divider" />
+              <div class="dimtext">
+                ▸ All interfaces : <strong>Online</strong> — click to connect
+              </div>
+            </div>
+          </div>
+          <!-- /panel-body -->
+        </div>
+        <!-- /left-panel -->
+
+        <!-- RIGHT PANEL (HELP) -->
+        <div class="panel" id="right-panel">
+          <div class="panel-title">▸ ITEM HELP</div>
+          <div class="panel-body" id="help-body">
+            <!-- dynamic content -->
+          </div>
+        </div>
+      </div>
+      <!-- /main-area -->
+
+      <!-- FOOTER -->
+      <div id="footer">
+        <div class="footer-item footer-keep">
+          <span class="footer-key">↑↓</span>Navigate
+        </div>
+        <div class="footer-item footer-keep">
+          <span class="footer-key">Tab</span>Section
+        </div>
+        <div class="footer-item">
+          <span class="footer-key">Enter</span>Select
+        </div>
+        <div class="footer-item">
+          <a
+            class="footer-link"
+            href="https://github.com/diego-rodrigues-git"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="footer-key">F5</span>GitHub
+          </a>
+        </div>
+        <div class="footer-item">
+          <a
+            class="footer-link"
+            href="https://linkedin.com/in/diego-gustavo"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="footer-key">F6</span>LinkedIn
+          </a>
+        </div>
+        <div class="footer-right">
+          <span>Diego Gustavo Portfolio — v1.0.0</span>
+          <span>©&nbsp;2025</span>
+        </div>
+      </div>
+    </div>
+    <!-- /main-interface -->
+
+    <!-- MOBILE HAMBURGER -->
+    <button id="hamburger" aria-label="Menu">[ MENU ]</button>
+    <div id="mobile-menu">
+      <div class="mobile-menu-item active" data-section="about">[ About ]</div>
+      <div class="mobile-menu-item" data-section="skills">[ Skills ]</div>
+      <div class="mobile-menu-item" data-section="projects">[ Projects ]</div>
+      <div class="mobile-menu-item" data-section="contact">[ Contact ]</div>
+    </div>
+
+    <!-- DETAIL MODAL (mobile) -->
+    <div id="detail-modal">
+      <div class="modal-box">
+        <button class="modal-close" id="modal-close">✕</button>
+        <div id="modal-content"></div>
+      </div>
+    </div>
+
+    <script>
+      // ─────────────────────────────────────────────────
+      // BOOT SCREEN
+      // ─────────────────────────────────────────────────
+      const bootLines = [
+        { text: "", cls: "blank" },
+        { text: "Diego Gustavo Portfolio  —  v1.0.0", cls: "bold" },
+        { text: "Copyright (C) 2025, Diego Gustavo", cls: "dim" },
+        { text: "", cls: "blank" },
+        { text: "Full-stack Web Developer (Student)", cls: "" },
+        { text: "", cls: "blank" },
+        { text: "Main Stack        : React / PHP / SQL", cls: "dim" },
+        { text: "Memory Testing    : Skills loaded... OK", cls: "dim" },
+        { text: "Primary Master    : Projects (4 found)", cls: "dim" },
+        { text: "Primary Slave     : GitHub Repository", cls: "dim" },
+        { text: "", cls: "blank" },
+        { text: "Initializing interface............. OK", cls: "" },
+        { text: "Loading portfolio.................. OK", cls: "" },
+        { text: "", cls: "blank" },
+        { text: "[ Press any key or wait to continue ]", cls: "bold" },
+      ];
+
+      const bootEl = document.getElementById("boot-screen");
+      const bootLinesEl = document.getElementById("boot-lines");
+      let booted = false;
+
+      function launchMain() {
+        if (booted) return;
+        booted = true;
+        bootEl.classList.add("fade-out");
+        setTimeout(() => {
+          bootEl.classList.add("hidden");
+          document.getElementById("main-interface").classList.add("visible");
+          initInterface();
+        }, 650);
+      }
+
+      // Render lines with stagger
+      (function renderBootLines() {
+        bootLines.forEach((line, i) => {
+          const el = document.createElement("div");
+          el.className = "boot-line " + (line.cls || "");
+          if (line.cls === "blank") {
+            el.innerHTML = "&nbsp;";
+          } else {
+            // Colorize "OK" in status lines
+            el.textContent = line.text;
+            if (line.text.includes(": ") && line.text.endsWith("OK")) {
+              const parts = line.text.split("OK");
+              el.innerHTML = parts[0] + '<span class="ok">OK</span>';
+            }
+          }
+          bootLinesEl.appendChild(el);
+
+          setTimeout(
+            () => {
+              el.classList.add("visible");
+            },
+            120 + i * 90,
+          );
+        });
+
+        // Auto-advance after all lines + 1.5s
+        const totalDelay = 120 + bootLines.length * 90 + 1500;
+        setTimeout(launchMain, totalDelay);
+      })();
+
+      // Skip on key/click
+      document.addEventListener("keydown", launchMain, { once: true });
+      bootEl.addEventListener("click", launchMain, { once: true });
+
+      // ─────────────────────────────────────────────────
+      // MAIN INTERFACE
+      // ─────────────────────────────────────────────────
+      const helpTexts = {
+        about: {
+          title: "SYSTEM INFORMATION",
+          body: `Este painel exibe informações pessoais e profissionais do desenvolvedor.\n\nUse Tab para navegar entre as seções do portfólio.\n\nStatus atual indica disponibilidade para oportunidades de trabalho.`,
+          tip: "Tab → próxima seção",
+        },
+        skills: {
+          react: {
+            title: "React",
+            body: `Biblioteca JavaScript para construção de interfaces. Utilizada em projetos como Jornada Viagens, Pesquisa Culturama e TecBoard.\n\nNível: Intermediário (80%)`,
+            tip: "↑↓ para navegar nas skills",
+          },
+          php: {
+            title: "PHP",
+            body: `Linguagem server-side amplamente utilizada para desenvolvimento web backend. Experiência com processamento de formulários e APIs simples.\n\nNível: Básico-Intermediário (70%)`,
+            tip: "↑↓ para navegar nas skills",
+          },
+          sql: {
+            title: "SQL",
+            body: `Linguagem de consulta estruturada para bancos de dados relacionais. Utilizada para modelagem e manipulação de dados em projetos acadêmicos.\n\nNível: Básico-Intermediário (70%)`,
+            tip: "↑↓ para navegar nas skills",
+          },
+          htmlcss: {
+            title: "HTML / CSS",
+            body: `Tecnologias fundamentais da web. Habilidade com layout, responsividade, animações e boas práticas de semântica HTML5 e CSS3.\n\nNível: Avançado (90%)`,
+            tip: "↑↓ para navegar nas skills",
+          },
+          javascript: {
+            title: "JavaScript",
+            body: `Linguagem de programação da web, usada tanto no frontend quanto no backend. Experiência com ES6+, DOM, eventos e requisições assíncronas.\n\nNível: Intermediário (80%)`,
+            tip: "↑↓ para navegar nas skills",
+          },
+          git: {
+            title: "Git",
+            body: `Sistema de controle de versão distribuído. Uso diário via linha de comando e GitHub para versionamento e colaboração em projetos.\n\nNível: Básico-Intermediário (70%)`,
+            tip: "↑↓ para navegar nas skills",
+          },
+        },
+        projects: {
+          jornada: {
+            title: "Jornada Viagens",
+            body: `Projeto desenvolvido durante a trilha Full Stack com React na Alura.\n\nInterface de agência de viagens com componentes React funcionais, estilização CSS moderna e boas práticas de componentização.\n\nTecnologias: React, CSS, JavaScript`,
+            link: "https://github.com/diego-rodrigues-git/jornada-viagens",
+          },
+          culturama: {
+            title: "Pesquisa Culturama",
+            body: `Aplicação de pesquisa cultural desenvolvida com React na Alura.\n\nFuncionalidades de busca e filtragem de conteúdo cultural com interface responsiva.\n\nTecnologias: React, JavaScript, CSS`,
+            link: "https://github.com/diego-rodrigues-git/pesquisa-culturama",
+          },
+          tecboard: {
+            title: "TecBoard",
+            body: `Board de organização de tarefas/conteúdos técnicos. Projeto desenvolvido durante a trilha Full Stack com React na Alura.\n\nTecnologias: React, JavaScript, CSS`,
+            link: "https://github.com/diego-rodrigues-git/tecboard",
+          },
+          galarts: {
+            title: "GalArts",
+            body: `Galeria de artes desenvolvida no curso Técnico de Informática para Internet da ETEC Fernando Prestes.\n\nProjeto de conclusão com foco em design e apresentação visual de obras.\n\nTecnologias: HTML, CSS, JavaScript`,
+            link: "https://github.com/diego-rodrigues-git/galarts",
+          },
+        },
+        contact: {
+          title: "CONTACT INTERFACES",
+          body: `Clique em qualquer linha para abrir o respectivo perfil ou enviar uma mensagem.\n\nEstou aberto a novas oportunidades, freelas e colaborações.`,
+          tip: "Enter ou clique para conectar",
+        },
+      };
+
+      function setHelp(html) {
+        document.getElementById("help-body").innerHTML = html;
+      }
+
+      function buildHelp(data) {
+        if (!data) return "";
+        let html = `<div class="help-content">`;
+        if (data.title)
+          html += `<div class="help-title">▸ ${data.title}</div><hr class="help-divider">`;
+        if (data.body)
+          html += `<div style="white-space:pre-wrap">${data.body}</div>`;
+        if (data.link)
+          html += `<br><a href="${data.link}" target="_blank" rel="noopener" style="color:var(--bg-header);text-decoration:none;font-size:11px">[ Ver no GitHub ↗ ]</a>`;
+        if (data.tip)
+          html += `<div class="help-tip"><span class="help-key">${data.tip}</span></div>`;
+        html += `</div>`;
+        return html;
+      }
+
+      let currentSection = "about";
+
+      function switchSection(section) {
+        currentSection = section;
+
+        // Tabs
+        document.querySelectorAll(".nav-tab").forEach((t) => {
+          t.classList.toggle("active", t.dataset.section === section);
+        });
+        // Mobile menu
+        document.querySelectorAll(".mobile-menu-item").forEach((t) => {
+          t.classList.toggle("active", t.dataset.section === section);
+        });
+
+        // Sections
+        document.querySelectorAll(".section").forEach((s) => {
+          s.classList.toggle("active", s.id === "sec-" + section);
+        });
+
+        // Panel title
+        const titles = {
+          about: "▸ SYSTEM INFORMATION",
+          skills: "▸ INSTALLED COMPONENTS",
+          projects: "▸ PRIMARY MASTER — PROJECTS",
+          contact: "▸ CONTACT INTERFACES",
+        };
+        document.getElementById("left-panel-title").textContent =
+          titles[section] || "▸ " + section.toUpperCase();
+
+        // Update help
+        if (section === "about") setHelp(buildHelp(helpTexts.about));
+        if (section === "contact") setHelp(buildHelp(helpTexts.contact));
+        if (section === "skills") {
+          const sel = document.querySelector(".skill-row.selected");
+          const sk = sel ? sel.dataset.skill : "react";
+          setHelp(buildHelp(helpTexts.skills[sk]));
+        }
+        if (section === "projects") {
+          const sel = document.querySelector(".project-entry.selected");
+          const pj = sel ? sel.dataset.project : "jornada";
+          setHelp(buildHelp(helpTexts.projects[pj]));
+        }
+      }
+
+      function initInterface() {
+        // Nav tabs
+        document.querySelectorAll(".nav-tab").forEach((tab) => {
+          tab.addEventListener("click", () => {
+            switchSection(tab.dataset.section);
+            closeMobileMenu();
+          });
+        });
+
+        // Mobile menu items
+        document.querySelectorAll(".mobile-menu-item").forEach((item) => {
+          item.addEventListener("click", () => {
+            switchSection(item.dataset.section);
+            closeMobileMenu();
+          });
+        });
+
+        // Skills
+        document.querySelectorAll(".skill-row").forEach((row) => {
+          row.addEventListener("click", () => {
+            document
+              .querySelectorAll(".skill-row")
+              .forEach((r) => r.classList.remove("selected"));
+            row.classList.add("selected");
+            const help = buildHelp(helpTexts.skills[row.dataset.skill]);
+            setHelp(help);
+            // Mobile: show modal
+            if (window.innerWidth <= 700)
+              showModal(helpTexts.skills[row.dataset.skill]);
+          });
+          row.addEventListener("mouseenter", () => {
+            row.classList.add("selected");
+            document.querySelectorAll(".skill-row").forEach((r) => {
+              if (r !== row) r.classList.remove("selected");
+            });
+            setHelp(buildHelp(helpTexts.skills[row.dataset.skill]));
+          });
+        });
+
+        // Projects
+        document.querySelectorAll(".project-entry").forEach((row) => {
+          row.addEventListener("click", (e) => {
+            if (
+              e.target.classList.contains("proj-link") ||
+              e.target.closest(".proj-link")
+            )
+              return;
+            document
+              .querySelectorAll(".project-entry")
+              .forEach((r) => r.classList.remove("selected"));
+            row.classList.add("selected");
+            setHelp(buildHelp(helpTexts.projects[row.dataset.project]));
+            if (window.innerWidth <= 700)
+              showModal(helpTexts.projects[row.dataset.project]);
+          });
+          row.addEventListener("mouseenter", () => {
+            row.classList.add("selected");
+            document.querySelectorAll(".project-entry").forEach((r) => {
+              if (r !== row) r.classList.remove("selected");
+            });
+            setHelp(buildHelp(helpTexts.projects[row.dataset.project]));
+          });
+        });
+
+        // Set initial help
+        switchSection("about");
+
+        // Keyboard navigation
+        document.addEventListener("keydown", handleKeyboard);
+      }
+
+      function handleKeyboard(e) {
+        const key = e.key;
+
+        // Tab between sections
+        if (key === "Tab") {
+          e.preventDefault();
+          const sections = ["about", "skills", "projects", "contact"];
+          const idx = sections.indexOf(currentSection);
+          const next =
+            sections[
+              (idx + (e.shiftKey ? sections.length - 1 : 1)) % sections.length
+            ];
+          switchSection(next);
+          return;
+        }
+
+        // Arrow nav within section
+        if (key === "ArrowDown" || key === "ArrowUp") {
+          e.preventDefault();
+          if (currentSection === "skills") {
+            const rows = Array.from(document.querySelectorAll(".skill-row"));
+            const sel = rows.findIndex((r) => r.classList.contains("selected"));
+            const next =
+              key === "ArrowDown"
+                ? Math.min(sel + 1, rows.length - 1)
+                : Math.max(sel - 1, 0);
+            rows.forEach((r) => r.classList.remove("selected"));
+            rows[next].classList.add("selected");
+            setHelp(buildHelp(helpTexts.skills[rows[next].dataset.skill]));
+          }
+          if (currentSection === "projects") {
+            const rows = Array.from(
+              document.querySelectorAll(".project-entry"),
+            );
+            const sel = rows.findIndex((r) => r.classList.contains("selected"));
+            const next =
+              key === "ArrowDown"
+                ? Math.min(sel + 1, rows.length - 1)
+                : Math.max(sel - 1, 0);
+            rows.forEach((r) => r.classList.remove("selected"));
+            rows[next].classList.add("selected");
+            setHelp(buildHelp(helpTexts.projects[rows[next].dataset.project]));
+          }
+          return;
+        }
+
+        // F5 / F6 shortcuts
+        if (key === "F5") {
+          e.preventDefault();
+          window.open("https://github.com/diego-rodrigues-git", "_blank");
+        }
+        if (key === "F6") {
+          e.preventDefault();
+          window.open("https://linkedin.com/in/diego-gustavo", "_blank");
+        }
+      }
+
+      // Mobile hamburger
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobile-menu");
+      hamburger.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
+      });
+
+      function closeMobileMenu() {
+        mobileMenu.classList.remove("open");
+      }
+
+      document.addEventListener("click", (e) => {
+        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+          closeMobileMenu();
+        }
+      });
+
+      // Modal
+      function showModal(data) {
+        if (!data) return;
+        let html = "";
+        if (data.title)
+          html += `<div style="font-weight:700;margin-bottom:8px;font-size:13px;letter-spacing:1px">▸ ${data.title}</div>`;
+        if (data.body)
+          html += `<div style="font-size:12px;white-space:pre-wrap;line-height:1.9">${data.body}</div>`;
+        if (data.link)
+          html += `<br><a href="${data.link}" target="_blank" rel="noopener" style="color:#adf;font-size:11px">[ Ver no GitHub ↗ ]</a>`;
+        document.getElementById("modal-content").innerHTML = html;
+        document.getElementById("detail-modal").classList.add("open");
+      }
+
+      document.getElementById("modal-close").addEventListener("click", () => {
+        document.getElementById("detail-modal").classList.remove("open");
+      });
+      document.getElementById("detail-modal").addEventListener("click", (e) => {
+        if (e.target === document.getElementById("detail-modal")) {
+          document.getElementById("detail-modal").classList.remove("open");
+        }
+      });
+    </script>
+  </body>
+</html>
