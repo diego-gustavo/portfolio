@@ -1,1536 +1,1222 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diego Gustavo — Portfolio v1.0.0</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      @font-face {
-        font-family: "IBM VGA";
-        src: url("fonts/IBM_VGA_8x16.woff") format("woff");
-        font-weight: normal;
-        font-style: normal;
-      }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Portfolio - Diego Gustavo</title>
+		<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+		<link rel="stylesheet" href="css/style.css" />
+		<meta
+			name="description"
+			content="Diego Gustavo - Portfolio de um Desenvolvedor Web Full-stack, contendo projetos, habilidades e contatos."
+		/>
+		<meta
+			name="keywords"
+			content="Diego Gustavo, Portfolio, Desenvolvedor Web, Full-stack, React, PHP, SQL, BIOS"
+		/>
+		<meta name="author" content="Diego Gustavo" />
+	</head>
+	<body>
+		<!-- ═══════════════════════════════ BOOT SCREEN ═══════════════════════════════ -->
+		<div id="boot-screen">
+			<!-- Logo slot (top-right) -->
+			<div class="boot-logo">
+				<pre class="boot-ascii-logo">
+                        @@@@@@@@@@@@@@@@@@%               @@@@@@@@@@@@@          
+                  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@       @@@@@@@@@@@@@@@@@@@@       
+               @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  %@@@@@@@@@@@@* *@@@@@@@@      
+             @@@@@@@@@@@@                @@@@@@@@@@ @@@@@@@          %@@@@@@     
+           @@@@@@@@@       @@@              @@@@@@@@ @@%              @@@@@@     
+          @@@@@@@@       @@@@@@%              @@@@@@@                 @@@@@@     
+          %@@@@@        @@@@@@@            @@@ @@@@@@@              %@@@@@@      
+          @@@@@@       @@@@@@@           @@@@@@ @@@@@@           @@@@@@@@@       
+            @@@@@@    @@@@@@%           @@@@@@@ @@@@@@@         @@@@@@@@@        
+                     @@@@@@@           @@@@@@@  @@@@@@@           %@@@           
+                    @@@@@@@           @@@@@@@   @@@@@@@                          
+                   @@@@@@%            @@@@@@@   @@@@@@                           
+                   @@@@@@            @@@@@@@   @@@@@@@        @@@@@@@@@@         
+                  @@@@@@             @@@@@@@  @@@@@@@%     @@@@@@@@@@@@@         
+                 %@@@@@@             @@@@@@@ @@@@@@@%     @@@@@@@@@@@@@@         
+                 @@@@@@              @@@@@@@ @@@@@@       @@@     @@@@@@         
+        @@@@@@@ #@@@@@                @@@@@@@@@@@@        @       @@@@@@         
+      @@@@@@    @@@@@@                @@@@@@@@%@%               @@@@@@@          
+     @@@@@@     @@@@@               @@ %@@@@@@@                @@@@@@@           
+     @@@@@@     @@@@%           %@@@@@@@@@@@@@@@@             @@@@@@@            
+     @@@@@@       %@         %@@@@@@@@@@@ @@@@@@@@@@       @@@@@@@@@             
+     @@@@@@@@@%        @@@@@@@@@@@@@@@@%    @@@@@@@@@@@@@@@@@@@@@@%              
+      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@          @@@@@@@@@@@@@@@@@@                 
+        @@@@@@@@@@@@@@@@@@@@@@@@                 @@@@@@@@@@@@%                   
+             @@@@@@@@@@@%                                                        
+        </pre>
+			</div>
 
-      /* ===== CSS RESET & BASE ===== */
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+			<!-- Boot lines -->
+			<div class="boot-content" id="boot-lines"></div>
 
-      :root {
-        --bg: #9c9a9d;
-        --bg-panel: #9c9a9d;
-        --bg-header: #01019c;
-        --bg-footer: #01019c;
-        --text: #000000;
-        --text-on-blue: #ffffff;
-        --text-bright: #ffffff;
-        --accent: #01019c;
-        --border: #01019c;
-        --highlight-bg: #01019c;
-        --highlight-fg: #ffffff;
-        --popup-bg: #01019c;
-        --popup-fg: #ffffff;
-        --shadow-light: #ffffff;
-        --shadow-dark: #5a585b;
-        --font-mono: "IBM VGA", "Share Tech Mono", "JetBrains Mono", monospace;
-        --logo-green: #00ff41;
-        --logo-amber: #ffd700;
-      }
+			<div class="boot-skip" id="boot-skip">
+				[ Press any key or click to skip ]
+			</div>
+		</div>
 
-      html,
-      body {
-        height: 100%;
-        font-family: var(--font-mono);
-        background: #000;
-        color: var(--text);
-        overflow: hidden;
-        cursor: default;
-        user-select: none;
-      }
+		<!-- ═══════════════════════════════ MAIN INTERFACE ═══════════════════════════════ -->
+		<div id="main-interface">
+			<!-- HEADER -->
+			<div id="header">
+				<div class="header-logo">
+					<div class="logo-slot">
+						<svg
+							viewBox="0 0 20 20"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<rect width="20" height="20" rx="2" fill="none" />
+							<text
+								x="2"
+								y="15"
+								font-family="monospace"
+								font-size="12"
+								font-weight="bold"
+								fill="var(--logo-color, #00FF41)"
+							>
+								DG
+							</text>
+						</svg>
+					</div>
+					<h1>DIEGO.G</h1>
+				</div>
 
-      /* ===== BOOT SCREEN ===== */
-      #boot-screen {
-        position: fixed;
-        inset: 0;
-        background: #000;
-        color: #fff;
-        font-family: var(--font-mono);
-        font-size: clamp(11px, 1.4vw, 14px);
-        line-height: 1.7;
-        padding: 3vh 4vw;
-        z-index: 1000;
-        display: flex;
-        flex-direction: column;
-        transition: opacity 0.6s ease;
-      }
-      #boot-screen.fade-out {
-        opacity: 0;
-        pointer-events: none;
-      }
-      #boot-screen.hidden {
-        display: none;
-      }
+				<button class="nav-tab active" data-section="about" tabindex="1">
+					<span class="bracket">[</span>&nbsp;About&nbsp;<span class="bracket"
+						>]</span
+					>
+				</button>
+				<button class="nav-tab" data-section="skills" tabindex="2">
+					<span class="bracket">[</span>&nbsp;Skills&nbsp;<span class="bracket"
+						>]</span
+					>
+				</button>
+				<button class="nav-tab" data-section="projects" tabindex="3">
+					<span class="bracket">[</span>&nbsp;Projects&nbsp;<span
+						class="bracket"
+						>]</span
+					>
+				</button>
+				<button class="nav-tab" data-section="contact" tabindex="4">
+					<span class="bracket">[</span>&nbsp;Contact&nbsp;<span class="bracket"
+						>]</span
+					>
+				</button>
 
-      .boot-logo {
-        position: absolute;
-        top: 3vh;
-        right: 4vw;
-        text-align: right;
-      }
+				<div class="header-right">
+					<span>SETUP UTILITY</span>
+					<span class="blink-cursor"></span>
+				</div>
+			</div>
 
-      .boot-content {
-        margin-top: 2vh;
-        max-width: 700px;
-      }
+			<!-- MAIN AREA -->
+			<div id="main-area">
+				<!-- LEFT PANEL -->
+				<div class="panel" id="left-panel">
+					<div class="panel-title" id="left-panel-title">
+						▸ SYSTEM INFORMATION
+					</div>
+					<div class="panel-body" id="left-panel-body">
+						<!-- ── ABOUT ── -->
+						<div class="section active" id="sec-about">
+							<div class="about-content">
+								<div class="bios-row">
+									<span class="bios-label">Name</span>
+									<span class="bios-sep">:</span>
+									<span class="bios-value">Diego Gustavo</span>
+								</div>
+								<div class="bios-row">
+									<span class="bios-label">Role</span>
+									<span class="bios-sep">:</span>
+									<span class="bios-value"
+										>Full-stack Web Developer (Student)</span
+									>
+								</div>
+								<div class="bios-row">
+									<span class="bios-label">Location</span>
+									<span class="bios-sep">:</span>
+									<span class="bios-value">Brazil</span>
+								</div>
 
-      .boot-line {
-        white-space: pre;
-      }
+								<hr class="divider" />
 
-      .boot-skip {
-        position: absolute;
-        bottom: 4vh;
-        left: 50%;
-        transform: translateX(-50%);
-        color: #888;
-        font-size: 12px;
-        animation: blink-slow 1.2s step-end infinite;
-      }
-      @keyframes blink-slow {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0;
-        }
-      }
+								<div class="bios-row">
+									<span class="bios-label">Bio</span>
+									<span class="bios-sep">:</span>
+									<span class="bios-value">
+										Apaixonado por tecnologia e desenvolvimento web, estou em
+										jornada de aprendizado contínuo, construindo projetos reais
+										que combinam design e funcionalidade. Busco oportunidades
+										para crescer como desenvolvedor e contribuir com soluções
+										criativas e eficientes.
+									</span>
+								</div>
 
-      /* ===== MAIN INTERFACE ===== */
-      #main-interface {
-        display: none;
-        flex-direction: column;
-        height: 100vh;
-        background: var(--bg);
-        position: relative;
-      }
-      #main-interface.visible {
-        display: flex;
-      }
+								<hr class="divider" />
 
-      /* Bevel / raised-panel helper */
-      .raised {
-        box-shadow:
-          inset -1px -1px 0 var(--shadow-dark),
-          inset 1px 1px 0 var(--shadow-light);
-      }
-      .sunken {
-        box-shadow:
-          inset 1px 1px 0 var(--shadow-dark),
-          inset -1px -1px 0 var(--shadow-light);
-      }
+								<div class="dimtext mt-8" style="padding: 0 12px">
+									Use &nbsp;<kbd
+										style="
+											background: var(--bg-header);
+											color: #fff;
+											padding: 0 4px;
+											font-family: var(--font-mono);
+											font-size: 10px;
+										"
+										>Tab</kbd
+									>&nbsp; ou as setas &larr; &rarr; para navegar entre seções.
+								</div>
+							</div>
+						</div>
 
-      /* ===== HEADER / NAV ===== */
-      #header {
-        background: var(--bg-header);
-        color: var(--text-on-blue);
-        display: flex;
-        align-items: stretch;
-        height: 36px;
-        flex-shrink: 0;
-        padding: 0 8px;
-        gap: 2px;
-        border-bottom: 2px solid #000;
-      }
+						<!-- ── SKILLS ── -->
+						<div class="section" id="sec-skills">
+							<div class="dimtext" style="margin-bottom: 8px; padding: 0 12px">
+								▸ INSTALLED COMPONENTS &amp; EXPERIENCE LEVEL
+							</div>
 
-      .header-logo {
-        display: flex;
-        align-items: center;
-        padding: 0 12px 0 4px;
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        border-right: 1px solid rgba(255, 255, 255, 0.2);
-        margin-right: 6px;
-        gap: 6px;
-        flex-shrink: 0;
-      }
-      .logo-slot {
-        width: 20px;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .logo-slot svg {
-        width: 100%;
-        height: 100%;
-      }
+							<div class="skill-category-buttons">
+								<button class="skill-cat-btn active" data-cat="programming">
+									Programação
+								</button>
+								<button class="skill-cat-btn" data-cat="frontend">
+									Front-end
+								</button>
+								<button class="skill-cat-btn" data-cat="backend">
+									Back-end
+								</button>
+								<button class="skill-cat-btn" data-cat="tools">
+									Ferramentas
+								</button>
+								<button class="skill-cat-btn" data-cat="design">Design</button>
+								<button class="skill-cat-btn" data-cat="blockchain">
+									Blockchain
+								</button>
+								<button class="skill-cat-btn" data-cat="hardware">
+									Hardware
+								</button>
+								<button class="skill-cat-btn" data-cat="ai">IA / ML</button>
+							</div>
 
-      .nav-tab {
-        display: flex;
-        align-items: center;
-        padding: 0 16px;
-        font-size: 13px;
-        color: var(--text-on-blue);
-        cursor: pointer;
-        border: none;
-        background: transparent;
-        font-family: var(--font-mono);
-        letter-spacing: 0.5px;
-        position: relative;
-        outline: none;
-        transition: background 0.1s;
-      }
-      .nav-tab:hover {
-        background: rgba(255, 255, 255, 0.12);
-      }
-      .nav-tab.active {
-        background: var(--bg);
-        color: var(--text);
-        font-weight: 700;
-        margin-top: 2px;
-        border-top: 2px solid #fff;
-        border-left: 1px solid #888;
-        border-right: 1px solid #888;
-        border-bottom: none;
-      }
-      .nav-tab .bracket {
-        opacity: 0.6;
-      }
+							<div id="skill-category-content"></div>
 
-      .header-right {
-        margin-left: auto;
-        display: flex;
-        align-items: center;
-        padding-right: 4px;
-        gap: 8px;
-        font-size: 11px;
-        color: rgba(255, 255, 255, 0.7);
-      }
-      .blink-cursor {
-        display: inline-block;
-        width: 8px;
-        height: 14px;
-        background: #fff;
-        animation: blink 1s step-end infinite;
-        vertical-align: middle;
-      }
-      @keyframes blink {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0;
-        }
-      }
+							<hr class="divider" />
+							<div class="dimtext" style="padding: 0 12px">
+								▸ MEMORY TESTING : All skills loaded... <strong>OK</strong>
+							</div>
+						</div>
 
-      /* ===== MAIN AREA ===== */
-      #main-area {
-        flex: 1;
-        display: flex;
-        overflow: hidden;
-        padding: 8px;
-        gap: 8px;
-      }
+						<!-- ── PROJECTS (rendered dynamically) ── -->
+						<div class="section" id="sec-projects">
+							<div
+								class="dimtext"
+								id="projects-header"
+								style="margin-bottom: 8px"
+							>
+								▸ PRIMARY MASTER : loading...
+							</div>
+							<div id="projects-container"></div>
+						</div>
 
-      /* ===== PANELS ===== */
-      .panel {
-        background: var(--bg-panel);
-        border: 2px solid;
-        border-color: var(--shadow-light) var(--shadow-dark) var(--shadow-dark)
-          var(--shadow-light);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-      }
-      .panel-title {
-        background: var(--bg-header);
-        color: var(--text-on-blue);
-        font-size: 12px;
-        font-weight: 700;
-        padding: 3px 12px;
-        letter-spacing: 1px;
-        flex-shrink: 0;
-      }
-      .panel-body {
-        flex: 1;
-        padding: 0;
-        overflow-y: auto;
-        font-size: clamp(11px, 1.3vw, 13px);
-        line-height: 1.8;
-      }
-      .panel-body::-webkit-scrollbar {
-        width: 8px;
-      }
-      .panel-body::-webkit-scrollbar-track {
-        background: var(--bg);
-      }
-      .panel-body::-webkit-scrollbar-thumb {
-        background: var(--border);
-      }
+						<!-- ── CONTACT ── -->
+						<div class="section" id="sec-contact">
+							<div class="dimtext" style="margin-bottom: 12px">
+								▸ SYSTEM INTERFACES — select an item to open
+							</div>
 
-      #left-panel {
-        flex: 3;
-      }
-      #right-panel {
-        flex: 1.2;
-        min-width: 200px;
-      }
+							<a
+								class="contact-row"
+								href="https://github.com/diego-rodrigues-git"
+								target="_blank"
+								rel="noopener"
+							>
+								<span class="contact-label">GitHub</span>
+								<span class="contact-sep">:</span>
+								<span class="contact-value"
+									>github.com/diego-rodrigues-git</span
+								>
+							</a>
 
-      /* Section visibility */
-      .section {
-        display: none;
-      }
-      .section.active {
-        display: block;
-      }
+							<a
+								class="contact-row"
+								href="https://linkedin.com/in/diego-gustavo"
+								target="_blank"
+								rel="noopener"
+							>
+								<span class="contact-label">LinkedIn</span>
+								<span class="contact-sep">:</span>
+								<span class="contact-value">linkedin.com/in/diego-gustavo</span>
+							</a>
 
-      /* ===== ABOUT ===== */
-      .bios-row {
-        display: grid;
-        grid-template-columns: 130px 1fr;
-        gap: 0 8px;
-        padding: 4px 12px;
-        align-items: start;
-      }
-      .bios-row:hover {
-        background: var(--highlight-bg);
-        color: var(--highlight-fg);
-      }
-      .bios-label {
-        color: #333;
-        font-weight: 700;
-        font-size: 12px;
-        white-space: nowrap;
-      }
-      .bios-row:hover .bios-label {
-        color: #aaa;
-      }
-      .bios-sep {
-        color: #555;
-      }
-      .bios-value {
-        color: #000;
-      }
-      .bios-row:hover .bios-value {
-        color: #fff;
-      }
+							<a
+								class="contact-row"
+								href="mailto:diego.gda.rodrigues@gmail.com"
+							>
+								<span class="contact-label">Email</span>
+								<span class="contact-sep">:</span>
+								<span class="contact-value">diego.gda.rodrigues@gmail.com</span>
+							</a>
 
-      .divider {
-        border: none;
-        border-top: 1px solid var(--shadow-dark);
-        border-bottom: 1px solid var(--shadow-light);
-        margin: 8px 0;
-      }
+							<hr class="divider" />
+							<div class="dimtext">
+								▸ All interfaces : <strong>Online</strong> — click to connect
+							</div>
+						</div>
+					</div>
+					<!-- /panel-body -->
+				</div>
+				<!-- /left-panel -->
 
-      .status-badge {
-        display: inline-block;
-        background: var(--bg-header);
-        color: #fff;
-        padding: 1px 8px;
-        font-size: 11px;
-        letter-spacing: 1px;
-      }
+				<!-- RIGHT PANEL (HELP) -->
+				<div class="panel" id="right-panel">
+					<div class="panel-title">▸ ITEM HELP</div>
+					<div class="panel-body" id="help-body">
+						<!-- dynamic content -->
+					</div>
+				</div>
+			</div>
+			<!-- /main-area -->
 
-      /* ===== SKILLS ===== */
-      .skill-row {
-        display: grid;
-        grid-template-columns: 130px 1fr 48px 80px;
-        gap: 0 8px;
-        padding: 4px 12px;
-        align-items: center;
-        cursor: pointer;
-      }
-      .skill-row:hover,
-      .skill-row.selected {
-        background: var(--highlight-bg);
-        color: var(--highlight-fg);
-      }
-      .skill-name {
-        font-weight: 700;
-        font-size: 12px;
-      }
-      .skill-bar-wrap {
-        display: flex;
-        align-items: center;
-        gap: 2px;
-      }
-      .skill-bar {
-        display: inline-block;
-        font-size: 13px;
-        letter-spacing: -1px;
-        color: var(--accent);
-      }
-      .skill-row:hover .skill-bar,
-      .skill-row.selected .skill-bar {
-        color: #fff;
-      }
-      .skill-pct {
-        font-size: 11px;
-        text-align: right;
-      }
-      .skill-badge {
-        font-size: 10px;
-        background: var(--bg-header);
-        color: #fff;
-        padding: 0 6px;
-        text-align: center;
-      }
-      .skill-row:hover .skill-badge,
-      .skill-row.selected .skill-badge {
-        background: rgba(255, 255, 255, 0.2);
-      }
+			<!-- FOOTER -->
+			<div id="footer">
+				<div class="footer-item footer-keep">
+					<span class="footer-key">↑↓</span>Navigate
+				</div>
+				<div class="footer-item footer-keep">
+					<span class="footer-key">Tab</span>Section
+				</div>
+				<div class="footer-item">
+					<span class="footer-key">Enter</span>Select
+				</div>
+				<div class="footer-item">
+					<a
+						class="footer-link"
+						href="https://github.com/diego-rodrigues-git"
+						target="_blank"
+						rel="noopener"
+					>
+						<span class="footer-key">F5</span>GitHub
+					</a>
+				</div>
+				<div class="footer-item">
+					<a
+						class="footer-link"
+						href="https://linkedin.com/in/diego-gustavo"
+						target="_blank"
+						rel="noopener"
+					>
+						<span class="footer-key">F6</span>LinkedIn
+					</a>
+				</div>
+				<div class="footer-right">
+					<span>Diego Gustavo Portfolio — v1.0.0</span>
+					<span>©&nbsp;2025</span>
+				</div>
+			</div>
+		</div>
+		<!-- /main-interface -->
 
-      /* ===== PROJECTS ===== */
-      .project-entry {
-        padding: 6px 12px;
-        cursor: pointer;
-        border-bottom: 1px dotted #888;
-        display: flex;
-        align-items: flex-start;
-        gap: 8px;
-      }
-      .project-entry:last-child {
-        border-bottom: none;
-      }
-      .project-entry:hover,
-      .project-entry.selected {
-        background: var(--highlight-bg);
-        color: var(--highlight-fg);
-      }
-      .proj-arrow {
-        flex-shrink: 0;
-        font-size: 11px;
-        margin-top: 2px;
-      }
-      .proj-body {
-        flex: 1;
-      }
-      .proj-name {
-        font-weight: 700;
-        font-size: 13px;
-      }
-      .proj-sub {
-        font-size: 11px;
-        color: #444;
-      }
-      .project-entry:hover .proj-sub,
-      .project-entry.selected .proj-sub {
-        color: #aaa;
-      }
+		<!-- MOBILE HAMBURGER -->
+		<button id="hamburger" aria-label="Menu">[ MENU ]</button>
+		<div id="mobile-menu">
+			<div class="mobile-menu-item active" data-section="about">[ About ]</div>
+			<div class="mobile-menu-item" data-section="skills">[ Skills ]</div>
+			<div class="mobile-menu-item" data-section="projects">[ Projects ]</div>
+			<div class="mobile-menu-item" data-section="contact">[ Contact ]</div>
+		</div>
 
-      .proj-link {
-        display: inline-block;
-        margin-top: 4px;
-        font-size: 11px;
-        background: rgba(255, 255, 255, 0.15);
-        color: #fff;
-        padding: 1px 8px;
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        text-decoration: none;
-        cursor: pointer;
-      }
-      .proj-link:hover {
-        background: rgba(255, 255, 255, 0.3);
-      }
+		<!-- DETAIL MODAL (mobile) -->
+		<div id="detail-modal">
+			<div class="modal-box">
+				<button class="modal-close" id="modal-close">✕</button>
+				<div id="modal-content"></div>
+			</div>
+		</div>
 
-      /* ===== CONTACT ===== */
-      .contact-row {
-        display: grid;
-        grid-template-columns: 110px 18px 1fr;
-        gap: 0 4px;
-        padding: 4px 12px;
-        cursor: pointer;
-        align-items: center;
-      }
-      .contact-row:hover {
-        background: var(--highlight-bg);
-        color: var(--highlight-fg);
-      }
-      .contact-label {
-        font-weight: 700;
-        font-size: 12px;
-      }
-      .contact-sep {
-        color: #555;
-      }
-      .contact-row:hover .contact-sep {
-        color: #aaa;
-      }
-      .contact-value {
-        color: var(--accent);
-        text-decoration: none;
-        font-size: 12px;
-      }
-      .contact-row:hover .contact-value {
-        color: #fff;
-      }
+		<script>
+			// ═══════════════════════════════════════════════════════════════
+			// BOOT SCREEN & HARDWARE PROGRESS ANIMATION
+			// ═══════════════════════════════════════════════════════════════
+			const bootLines = [
+				{ text: "" },
+				{ text: "Diego Gustavo Portfolio  —  v1.0.0" },
+				{ text: "Copyright (C) 2025, Diego Gustavo" },
+				{ text: "" },
+				{ text: "Full-stack Web Developer (Student)" },
+				{ text: "" },
+				{ text: "Memory Testing    : Skills loaded... OK" },
+				{ text: "Primary Master    : Projects loaded... OK" },
+				{ text: "Primary Slave     : GitHub Repository" },
+				{ text: "" },
+				{ text: "Initializing interface............. OK" },
+				{ text: "Loading portfolio.................. OK" },
+				{ text: "" },
+				{ text: "[ Press any key or wait to continue ]" },
+			];
 
-      /* ===== HELP PANEL ===== */
-      .help-content {
-        font-size: 12px;
-        line-height: 1.9;
-        color: #111;
-      }
-      .help-title {
-        font-weight: 700;
-        font-size: 12px;
-        margin-bottom: 8px;
-        color: var(--accent);
-        letter-spacing: 0.5px;
-      }
-      .help-divider {
-        border: none;
-        border-top: 1px solid #888;
-        border-bottom: 1px solid #eee;
-        margin: 10px 0;
-      }
-      .help-tip {
-        font-size: 11px;
-        color: #555;
-        margin-top: 10px;
-        padding-top: 8px;
-        border-top: 1px dotted #888;
-      }
-      .help-key {
-        display: inline-block;
-        background: var(--bg-header);
-        color: #fff;
-        font-size: 10px;
-        padding: 0 5px;
-        margin: 1px;
-      }
+			const bootEl = document.getElementById("boot-screen");
+			const bootLinesEl = document.getElementById("boot-lines");
+			let booted = false;
 
-      /* ===== FOOTER ===== */
-      #footer {
-        background: var(--bg-footer);
-        color: var(--text-on-blue);
-        height: 30px;
-        display: flex;
-        align-items: center;
-        padding: 0 8px;
-        gap: 0;
-        font-size: 11px;
-        border-top: 2px solid #000;
-        flex-shrink: 0;
-        overflow: hidden;
-      }
-      .footer-item {
-        display: flex;
-        align-items: center;
-        gap: 0;
-        padding: 0 8px;
-        border-right: 1px solid rgba(255, 255, 255, 0.2);
-        height: 100%;
-        white-space: nowrap;
-      }
-      .footer-item:last-child {
-        border-right: none;
-      }
-      .footer-key {
-        background: rgba(255, 255, 255, 0.2);
-        padding: 1px 6px;
-        margin-right: 4px;
-        font-size: 10px;
-        font-weight: 700;
-      }
-      .footer-link {
-        color: #fff;
-        text-decoration: none;
-        cursor: pointer;
-        transition: opacity 0.15s;
-      }
-      .footer-link:hover {
-        opacity: 0.7;
-      }
-      .footer-right {
-        margin-left: auto;
-        font-size: 10px;
-        color: rgba(255, 255, 255, 0.6);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
+			function launchMain() {
+				if (booted) return;
+				booted = true;
+				bootEl.classList.add("fade-out");
+				setTimeout(() => {
+					bootEl.classList.add("hidden");
+					document.getElementById("main-interface").classList.add("visible");
+					initInterface();
+				}, 650);
+			}
 
-      /* ===== POPUP / MODAL (mobile detail) ===== */
-      #detail-modal {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: 500;
-        align-items: center;
-        justify-content: center;
-        padding: 16px;
-      }
-      #detail-modal.open {
-        display: flex;
-      }
-      .modal-box {
-        background: var(--popup-bg);
-        color: var(--popup-fg);
-        font-family: var(--font-mono);
-        font-size: 13px;
-        line-height: 1.8;
-        padding: 16px 20px;
-        max-width: 360px;
-        width: 100%;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        position: relative;
-      }
-      .modal-close {
-        position: absolute;
-        top: 8px;
-        right: 12px;
-        background: none;
-        border: none;
-        color: #fff;
-        font-size: 18px;
-        cursor: pointer;
-        font-family: var(--font-mono);
-      }
+			// Progressive reveal bios hardware check
+			(function renderBootLines() {
+				let currentLine = 0;
 
-      /* ===== MOBILE HAMBURGER ===== */
-      #hamburger {
-        display: none;
-        position: fixed;
-        top: 8px;
-        right: 8px;
-        background: var(--bg-header);
-        color: #fff;
-        border: none;
-        font-family: var(--font-mono);
-        font-size: 11px;
-        padding: 4px 10px;
-        cursor: pointer;
-        z-index: 200;
-        letter-spacing: 1px;
-      }
-      #mobile-menu {
-        display: none;
-        position: fixed;
-        top: 36px;
-        right: 0;
-        background: var(--bg-header);
-        color: #fff;
-        font-family: var(--font-mono);
-        font-size: 13px;
-        z-index: 199;
-        border-left: 2px solid rgba(255, 255, 255, 0.2);
-        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-      }
-      #mobile-menu.open {
-        display: block;
-      }
-      .mobile-menu-item {
-        padding: 10px 20px;
-        cursor: pointer;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      .mobile-menu-item:hover,
-      .mobile-menu-item.active {
-        background: rgba(255, 255, 255, 0.15);
-      }
+				function printNextLine() {
+					if (booted) return;
+					if (currentLine >= bootLines.length) {
+						setTimeout(launchMain, 600);
+						return;
+					}
 
-      /* ===== RESPONSIVE ===== */
-      @media (max-width: 700px) {
-        #right-panel {
-          display: none;
-        }
-        #hamburger {
-          display: block;
-        }
-        #header .nav-tab {
-          display: none;
-        }
-        .header-logo {
-          font-size: 10px;
-        }
-        .footer-item:not(.footer-keep) {
-          display: none;
-        }
-        #main-area {
-          padding: 6px;
-        }
-        .panel-body {
-          font-size: 12px;
-          padding: 8px 10px;
-        }
-        .bios-row {
-          grid-template-columns: 100px 1fr;
-        }
-        .skill-row {
-          grid-template-columns: 100px 1fr 40px 70px;
-          font-size: 11px;
-        }
-        .contact-row {
-          grid-template-columns: 80px 14px 1fr;
-          font-size: 11px;
-        }
-      }
+					const line = bootLines[currentLine];
+					const el = document.createElement("div");
+					el.className = "boot-line";
 
-      /* ===== UTILITY ===== */
-      .mt-8 {
-        margin-top: 8px;
-      }
-      .mt-16 {
-        margin-top: 16px;
-      }
-      .dimtext {
-        color: #555;
-        font-size: 11px;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- ═══════════════════════════════════════ BOOT SCREEN ═══════════════════════════════════════ -->
-    <div id="boot-screen">
-      <!-- Logo slot (top-right) -->
-      <div class="boot-logo">
-        <img src="img/logo.png" alt="DG.DEV Logo" style="max-width: 150px; height: auto;" />
-      </div>
+					if (line.text === "") {
+						el.innerHTML = "&nbsp;";
+					} else {
+						if (line.text.includes("OK")) {
+							const parts = line.text.split("OK");
+							el.innerHTML =
+								parts[0] +
+								'<span style="color:#00ff41; font-weight:bold;">OK</span>' +
+								(parts[1] || "");
+						} else {
+							el.textContent = line.text;
+						}
+					}
 
-      <!-- Boot lines -->
-      <div class="boot-content" id="boot-lines"></div>
+					bootLinesEl.appendChild(el);
+					currentLine++;
 
-      <div class="boot-skip" id="boot-skip">
-        [ Press any key or click to skip ]
-      </div>
-    </div>
+					const delay = Math.random() * 80 + 40;
+					setTimeout(printNextLine, delay);
+				}
 
-    <!-- ═══════════════════════════════════════ MAIN INTERFACE ═══════════════════════════════════════ -->
-    <div id="main-interface">
-      <!-- HEADER -->
-      <div id="header">
-        <div class="header-logo">
-          <div class="logo-slot">
-            <!-- SVG Logo slot — swap src/content here -->
-            <svg
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="20" height="20" rx="2" fill="none" />
-              <text
-                x="2"
-                y="15"
-                font-family="monospace"
-                font-size="12"
-                font-weight="bold"
-                fill="#00FF41"
-              >
-                DG
-              </text>
-            </svg>
-          </div>
-          <span>DIEGO.G</span>
-        </div>
+				printNextLine();
+			})();
 
-        <button class="nav-tab active" data-section="about" tabindex="1">
-          <span class="bracket">[</span>&nbsp;About&nbsp;<span class="bracket"
-            >]</span
-          >
-        </button>
-        <button class="nav-tab" data-section="skills" tabindex="2">
-          <span class="bracket">[</span>&nbsp;Skills&nbsp;<span class="bracket"
-            >]</span
-          >
-        </button>
-        <button class="nav-tab" data-section="projects" tabindex="3">
-          <span class="bracket">[</span>&nbsp;Projects&nbsp;<span
-            class="bracket"
-            >]</span
-          >
-        </button>
-        <button class="nav-tab" data-section="contact" tabindex="4">
-          <span class="bracket">[</span>&nbsp;Contact&nbsp;<span class="bracket"
-            >]</span
-          >
-        </button>
+			// Skip on key/click
+			document.addEventListener("keydown", launchMain, { once: true });
+			bootEl.addEventListener("click", launchMain, { once: true });
 
-        <div class="header-right">
-          <span>SETUP UTILITY</span>
-          <span class="blink-cursor"></span>
-        </div>
-      </div>
+			// ═══════════════════════════════════════════════════════════════
+			// SKILLS DATA AND DYNAMIC RENDERING
+			// ═══════════════════════════════════════════════════════════════
+			const skillCategories = {
+				programming: [
+					{
+						name: "C#",
+						desc: "Linguagem de programação desenvolvida pela Microsoft, amplamente utilizada para aplicações desktop, web, jogos e serviços corporativos na plataforma .NET.",
+						level: 50,
+						type: "Linguagem",
+					},
+					{
+						name: "JavaScript",
+						desc: "Linguagem de programação essencial para o desenvolvimento web, responsável por adicionar interatividade e dinamismo às páginas e aplicações.",
+						level: 80,
+						type: "Linguagem",
+					},
+					{
+						name: "PHP",
+						desc: "Linguagem de programação voltada principalmente para o desenvolvimento web no lado do servidor, muito utilizada em sistemas dinâmicos e CMSs.",
+						level: 70,
+						type: "Linguagem",
+					},
+					{
+						name: "Python",
+						desc: "Linguagem de programação de alto nível conhecida por sua simplicidade e versatilidade, utilizada em automação, ciência de dados, inteligência artificial, web e muito mais.",
+						level: 65,
+						type: "Linguagem",
+					},
+					{
+						name: "Rust",
+						desc: "Linguagem de programação focada em desempenho, segurança de memória e concorrência, amplamente adotada para sistemas de alta performance.",
+						level: 50,
+						type: "Linguagem",
+					},
+					{
+						name: "TypeScript",
+						desc: "Superset do JavaScript que adiciona tipagem estática, melhorando a organização, manutenção e escalabilidade de aplicações.",
+						level: 75,
+						type: "Linguagem",
+					},
+				],
+				frontend: [
+					{
+						name: "HTML5",
+						desc: "Linguagem de marcação utilizada para estruturar o conteúdo de páginas e aplicações web modernas.",
+						level: 95,
+						type: "Markup",
+					},
+					{
+						name: "React",
+						desc: "Biblioteca JavaScript desenvolvida pelo Facebook para criação de interfaces de usuário reativas e componentes reutilizáveis.",
+						level: 75,
+						type: "Biblioteca",
+					},
+					{
+						name: "Next.js",
+						desc: "Framework baseado em React que oferece renderização híbrida, roteamento avançado e otimizações para aplicações web modernas.",
+						level: 60,
+						type: "Framework",
+					},
+					{
+						name: "CSS3",
+						desc: "Linguagem utilizada para estilizar páginas web, controlando layout, cores, animações e responsividade.",
+						level: 90,
+						type: "Estilo",
+					},
+					{
+						name: "Bootstrap",
+						desc: "Framework front-end que fornece componentes e estilos prontos para acelerar o desenvolvimento de interfaces responsivas.",
+						level: 90,
+						type: "Biblioteca",
+					},
+					{
+						name: "Sass",
+						desc: "Pré-processador CSS que adiciona recursos como variáveis, mixins e organização modular aos estilos.",
+						level: 85,
+						type: "Pre-processador",
+					},
+				],
+				backend: [
+					{
+						name: "Node.js",
+						desc: "Ambiente de execução JavaScript no lado do servidor, permitindo criar APIs, aplicações web e serviços escaláveis.",
+						level: 85,
+						type: "Ambiente",
+					},
+					{
+						name: "MySQL",
+						desc: "Sistema de gerenciamento de banco de dados relacional amplamente utilizado em aplicações web e corporativas.",
+						level: 80,
+						type: "Banco Dados",
+					},
+					{
+						name: "Laravel",
+						desc: "Framework PHP moderno que oferece ferramentas e recursos para o desenvolvimento rápido e organizado de aplicações web.",
+						level: 65,
+						type: "Framework",
+					},
+				],
+				tools: [
+					{
+						name: "Git",
+						desc: "Sistema de controle de versão distribuído que permite rastrear alterações no código-fonte, facilitar o trabalho colaborativo e gerenciar diferentes versões de projetos.",
+						level: 95,
+						type: "Ferramenta",
+					},
+					{
+						name: "GNU Bash",
+						desc: "Interpretador de comandos utilizado em sistemas Linux e Unix para automação de tarefas, administração de sistemas e execução de scripts.",
+						level: 90,
+						type: "Shell",
+					},
+					{
+						name: "VS Code",
+						desc: "Editor de código leve e extensível desenvolvido pela Microsoft, amplamente utilizado para desenvolvimento em diversas linguagens.",
+						level: 90,
+						type: "Editor",
+					},
+					{
+						name: "Neovim",
+						desc: "Editor de texto altamente configurável baseado no Vim, popular entre desenvolvedores que buscam produtividade e personalização.",
+						level: 75,
+						type: "Editor",
+					},
+					{
+						name: "Sublime Text",
+						desc: "Editor de código-fonte conhecido pela rapidez, interface minimalista e suporte a múltiplas linguagens de programação.",
+						level: 85,
+						type: "Editor",
+					},
+					{
+						name: "WordPress",
+						desc: "Sistema de gerenciamento de conteúdo (CMS) utilizado para criação de sites, blogs, lojas virtuais e portais.",
+						level: 80,
+						type: "CMS",
+					},
+					{
+						name: "Docker",
+						desc: "Plataforma de containerização que permite empacotar aplicações e suas dependências em ambientes isolados e portáveis.",
+						level: 75,
+						type: "Container",
+					},
+					{
+						name: "Kubernetes",
+						desc: "Plataforma de orquestração de containers utilizada para automação de implantação, escalabilidade e gerenciamento de aplicações distribuídas.",
+						level: 60,
+						type: "Orquestrador de containers",
+					},
+					{
+						name: "Linux",
+						desc: "Sistema operacional de código aberto amplamente utilizado em servidores, desenvolvimento de software e infraestrutura de TI.",
+						level: 75,
+						type: "SO",
+					},
+				],
+				design: [
+					{
+						name: "Photoshop",
+						desc: "Software de edição e manipulação de imagens desenvolvido pela Adobe, referência no mercado de design gráfico.",
+						level: 90,
+						type: "Software",
+					},
+					{
+						name: "Figma",
+						desc: "Plataforma colaborativa para design de interfaces, prototipação e criação de experiências digitais.",
+						level: 85,
+						type: "Software",
+					},
+					{
+						name: "Illustrator",
+						desc: "Software vetorial da Adobe utilizado para criação de ilustrações, logotipos, ícones e materiais gráficos.",
+						level: 70,
+						type: "Software",
+					},
+				],
+				blockchain: [
+					{
+						name: "MetaMask",
+						desc: "Carteira digital para criptomoedas e aplicações descentralizadas, amplamente utilizada no ecossistema blockchain.",
+						level: 80,
+						type: "Carteira",
+					},
+					{
+						name: "Ethereum",
+						desc: "Plataforma blockchain que permite a criação de contratos inteligentes e aplicações descentralizadas.",
+						level: 60,
+						type: "Blockchain",
+					},
+				],
+				hardware: [
+					{
+						name: "Arduino",
+						desc: "Plataforma de prototipagem eletrônica baseada em hardware e software livre, muito utilizada em projetos de automação e Internet das Coisas.",
+						level: 70,
+						type: "Plataforma",
+					},
+					{
+						name: "Raspberry Pi",
+						desc: "Computador de placa única de baixo custo utilizado para educação, automação, servidores e projetos embarcados.",
+						level: 65,
+						type: "Computador",
+					},
+				],
+				ai: [
+					{
+						name: "PyTorch",
+						desc: "Framework de aprendizado de máquina e inteligência artificial utilizado para desenvolvimento e treinamento de modelos de redes neurais.",
+						level: 55,
+						type: "Biblioteca",
+					},
+				],
+			};
 
-      <!-- MAIN AREA -->
-      <div id="main-area">
-        <!-- LEFT PANEL -->
-        <div class="panel" id="left-panel">
-          <div class="panel-title" id="left-panel-title">
-            ▸ SYSTEM INFORMATION
-          </div>
-          <div class="panel-body" id="left-panel-body">
-            <!-- ── ABOUT ── -->
-            <div class="section active" id="sec-about">
-              <div class="bios-row">
-                <span class="bios-label">Name</span>
-                <span class="bios-sep">:</span>
-                <span class="bios-value">Diego Gustavo</span>
+			function getLevelLabel(level) {
+				if (level >= 90) return "Avançado";
+				if (level >= 75) return "Intermediário";
+				if (level >= 60) return "Básico-Intermediário";
+				return "Estudante / Iniciante";
+			}
+
+			function getProgressBar(pct) {
+				const total = 10;
+				const filled = Math.round(pct / 10);
+				return "█".repeat(filled) + "░".repeat(total - filled);
+			}
+
+			function getSkillHelpData(skill) {
+				return {
+					title: skill.name,
+					body: `${skill.desc}\n\nNível de Experiência: ${skill.level}% (${getLevelLabel(skill.level)})\nTipo de Componente: ${skill.type}`,
+					tip: "↑↓ para navegar nas skills",
+				};
+			}
+
+			function renderSkillCategory(catKey) {
+				const content = document.getElementById("skill-category-content");
+				const category = skillCategories[catKey];
+
+				if (!category) {
+					content.innerHTML = "";
+					return;
+				}
+
+				document.querySelectorAll(".skill-cat-btn").forEach((btn) => {
+					btn.classList.toggle("active", btn.dataset.cat === catKey);
+				});
+
+				let html = "";
+				category.forEach((skill, idx) => {
+					html += `
+            <div class="skill-row" data-cat="${catKey}" data-idx="${idx}" tabindex="0">
+              <span class="skill-name">${skill.name}</span>
+              <div class="skill-bar-wrap">
+                <span class="skill-bar">${getProgressBar(skill.level)}</span>
               </div>
-              <div class="bios-row">
-                <span class="bios-label">Role</span>
-                <span class="bios-sep">:</span>
-                <span class="bios-value"
-                  >Full-stack Web Developer (Student)</span
-                >
-              </div>
-              <div class="bios-row">
-                <span class="bios-label">Location</span>
-                <span class="bios-sep">:</span>
-                <span class="bios-value">Brazil</span>
-              </div>
+              <span class="skill-pct">${skill.level}%</span>
+              <span class="skill-badge">${skill.type}</span>
+            </div>
+          `;
+				});
 
-              <hr class="divider" />
+				content.innerHTML = html;
 
-              <div class="bios-row" style="align-items: flex-start">
-                <span class="bios-label">Bio</span>
-                <span class="bios-sep">:</span>
-                <span
-                  class="bios-value"
-                  style="white-space: normal; line-height: 1.9"
-                >
-                  Apaixonado por tecnologia e desenvolvimento web, estou em
-                  jornada de aprendizado contínuo, construindo projetos reais
-                  que combinam design e funcionalidade. Busco oportunidades para
-                  crescer como desenvolvedor e contribuir com soluções criativas
-                  e eficientes.
-                </span>
-              </div>
+				const rows = content.querySelectorAll(".skill-row");
+				rows.forEach((row) => {
+					row.addEventListener("click", () => {
+						rows.forEach((r) => r.classList.remove("selected"));
+						row.classList.add("selected");
+						const skill = skillCategories[row.dataset.cat][row.dataset.idx];
+						const helpData = getSkillHelpData(skill);
+						setHelp(buildHelp(helpData));
+						if (window.innerWidth <= 700) {
+							showModal(helpData);
+						}
+					});
 
-              <hr class="divider" />
+					row.addEventListener("mouseenter", () => {
+						rows.forEach((r) => r.classList.remove("selected"));
+						row.classList.add("selected");
+						const skill = skillCategories[row.dataset.cat][row.dataset.idx];
+						setHelp(buildHelp(getSkillHelpData(skill)));
+					});
+				});
 
-              <div class="bios-row">
-                <span class="bios-label">Stack</span>
-                <span class="bios-sep">:</span>
-                <span class="bios-value">React / PHP / SQL</span>
-              </div>
-              <div class="bios-row">
-                <span class="bios-label">Status</span>
-                <span class="bios-sep">:</span>
-                <span class="bios-value"
-                  ><span class="status-badge"
-                    >▶ Open to Opportunities</span
-                  ></span
-                >
-              </div>
+				if (rows.length > 0) {
+					rows[0].classList.add("selected");
+					setHelp(buildHelp(getSkillHelpData(category[0])));
+				}
+			}
 
-              <hr class="divider" />
+			// ═══════════════════════════════════════════════════════════════
+			// PROJECTS DATA
+			// ═══════════════════════════════════════════════════════════════
+			//
+			// Para adicionar um novo projeto, basta copiar um objeto abaixo
+			// e preencher: id, name, subtitle, link, description, techs.
+			// A interface se atualiza automaticamente.
+			//
+			const projectsData = [
+				{
+					id: "jornada",
+					name: "Jornada Viagens",
+					subtitle: "Alura — Carreira Full Stack com React",
+					link: "https://github.com/diego-rodrigues-git/jornada-viagens",
+					description:
+						"Projeto desenvolvido durante a trilha Full Stack com React na Alura.\n\nInterface de agência de viagens com componentes React funcionais, estilização CSS moderna e boas práticas de componentização.",
+					techs: "React, CSS, JavaScript",
+				},
+				{
+					id: "culturama",
+					name: "Pesquisa Culturama",
+					subtitle: "Alura — Carreira Full Stack com React",
+					link: "https://github.com/diego-rodrigues-git/pesquisa-culturama",
+					description:
+						"Aplicação de pesquisa cultural desenvolvida com React na Alura.\n\nFuncionalidades de busca e filtragem de conteúdo cultural com interface responsiva.",
+					techs: "React, JavaScript, CSS",
+				},
+				{
+					id: "tecboard",
+					name: "TecBoard",
+					subtitle: "Alura — Carreira Full Stack com React",
+					link: "https://github.com/diego-rodrigues-git/tecboard",
+					description:
+						"Board de organização de tarefas/conteúdos técnicos. Projeto desenvolvido durante a trilha Full Stack com React na Alura.",
+					techs: "React, JavaScript, CSS",
+				},
+				{
+					id: "galarts",
+					name: "GalArts",
+					subtitle:
+						"ETEC Fernando Prestes — Técnico de Informática para Internet",
+					link: "https://github.com/diego-rodrigues-git/galarts",
+					description:
+						"Galeria de artes desenvolvida no curso Técnico de Informática para Internet da ETEC Fernando Prestes.\n\nProjeto de conclusão com foco em design e apresentação visual de obras.",
+					techs: "HTML, CSS, JavaScript",
+				},
+			];
 
-              <div class="dimtext mt-8">
-                Use &nbsp;<kbd
-                  style="
-                    background: var(--bg-header);
-                    color: #fff;
-                    padding: 0 4px;
-                    font-family: var(--font-mono);
-                    font-size: 10px;
-                  "
-                  >Tab</kbd
-                >&nbsp; para navegar entre seções.
+			function renderProjects() {
+				const container = document.getElementById("projects-container");
+				const header = document.getElementById("projects-header");
+				header.textContent = `▸ PRIMARY MASTER : ${projectsData.length} entries found`;
+
+				let html = "";
+				projectsData.forEach((proj, idx) => {
+					html += `
+            <div class="project-entry${idx === 0 ? " selected" : ""}" data-project="${proj.id}" tabindex="0">
+              <span class="proj-arrow">▶</span>
+              <div class="proj-body">
+                <div class="proj-name">${proj.name}</div>
+                <div class="proj-sub">${proj.subtitle}</div>
+                <a class="proj-link" href="${proj.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">[ Ver no GitHub ]</a>
               </div>
             </div>
+          `;
+				});
+				container.innerHTML = html;
+			}
 
-            <!-- ── SKILLS ── -->
-            <div class="section" id="sec-skills">
-              <div class="dimtext" style="margin-bottom: 8px; padding: 0 12px;">
-                ▸ INSTALLED COMPONENTS &amp; EXPERIENCE LEVEL
-              </div>
+			function getProjectHelpData(proj) {
+				return {
+					title: proj.name,
+					body: `${proj.description}\n\nTecnologias: ${proj.techs}`,
+					link: proj.link,
+				};
+			}
 
-              <div class="skill-category-buttons" style="display: flex; flex-wrap: wrap; gap: 8px; padding: 0 12px; margin-bottom: 12px;">
-                <button class="skill-cat-btn" data-cat="programming">Programação</button>
-                <button class="skill-cat-btn" data-cat="frontend">Front-end</button>
-                <button class="skill-cat-btn" data-cat="backend">Back-end</button>
-                <button class="skill-cat-btn" data-cat="tools">Ferramentas</button>
-                <button class="skill-cat-btn" data-cat="design">Design</button>
-                <button class="skill-cat-btn" data-cat="blockchain">Blockchain</button>
-                <button class="skill-cat-btn" data-cat="hardware">Hardware</button>
-              </div>
+			function getProjectById(id) {
+				return projectsData.find((p) => p.id === id);
+			}
 
-              <div id="skill-category-content" style="padding: 0 12px;"></div>
+			// ═══════════════════════════════════════════════════════════════
+			// HELP PANEL SYSTEM
+			// ═══════════════════════════════════════════════════════════════
+			const helpTexts = {
+				about: {
+					title: "SYSTEM INFORMATION",
+					body: "Este painel exibe informações pessoais e profissionais do desenvolvedor.\n\nUse as setas ← → para navegar entre as seções do portfólio.\n\nUse as setas ↑ ↓ para explorar os itens de cada painel.",
+					tip: "← → ou Tab para mudar de seção",
+				},
+				contact: {
+					title: "CONTACT INTERFACES",
+					body: "Selecione um dos canais de comunicação abaixo para se conectar.\n\nDisponível para freelance, projetos open-source e propostas profissionais.",
+					tip: "Enter ou clique para abrir no navegador",
+				},
+			};
 
-              <hr class="divider" />
-              <div class="dimtext" style="padding: 0 12px;">
-                ▸ MEMORY TESTING : All skills loaded... <strong>OK</strong>
-              </div>
-            </div>
+			const biosHelpData = [
+				{
+					title: "DEVELOPER NAME",
+					body: "Nome do desenvolvedor:\n\nDiego Gustavo.",
+					tip: "Use as setas ↑↓ para navegar nos itens",
+				},
+				{
+					title: "PROFESSIONAL ROLE",
+					body: "Atuação principal:\n\nDesenvolvedor Web Full-stack (Estudante). Foco em construir projetos reativos, dinâmicos e eficientes.",
+					tip: "Use as setas ↑↓ para navegar nos itens",
+				},
+				{
+					title: "GEOGRAPHIC LOCATION",
+					body: "Localização de residência:\n\nBrasil (Sorocaba - SP). Disponível para posições presenciais, híbridas ou remotas.",
+					tip: "Use as setas ↑↓ para navegar nos itens",
+				},
+				{
+					title: "BIOGRAPHY SUMMARY",
+					body: "Breve biografia:\n\nApaixonado por tecnologia e desenvolvimento web, buscando crescimento profissional contínuo por meio de desafios reais.",
+					tip: "Use as setas ↑↓ para navegar nos itens",
+				},
+			];
 
-            <!-- ── PROJECTS ── -->
-            <div class="section" id="sec-projects">
-              <div class="dimtext" style="margin-bottom: 8px">
-                ▸ PRIMARY MASTER : 4 entries found
-              </div>
+			const contactHelpData = {
+				github: {
+					title: "GitHub Interface",
+					body: "Acesse meu perfil do GitHub para conferir repositórios de código aberto, projetos pessoais e contribuições em andamento.\n\nLink: github.com/diego-rodrigues-git",
+					tip: "Enter ou clique para abrir no navegador",
+				},
+				linkedin: {
+					title: "LinkedIn Interface",
+					body: "Conecte-se comigo no LinkedIn para networking, discussões profissionais e oportunidades de carreira.\n\nLink: linkedin.com/in/diego-gustavo",
+					tip: "Enter ou clique para abrir no navegador",
+				},
+				email: {
+					title: "Email Interface",
+					body: "Envie uma mensagem direta para meu e-mail profissional para propostas de projetos, contratações ou dúvidas.\n\nEndereço: diego.gda.rodrigues@gmail.com",
+					tip: "Enter ou clique para enviar e-mail",
+				},
+			};
 
-              <div
-                class="project-entry selected"
-                data-project="jornada"
-                tabindex="0"
-              >
-                <span class="proj-arrow">▶</span>
-                <div class="proj-body">
-                  <div class="proj-name">Jornada Viagens</div>
-                  <div class="proj-sub">
-                    Alura — Carreira Full Stack com React
-                  </div>
-                  <a
-                    class="proj-link"
-                    href="https://github.com/diego-rodrigues-git/jornada-viagens"
-                    target="_blank"
-                    rel="noopener"
-                    onclick="event.stopPropagation()"
-                    >[ Ver no GitHub ]</a
-                  >
-                </div>
-              </div>
+			function getBiosHelpData(idx) {
+				return biosHelpData[idx] || helpTexts.about;
+			}
 
-              <div class="project-entry" data-project="culturama" tabindex="0">
-                <span class="proj-arrow">▶</span>
-                <div class="proj-body">
-                  <div class="proj-name">Pesquisa Culturama</div>
-                  <div class="proj-sub">
-                    Alura — Carreira Full Stack com React
-                  </div>
-                  <a
-                    class="proj-link"
-                    href="https://github.com/diego-rodrigues-git/pesquisa-culturama"
-                    target="_blank"
-                    rel="noopener"
-                    onclick="event.stopPropagation()"
-                    >[ Ver no GitHub ]</a
-                  >
-                </div>
-              </div>
+			function setHelp(html) {
+				const helpEl = document.getElementById("help-body");
+				if (helpEl) helpEl.innerHTML = html;
+			}
 
-              <div class="project-entry" data-project="tecboard" tabindex="0">
-                <span class="proj-arrow">▶</span>
-                <div class="proj-body">
-                  <div class="proj-name">TecBoard</div>
-                  <div class="proj-sub">
-                    Alura — Carreira Full Stack com React
-                  </div>
-                  <a
-                    class="proj-link"
-                    href="https://github.com/diego-rodrigues-git/tecboard"
-                    target="_blank"
-                    rel="noopener"
-                    onclick="event.stopPropagation()"
-                    >[ Ver no GitHub ]</a
-                  >
-                </div>
-              </div>
+			function buildHelp(data) {
+				if (!data) return "";
+				let html = `<div class="help-content">`;
+				if (data.title)
+					html += `<div class="help-title">▸ ${data.title}</div><hr class="help-divider">`;
+				if (data.body)
+					html += `<div style="white-space:pre-wrap">${data.body}</div>`;
+				if (data.link)
+					html += `<br><a href="${data.link}" target="_blank" rel="noopener" style="color:var(--bg-header);text-decoration:none;font-size:11px">[ Ver no GitHub ↗ ]</a>`;
+				if (data.tip)
+					html += `<div class="help-tip"><span class="help-key">${data.tip}</span></div>`;
+				html += `</div>`;
+				return html;
+			}
 
-              <div class="project-entry" data-project="galarts" tabindex="0">
-                <span class="proj-arrow">▶</span>
-                <div class="proj-body">
-                  <div class="proj-name">GalArts</div>
-                  <div class="proj-sub">
-                    ETEC Fernando Prestes — Técnico de Informática para Internet
-                  </div>
-                  <a
-                    class="proj-link"
-                    href="https://github.com/diego-rodrigues-git/galarts"
-                    target="_blank"
-                    rel="noopener"
-                    onclick="event.stopPropagation()"
-                    >[ Ver no GitHub ]</a
-                  >
-                </div>
-              </div>
-            </div>
+			// ═══════════════════════════════════════════════════════════════
+			// SECTION SWITCHING & INTERFACE INIT
+			// ═══════════════════════════════════════════════════════════════
+			let currentSection = "about";
 
-            <!-- ── CONTACT ── -->
-            <div class="section" id="sec-contact">
-              <div class="dimtext" style="margin-bottom: 12px">
-                ▸ SYSTEM INTERFACES — select an item to open
-              </div>
+			function switchSection(section) {
+				currentSection = section;
 
-              <a
-                class="contact-row"
-                href="https://github.com/diego-rodrigues-git"
-                target="_blank"
-                rel="noopener"
-              >
-                <span class="contact-label">GitHub</span>
-                <span class="contact-sep">:</span>
-                <span class="contact-value"
-                  >github.com/diego-rodrigues-git</span
-                >
-              </a>
+				document.querySelectorAll(".nav-tab").forEach((t) => {
+					t.classList.toggle("active", t.dataset.section === section);
+				});
+				document.querySelectorAll(".mobile-menu-item").forEach((t) => {
+					t.classList.toggle("active", t.dataset.section === section);
+				});
 
-              <a
-                class="contact-row"
-                href="https://linkedin.com/in/diego-gustavo"
-                target="_blank"
-                rel="noopener"
-              >
-                <span class="contact-label">LinkedIn</span>
-                <span class="contact-sep">:</span>
-                <span class="contact-value">linkedin.com/in/diego-gustavo</span>
-              </a>
+				document.querySelectorAll(".section").forEach((s) => {
+					s.classList.toggle("active", s.id === "sec-" + section);
+				});
 
-              <a
-                class="contact-row"
-                href="mailto:diego.gda.rodrigues@gmail.com"
-              >
-                <span class="contact-label">Email</span>
-                <span class="contact-sep">:</span>
-                <span class="contact-value">diego.gda.rodrigues@gmail.com</span>
-              </a>
+				const titles = {
+					about: "▸ SYSTEM INFORMATION",
+					skills: "▸ INSTALLED COMPONENTS",
+					projects: "▸ PRIMARY MASTER — PROJECTS",
+					contact: "▸ CONTACT INTERFACES",
+				};
+				const titleEl = document.getElementById("left-panel-title");
+				if (titleEl) {
+					titleEl.textContent = titles[section] || "▸ " + section.toUpperCase();
+				}
 
-              <hr class="divider" />
-              <div class="dimtext">
-                ▸ All interfaces : <strong>Online</strong> — click to connect
-              </div>
-            </div>
-          </div>
-          <!-- /panel-body -->
-        </div>
-        <!-- /left-panel -->
+				if (section === "about") {
+					document
+						.querySelectorAll(".bios-row")
+						.forEach((r) => r.classList.remove("selected"));
+					const first = document.querySelector(".bios-row");
+					if (first) first.classList.add("selected");
+					setHelp(buildHelp(getBiosHelpData(0)));
+				}
 
-        <!-- RIGHT PANEL (HELP) -->
-        <div class="panel" id="right-panel">
-          <div class="panel-title">▸ ITEM HELP</div>
-          <div class="panel-body" id="help-body">
-            <!-- dynamic content -->
-          </div>
-        </div>
-      </div>
-      <!-- /main-area -->
+				if (section === "skills") {
+					const activeBtn = document.querySelector(".skill-cat-btn.active");
+					const cat = activeBtn ? activeBtn.dataset.cat : "programming";
+					renderSkillCategory(cat);
+				}
 
-      <!-- FOOTER -->
-      <div id="footer">
-        <div class="footer-item footer-keep">
-          <span class="footer-key">↑↓</span>Navigate
-        </div>
-        <div class="footer-item footer-keep">
-          <span class="footer-key">Tab</span>Section
-        </div>
-        <div class="footer-item">
-          <span class="footer-key">Enter</span>Select
-        </div>
-        <div class="footer-item">
-          <a
-            class="footer-link"
-            href="https://github.com/diego-rodrigues-git"
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="footer-key">F5</span>GitHub
-          </a>
-        </div>
-        <div class="footer-item">
-          <a
-            class="footer-link"
-            href="https://linkedin.com/in/diego-gustavo"
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="footer-key">F6</span>LinkedIn
-          </a>
-        </div>
-        <div class="footer-right">
-          <span>Diego Gustavo Portfolio — v1.0.0</span>
-          <span>©&nbsp;2025</span>
-        </div>
-      </div>
-    </div>
-    <!-- /main-interface -->
+				if (section === "projects") {
+					document
+						.querySelectorAll(".project-entry")
+						.forEach((r) => r.classList.remove("selected"));
+					const first = document.querySelector(".project-entry");
+					if (first) {
+						first.classList.add("selected");
+						const proj = getProjectById(first.dataset.project);
+						setHelp(buildHelp(getProjectHelpData(proj)));
+					}
+				}
 
-    <!-- MOBILE HAMBURGER -->
-    <button id="hamburger" aria-label="Menu">[ MENU ]</button>
-    <div id="mobile-menu">
-      <div class="mobile-menu-item active" data-section="about">[ About ]</div>
-      <div class="mobile-menu-item" data-section="skills">[ Skills ]</div>
-      <div class="mobile-menu-item" data-section="projects">[ Projects ]</div>
-      <div class="mobile-menu-item" data-section="contact">[ Contact ]</div>
-    </div>
+				if (section === "contact") {
+					document
+						.querySelectorAll(".contact-row")
+						.forEach((r) => r.classList.remove("selected"));
+					const first = document.querySelector(".contact-row");
+					if (first) first.classList.add("selected");
+					setHelp(buildHelp(helpTexts.contact));
+				}
+			}
 
-    <!-- DETAIL MODAL (mobile) -->
-    <div id="detail-modal">
-      <div class="modal-box">
-        <button class="modal-close" id="modal-close">✕</button>
-        <div id="modal-content"></div>
-      </div>
-    </div>
+			function initInterface() {
+				// Render projects from data
+				renderProjects();
 
-    <script>
-      // ─────────────────────────────────────────────────
-      // BOOT SCREEN
-      // ─────────────────────────────────────────────────
-      const bootLines = [
-        { text: "" },
-        { text: "Diego Gustavo Portfolio  —  v1.0.0" },
-        { text: "Copyright (C) 2025, Diego Gustavo" },
-        { text: "" },
-        { text: "Full-stack Web Developer (Student)" },
-        { text: "" },
-        { text: "Main Stack        : React / PHP / SQL" },
-        { text: "Memory Testing    : Skills loaded... OK" },
-        { text: "Primary Master    : Projects (4 found)" },
-        { text: "Primary Slave     : GitHub Repository" },
-        { text: "" },
-        { text: "Initializing interface............. OK" },
-        { text: "Loading portfolio.................. OK" },
-        { text: "" },
-        { text: "[ Press any key or wait to continue ]" },
-      ];
+				// Main tabs
+				document.querySelectorAll(".nav-tab").forEach((tab) => {
+					tab.addEventListener("click", () => {
+						switchSection(tab.dataset.section);
+						closeMobileMenu();
+					});
+				});
 
-      const bootEl = document.getElementById("boot-screen");
-      const bootLinesEl = document.getElementById("boot-lines");
-      let booted = false;
+				// Mobile menu
+				document.querySelectorAll(".mobile-menu-item").forEach((item) => {
+					item.addEventListener("click", () => {
+						switchSection(item.dataset.section);
+						closeMobileMenu();
+					});
+				});
 
-      function launchMain() {
-        if (booted) return;
-        booted = true;
-        bootEl.classList.add("fade-out");
-        setTimeout(() => {
-          bootEl.classList.add("hidden");
-          document.getElementById("main-interface").classList.add("visible");
-          initInterface();
-        }, 650);
-      }
+				// Skills category buttons
+				document.querySelectorAll(".skill-cat-btn").forEach((btn) => {
+					btn.addEventListener("click", () => {
+						renderSkillCategory(btn.dataset.cat);
+					});
+				});
 
-      // Render lines immediately without animation
-      (function renderBootLines() {
-        bootLines.forEach((line) => {
-          const el = document.createElement("div");
-          el.className = "boot-line";
-          if (line.text === "") {
-            el.innerHTML = "&nbsp;";
-          } else {
-            el.textContent = line.text;
-            if (line.text.includes(": ") && line.text.endsWith("OK")) {
-              const parts = line.text.split("OK");
-              el.innerHTML = parts[0] + '<span class="ok">OK</span>';
-            }
-          }
-          bootLinesEl.appendChild(el);
-        });
+				// About bios rows
+				document.querySelectorAll(".bios-row").forEach((row, idx) => {
+					row.setAttribute("tabindex", "0");
+					row.addEventListener("mouseenter", () => {
+						document
+							.querySelectorAll(".bios-row")
+							.forEach((r) => r.classList.remove("selected"));
+						row.classList.add("selected");
+						setHelp(buildHelp(getBiosHelpData(idx)));
+					});
+				});
 
-        // Auto-advance after a short delay
-        setTimeout(launchMain, 800);
-      })();
+				// Project rows
+				document.querySelectorAll(".project-entry").forEach((row) => {
+					row.addEventListener("click", (e) => {
+						if (
+							e.target.classList.contains("proj-link") ||
+							e.target.closest(".proj-link")
+						)
+							return;
+						document
+							.querySelectorAll(".project-entry")
+							.forEach((r) => r.classList.remove("selected"));
+						row.classList.add("selected");
+						const proj = getProjectById(row.dataset.project);
+						const data = getProjectHelpData(proj);
+						setHelp(buildHelp(data));
+						if (window.innerWidth <= 700) {
+							showModal(data);
+						}
+					});
 
-      // Skip on key/click
-      document.addEventListener("keydown", launchMain, { once: true });
-      bootEl.addEventListener("click", launchMain, { once: true });
+					row.addEventListener("mouseenter", () => {
+						document
+							.querySelectorAll(".project-entry")
+							.forEach((r) => r.classList.remove("selected"));
+						row.classList.add("selected");
+						const proj = getProjectById(row.dataset.project);
+						setHelp(buildHelp(getProjectHelpData(proj)));
+					});
+				});
 
-      // ─────────────────────────────────────────────────
-      // MAIN INTERFACE
-      // ─────────────────────────────────────────────────
-      const skillCategories = {
-        programming: [
-          { name: "C#", desc: "Linguagem de programação desenvolvida pela Microsoft, amplamente utilizada para aplicações desktop, web, jogos e serviços corporativos na plataforma .NET." },
-          { name: "JavaScript", desc: "Linguagem de programação essencial para o desenvolvimento web, responsável por adicionar interatividade e dinamismo às páginas e aplicações." },
-          { name: "PHP", desc: "Linguagem de programação voltada principalmente para o desenvolvimento web no lado do servidor, muito utilizada em sistemas dinâmicos e CMSs." },
-          { name: "Python", desc: "Linguagem de programação de alto nível conhecida por sua simplicidade e versatilidade, utilizada em automação, ciência de dados, inteligência artificial, web e muito mais." },
-          { name: "Rust", desc: "Linguagem de programação focada em desempenho, segurança de memória e concorrência, amplamente adotada para sistemas de alta performance." },
-          { name: "TypeScript", desc: "Superset do JavaScript que adiciona tipagem estática, melhorando a organização, manutenção e escalabilidade de aplicações." }
-        ],
-        frontend: [
-          { name: "HTML5", desc: "Linguagem de marcação utilizada para estruturar o conteúdo de páginas e aplicações web modernas." },
-          { name: "React", desc: "Biblioteca JavaScript desenvolvida pelo Facebook para criação de interfaces de usuário reativas e componentes reutilizáveis." },
-          { name: "Next.js", desc: "Framework baseado em React que oferece renderização híbrida, roteamento avançado e otimizações para aplicações web modernas." },
-          { name: "CSS3", desc: "Linguagem utilizada para estilizar páginas web, controlando layout, cores, animações e responsividade." },
-          { name: "Bootstrap", desc: "Framework front-end que fornece componentes e estilos prontos para acelerar o desenvolvimento de interfaces responsivas." },
-          { name: "Sass", desc: "Pré-processador CSS que adiciona recursos como variáveis, mixins e organização modular aos estilos." }
-        ],
-        backend: [
-          { name: "Node.js", desc: "Ambiente de execução JavaScript no lado do servidor, permitindo criar APIs, aplicações web e serviços escaláveis." },
-          { name: "MySQL", desc: "Sistema de gerenciamento de banco de dados relacional amplamente utilizado em aplicações web e corporativas." },
-          { name: "Laravel", desc: "Framework PHP moderno que oferece ferramentas e recursos para o desenvolvimento rápido e organizado de aplicações web." }
-        ],
-        tools: [
-          { name: "Git", desc: "Sistema de controle de versão distribuído que permite rastrear alterações no código-fonte, facilitar o trabalho colaborativo e gerenciar diferentes versões de projetos." },
-          { name: "GNU Bash", desc: "Interpretador de comandos utilizado em sistemas Linux e Unix para automação de tarefas, administração de sistemas e execução de scripts." },
-          { name: "VS Code", desc: "Editor de código leve e extensível desenvolvido pela Microsoft, amplamente utilizado para desenvolvimento em diversas linguagens." },
-          { name: "Neovim", desc: "Editor de texto altamente configurável baseado no Vim, popular entre desenvolvedores que buscam produtividade e personalização." },
-          { name: "Sublime Text", desc: "Editor de código-fonte conhecido pela rapidez, interface minimalista e suporte a múltiplas linguagens de programação." },
-          { name: "WordPress", desc: "Sistema de gerenciamento de conteúdo (CMS) utilizado para criação de sites, blogs, lojas virtuais e portais." },
-          { name: "Docker", desc: "Plataforma de containerização que permite empacotar aplicações e suas dependências em ambientes isolados e portáveis." },
-          { name: "Kubernetes", desc: "Plataforma de orquestração de containers utilizada para automação de implantação, escalabilidade e gerenciamento de aplicações distribuídas." },
-          { name: "Linux", desc: "Sistema operacional de código aberto amplamente utilizado em servidores, desenvolvimento de software e infraestrutura de TI." }
-        ],
-        design: [
-          { name: "Photoshop", desc: "Software de edição e manipulação de imagens desenvolvido pela Adobe, referência no mercado de design gráfico." },
-          { name: "Figma", desc: "Plataforma colaborativa para design de interfaces, prototipação e criação de experiências digitais." },
-          { name: "Illustrator", desc: "Software vetorial da Adobe utilizado para criação de ilustrações, logotipos, ícones e materiais gráficos." }
-        ],
-        blockchain: [
-          { name: "MetaMask", desc: "Carteira digital para criptomoedas e aplicações descentralizadas, amplamente utilizada no ecossistema blockchain." },
-          { name: "Ethereum", desc: "Plataforma blockchain que permite a criação de contratos inteligentes e aplicações descentralizadas." }
-        ],
-        hardware: [
-          { name: "Arduino", desc: "Plataforma de prototipagem eletrônica baseada em hardware e software livre, muito utilizada em projetos de automação e Internet das Coisas." },
-          { name: "Raspberry Pi", desc: "Computador de placa única de baixo custo utilizado para educação, automação, servidores e projetos embarcados." }
-        ],
-        ai: [
-          { name: "PyTorch", desc: "Framework de aprendizado de máquina e inteligência artificial utilizado para desenvolvimento e treinamento de modelos de redes neurais." }
-        ]
-      };
+				// Contact rows
+				document.querySelectorAll(".contact-row").forEach((row) => {
+					row.addEventListener("mouseenter", () => {
+						document
+							.querySelectorAll(".contact-row")
+							.forEach((r) => r.classList.remove("selected"));
+						row.classList.add("selected");
+						const label = row
+							.querySelector(".contact-label")
+							.textContent.trim()
+							.toLowerCase();
+						if (contactHelpData[label]) {
+							setHelp(buildHelp(contactHelpData[label]));
+						}
+					});
 
-      let selectedCategory = null;
-      let showDescription = false;
+					row.addEventListener("mouseleave", () => {
+						setHelp(buildHelp(helpTexts.contact));
+					});
+				});
 
-      function renderSkillCategory(catKey) {
-        const content = document.getElementById("skill-category-content");
-        const category = skillCategories[catKey];
-        
-        if (!category) {
-          content.innerHTML = "";
-          return;
-        }
+				// Set default section
+				switchSection("about");
 
-        let html = `<div class="skill-cat-title" style="font-weight:700;font-size:13px;margin:8px 0;">▸ ${catKey.charAt(0).toUpperCase() + catKey.slice(1)}</div>`;
-        
-        category.forEach((skill, idx) => {
-          html += `<div class="skill-item-box" style="border:1px solid #888;margin:4px 0;padding:8px;cursor:pointer;" data-skill-idx="${idx}" data-cat="${catKey}">
-            <div style="font-weight:700;font-size:12px;">${skill.name}</div>
-            ${showDescription && selectedCategory === catKey ? `<div style="font-size:11px;margin-top:4px;color:#333;">${skill.desc}</div>` : ""}
-          </div>`;
-        });
+				// Keyboard navigation
+				document.addEventListener("keydown", handleKeyboard);
+			}
 
-        html += `<button class="close-skill-btn" style="position:absolute;top:8px;right:8px;background:var(--bg-header);color:#fff;border:none;padding:4px 8px;cursor:pointer;font-family:var(--font-mono);font-size:11px;">✕ Fechar</button>`;
-        
-        content.innerHTML = html;
+			// ═══════════════════════════════════════════════════════════════
+			// KEYBOARD NAVIGATION
+			// ═══════════════════════════════════════════════════════════════
+			function handleKeyboard(e) {
+				const key = e.key;
 
-        // Add click handlers
-        content.querySelectorAll(".skill-item-box").forEach(box => {
-          box.addEventListener("click", () => {
-            const cat = box.dataset.cat;
-            const idx = parseInt(box.dataset.skillIdx);
-            
-            if (selectedCategory === cat && showDescription) {
-              selectedCategory = null;
-              showDescription = false;
-              renderSkillCategory(catKey);
-            } else {
-              selectedCategory = cat;
-              showDescription = true;
-              renderSkillCategory(catKey);
-            }
-          });
-        });
+				// Tab between main sections
+				if (key === "Tab") {
+					e.preventDefault();
+					const sections = ["about", "skills", "projects", "contact"];
+					const idx = sections.indexOf(currentSection);
+					const next =
+						sections[
+							(idx + (e.shiftKey ? sections.length - 1 : 1)) % sections.length
+						];
+					switchSection(next);
+					return;
+				}
 
-        const closeBtn = content.querySelector(".close-skill-btn");
-        if (closeBtn) {
-          closeBtn.addEventListener("click", () => {
-            selectedCategory = null;
-            showDescription = false;
-            content.innerHTML = "";
-          });
-        }
-      }
+				// Arrow left/right to switch tabs
+				if (key === "ArrowLeft" || key === "ArrowRight") {
+					e.preventDefault();
+					const sections = ["about", "skills", "projects", "contact"];
+					const idx = sections.indexOf(currentSection);
+					const offset = key === "ArrowRight" ? 1 : -1;
+					const next =
+						sections[(idx + offset + sections.length) % sections.length];
+					switchSection(next);
+					return;
+				}
 
-      const helpTexts = {
-        about: {
-          title: "SYSTEM INFORMATION",
-          body: `Este painel exibe informações pessoais e profissionais do desenvolvedor.\n\nUse Tab para navegar entre as seções do portfólio.\n\nStatus atual indica disponibilidade para oportunidades de trabalho.`,
-          tip: "Tab → próxima seção",
-        },
-        skills: {
-          react: {
-            title: "React",
-            body: `Biblioteca JavaScript para construção de interfaces. Utilizada em projetos como Jornada Viagens, Pesquisa Culturama e TecBoard.\n\nNível: Intermediário (80%)`,
-            tip: "↑↓ para navegar nas skills",
-          },
-          php: {
-            title: "PHP",
-            body: `Linguagem server-side amplamente utilizada para desenvolvimento web backend. Experiência com processamento de formulários e APIs simples.\n\nNível: Básico-Intermediário (70%)`,
-            tip: "↑↓ para navegar nas skills",
-          },
-          sql: {
-            title: "SQL",
-            body: `Linguagem de consulta estruturada para bancos de dados relacionais. Utilizada para modelagem e manipulação de dados em projetos acadêmicos.\n\nNível: Básico-Intermediário (70%)`,
-            tip: "↑↓ para navegar nas skills",
-          },
-          htmlcss: {
-            title: "HTML / CSS",
-            body: `Tecnologias fundamentais da web. Habilidade com layout, responsividade, animações e boas práticas de semântica HTML5 e CSS3.\n\nNível: Avançado (90%)`,
-            tip: "↑↓ para navegar nas skills",
-          },
-          javascript: {
-            title: "JavaScript",
-            body: `Linguagem de programação da web, usada tanto no frontend quanto no backend. Experiência com ES6+, DOM, eventos e requisições assíncronas.\n\nNível: Intermediário (80%)`,
-            tip: "↑↓ para navegar nas skills",
-          },
-          git: {
-            title: "Git",
-            body: `Sistema de controle de versão distribuído. Uso diário via linha de comando e GitHub para versionamento e colaboração em projetos.\n\nNível: Básico-Intermediário (70%)`,
-            tip: "↑↓ para navegar nas skills",
-          },
-        },
-        projects: {
-          jornada: {
-            title: "Jornada Viagens",
-            body: `Projeto desenvolvido durante a trilha Full Stack com React na Alura.\n\nInterface de agência de viagens com componentes React funcionais, estilização CSS moderna e boas práticas de componentização.\n\nTecnologias: React, CSS, JavaScript`,
-            link: "https://github.com/diego-rodrigues-git/jornada-viagens",
-          },
-          culturama: {
-            title: "Pesquisa Culturama",
-            body: `Aplicação de pesquisa cultural desenvolvida com React na Alura.\n\nFuncionalidades de busca e filtragem de conteúdo cultural com interface responsiva.\n\nTecnologias: React, JavaScript, CSS`,
-            link: "https://github.com/diego-rodrigues-git/pesquisa-culturama",
-          },
-          tecboard: {
-            title: "TecBoard",
-            body: `Board de organização de tarefas/conteúdos técnicos. Projeto desenvolvido durante a trilha Full Stack com React na Alura.\n\nTecnologias: React, JavaScript, CSS`,
-            link: "https://github.com/diego-rodrigues-git/tecboard",
-          },
-          galarts: {
-            title: "GalArts",
-            body: `Galeria de artes desenvolvida no curso Técnico de Informática para Internet da ETEC Fernando Prestes.\n\nProjeto de conclusão com foco em design e apresentação visual de obras.\n\nTecnologias: HTML, CSS, JavaScript`,
-            link: "https://github.com/diego-rodrigues-git/galarts",
-          },
-        },
-        contact: {
-          title: "CONTACT INTERFACES",
-          body: `Clique em qualquer linha para abrir o respectivo perfil ou enviar uma mensagem.\n\nEstou aberto a novas oportunidades, freelas e colaborações.`,
-          tip: "Enter ou clique para conectar",
-        },
-      };
+				// Arrow up/down to navigate within sections
+				if (key === "ArrowDown" || key === "ArrowUp") {
+					e.preventDefault();
+					navigateRows(key);
+					return;
+				}
 
-      function setHelp(html) {
-        document.getElementById("help-body").innerHTML = html;
-      }
+				// Enter to activate selected items
+				if (key === "Enter") {
+					handleEnter(e);
+				}
 
-      function buildHelp(data) {
-        if (!data) return "";
-        let html = `<div class="help-content">`;
-        if (data.title)
-          html += `<div class="help-title">▸ ${data.title}</div><hr class="help-divider">`;
-        if (data.body)
-          html += `<div style="white-space:pre-wrap">${data.body}</div>`;
-        if (data.link)
-          html += `<br><a href="${data.link}" target="_blank" rel="noopener" style="color:var(--bg-header);text-decoration:none;font-size:11px">[ Ver no GitHub ↗ ]</a>`;
-        if (data.tip)
-          html += `<div class="help-tip"><span class="help-key">${data.tip}</span></div>`;
-        html += `</div>`;
-        return html;
-      }
+				// F5/F6 shortcuts
+				if (key === "F5") {
+					e.preventDefault();
+					window.open("https://github.com/diego-rodrigues-git", "_blank");
+				}
+				if (key === "F6") {
+					e.preventDefault();
+					window.open("https://linkedin.com/in/diego-gustavo", "_blank");
+				}
+			}
 
-      let currentSection = "about";
+			function navigateRows(key) {
+				let rows, sel, nextIdx;
 
-      function switchSection(section) {
-        currentSection = section;
+				if (currentSection === "about") {
+					rows = Array.from(document.querySelectorAll(".bios-row"));
+					sel = rows.findIndex((r) => r.classList.contains("selected"));
+					if (rows.length === 0) return;
+					nextIdx =
+						key === "ArrowDown"
+							? Math.min(sel + 1, rows.length - 1)
+							: Math.max(sel - 1, 0);
+					rows.forEach((r) => r.classList.remove("selected"));
+					rows[nextIdx].classList.add("selected");
+					rows[nextIdx].focus();
+					setHelp(buildHelp(getBiosHelpData(nextIdx)));
+				}
 
-        // Tabs
-        document.querySelectorAll(".nav-tab").forEach((t) => {
-          t.classList.toggle("active", t.dataset.section === section);
-        });
-        // Mobile menu
-        document.querySelectorAll(".mobile-menu-item").forEach((t) => {
-          t.classList.toggle("active", t.dataset.section === section);
-        });
+				if (currentSection === "skills") {
+					rows = Array.from(document.querySelectorAll(".skill-row"));
+					sel = rows.findIndex((r) => r.classList.contains("selected"));
+					if (rows.length === 0) return;
+					nextIdx =
+						key === "ArrowDown"
+							? Math.min(sel + 1, rows.length - 1)
+							: Math.max(sel - 1, 0);
+					rows.forEach((r) => r.classList.remove("selected"));
+					rows[nextIdx].classList.add("selected");
+					rows[nextIdx].focus();
+					const cat = rows[nextIdx].dataset.cat;
+					const idx = parseInt(rows[nextIdx].dataset.idx);
+					const skill = skillCategories[cat][idx];
+					setHelp(buildHelp(getSkillHelpData(skill)));
+				}
 
-        // Sections
-        document.querySelectorAll(".section").forEach((s) => {
-          s.classList.toggle("active", s.id === "sec-" + section);
-        });
+				if (currentSection === "projects") {
+					rows = Array.from(document.querySelectorAll(".project-entry"));
+					sel = rows.findIndex((r) => r.classList.contains("selected"));
+					if (rows.length === 0) return;
+					nextIdx =
+						key === "ArrowDown"
+							? Math.min(sel + 1, rows.length - 1)
+							: Math.max(sel - 1, 0);
+					rows.forEach((r) => r.classList.remove("selected"));
+					rows[nextIdx].classList.add("selected");
+					rows[nextIdx].focus();
+					const proj = getProjectById(rows[nextIdx].dataset.project);
+					setHelp(buildHelp(getProjectHelpData(proj)));
+				}
 
-        // Panel title
-        const titles = {
-          about: "▸ SYSTEM INFORMATION",
-          skills: "▸ INSTALLED COMPONENTS",
-          projects: "▸ PRIMARY MASTER — PROJECTS",
-          contact: "▸ CONTACT INTERFACES",
-        };
-        document.getElementById("left-panel-title").textContent =
-          titles[section] || "▸ " + section.toUpperCase();
+				if (currentSection === "contact") {
+					rows = Array.from(document.querySelectorAll(".contact-row"));
+					sel = rows.findIndex((r) => r.classList.contains("selected"));
+					if (rows.length === 0) return;
+					nextIdx =
+						key === "ArrowDown"
+							? Math.min(sel + 1, rows.length - 1)
+							: Math.max(sel - 1, 0);
+					rows.forEach((r) => r.classList.remove("selected"));
+					rows[nextIdx].classList.add("selected");
+					rows[nextIdx].focus();
+					const label = rows[nextIdx]
+						.querySelector(".contact-label")
+						.textContent.trim()
+						.toLowerCase();
+					if (contactHelpData[label]) {
+						setHelp(buildHelp(contactHelpData[label]));
+					}
+				}
+			}
 
-        // Update help
-        if (section === "about") setHelp(buildHelp(helpTexts.about));
-        if (section === "contact") setHelp(buildHelp(helpTexts.contact));
-        if (section === "skills") {
-          const sel = document.querySelector(".skill-row.selected");
-          const sk = sel ? sel.dataset.skill : "react";
-          setHelp(buildHelp(helpTexts.skills[sk]));
-        }
-        if (section === "projects") {
-          const sel = document.querySelector(".project-entry.selected");
-          const pj = sel ? sel.dataset.project : "jornada";
-          setHelp(buildHelp(helpTexts.projects[pj]));
-        }
-      }
+			function handleEnter(e) {
+				if (currentSection === "projects") {
+					const activeProj = document.querySelector(".project-entry.selected");
+					if (activeProj) {
+						const link = activeProj.querySelector(".proj-link");
+						if (link) {
+							e.preventDefault();
+							window.open(link.href, "_blank");
+						}
+					}
+				}
+				if (currentSection === "contact") {
+					const activeContact = document.querySelector(".contact-row.selected");
+					if (activeContact) {
+						e.preventDefault();
+						window.open(activeContact.href, activeContact.target || "_self");
+					}
+				}
+			}
 
-      function initInterface() {
-        // Nav tabs
-        document.querySelectorAll(".nav-tab").forEach((tab) => {
-          tab.addEventListener("click", () => {
-            switchSection(tab.dataset.section);
-            closeMobileMenu();
-          });
-        });
+			// ═══════════════════════════════════════════════════════════════
+			// MOBILE MENU & MODAL
+			// ═══════════════════════════════════════════════════════════════
+			const hamburger = document.getElementById("hamburger");
+			const mobileMenu = document.getElementById("mobile-menu");
+			hamburger.addEventListener("click", () => {
+				mobileMenu.classList.toggle("open");
+			});
 
-        // Mobile menu items
-        document.querySelectorAll(".mobile-menu-item").forEach((item) => {
-          item.addEventListener("click", () => {
-            switchSection(item.dataset.section);
-            closeMobileMenu();
-          });
-        });
+			function closeMobileMenu() {
+				mobileMenu.classList.remove("open");
+			}
 
-        // Skills
-        document.querySelectorAll(".skill-row").forEach((row) => {
-          row.addEventListener("click", () => {
-            document
-              .querySelectorAll(".skill-row")
-              .forEach((r) => r.classList.remove("selected"));
-            row.classList.add("selected");
-            const help = buildHelp(helpTexts.skills[row.dataset.skill]);
-            setHelp(help);
-            // Mobile: show modal
-            if (window.innerWidth <= 700)
-              showModal(helpTexts.skills[row.dataset.skill]);
-          });
-          row.addEventListener("mouseenter", () => {
-            row.classList.add("selected");
-            document.querySelectorAll(".skill-row").forEach((r) => {
-              if (r !== row) r.classList.remove("selected");
-            });
-            setHelp(buildHelp(helpTexts.skills[row.dataset.skill]));
-          });
-        });
+			document.addEventListener("click", (e) => {
+				if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+					closeMobileMenu();
+				}
+			});
 
-        // Projects
-        document.querySelectorAll(".project-entry").forEach((row) => {
-          row.addEventListener("click", (e) => {
-            if (
-              e.target.classList.contains("proj-link") ||
-              e.target.closest(".proj-link")
-            )
-              return;
-            document
-              .querySelectorAll(".project-entry")
-              .forEach((r) => r.classList.remove("selected"));
-            row.classList.add("selected");
-            setHelp(buildHelp(helpTexts.projects[row.dataset.project]));
-            if (window.innerWidth <= 700)
-              showModal(helpTexts.projects[row.dataset.project]);
-          });
-          row.addEventListener("mouseenter", () => {
-            row.classList.add("selected");
-            document.querySelectorAll(".project-entry").forEach((r) => {
-              if (r !== row) r.classList.remove("selected");
-            });
-            setHelp(buildHelp(helpTexts.projects[row.dataset.project]));
-          });
-        });
+			function showModal(data) {
+				if (!data) return;
+				let html = "";
+				if (data.title)
+					html += `<div style="font-weight:700;margin-bottom:8px;font-size:13px;letter-spacing:1px">▸ ${data.title}</div>`;
+				if (data.body)
+					html += `<div style="font-size:12px;white-space:pre-wrap;line-height:1.9">${data.body}</div>`;
+				if (data.link)
+					html += `<br><a href="${data.link}" target="_blank" rel="noopener" style="color:#adf;font-size:11px">[ Ver no GitHub ↗ ]</a>`;
+				document.getElementById("modal-content").innerHTML = html;
+				document.getElementById("detail-modal").classList.add("open");
+			}
 
-        // Set initial help
-        switchSection("about");
-
-        // Keyboard navigation
-        document.addEventListener("keydown", handleKeyboard);
-      }
-
-      function handleKeyboard(e) {
-        const key = e.key;
-
-        // Tab between sections
-        if (key === "Tab") {
-          e.preventDefault();
-          const sections = ["about", "skills", "projects", "contact"];
-          const idx = sections.indexOf(currentSection);
-          const next =
-            sections[
-              (idx + (e.shiftKey ? sections.length - 1 : 1)) % sections.length
-            ];
-          switchSection(next);
-          return;
-        }
-
-        // Arrow nav within section
-        if (key === "ArrowDown" || key === "ArrowUp") {
-          e.preventDefault();
-          if (currentSection === "skills") {
-            const rows = Array.from(document.querySelectorAll(".skill-row"));
-            const sel = rows.findIndex((r) => r.classList.contains("selected"));
-            const next =
-              key === "ArrowDown"
-                ? Math.min(sel + 1, rows.length - 1)
-                : Math.max(sel - 1, 0);
-            rows.forEach((r) => r.classList.remove("selected"));
-            rows[next].classList.add("selected");
-            setHelp(buildHelp(helpTexts.skills[rows[next].dataset.skill]));
-          }
-          if (currentSection === "projects") {
-            const rows = Array.from(
-              document.querySelectorAll(".project-entry"),
-            );
-            const sel = rows.findIndex((r) => r.classList.contains("selected"));
-            const next =
-              key === "ArrowDown"
-                ? Math.min(sel + 1, rows.length - 1)
-                : Math.max(sel - 1, 0);
-            rows.forEach((r) => r.classList.remove("selected"));
-            rows[next].classList.add("selected");
-            setHelp(buildHelp(helpTexts.projects[rows[next].dataset.project]));
-          }
-          return;
-        }
-
-        // F5 / F6 shortcuts
-        if (key === "F5") {
-          e.preventDefault();
-          window.open("https://github.com/diego-rodrigues-git", "_blank");
-        }
-        if (key === "F6") {
-          e.preventDefault();
-          window.open("https://linkedin.com/in/diego-gustavo", "_blank");
-        }
-      }
-
-      // Mobile hamburger
-      const hamburger = document.getElementById("hamburger");
-      const mobileMenu = document.getElementById("mobile-menu");
-      hamburger.addEventListener("click", () => {
-        mobileMenu.classList.toggle("open");
-      });
-
-      function closeMobileMenu() {
-        mobileMenu.classList.remove("open");
-      }
-
-      document.addEventListener("click", (e) => {
-        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-          closeMobileMenu();
-        }
-      });
-
-      // Modal
-      function showModal(data) {
-        if (!data) return;
-        let html = "";
-        if (data.title)
-          html += `<div style="font-weight:700;margin-bottom:8px;font-size:13px;letter-spacing:1px">▸ ${data.title}</div>`;
-        if (data.body)
-          html += `<div style="font-size:12px;white-space:pre-wrap;line-height:1.9">${data.body}</div>`;
-        if (data.link)
-          html += `<br><a href="${data.link}" target="_blank" rel="noopener" style="color:#adf;font-size:11px">[ Ver no GitHub ↗ ]</a>`;
-        document.getElementById("modal-content").innerHTML = html;
-        document.getElementById("detail-modal").classList.add("open");
-      }
-
-      document.getElementById("modal-close").addEventListener("click", () => {
-        document.getElementById("detail-modal").classList.remove("open");
-      });
-      document.getElementById("detail-modal").addEventListener("click", (e) => {
-        if (e.target === document.getElementById("detail-modal")) {
-          document.getElementById("detail-modal").classList.remove("open");
-        }
-      });
-    </script>
-  </body>
+			document.getElementById("modal-close").addEventListener("click", () => {
+				document.getElementById("detail-modal").classList.remove("open");
+			});
+			document.getElementById("detail-modal").addEventListener("click", (e) => {
+				if (e.target === document.getElementById("detail-modal")) {
+					document.getElementById("detail-modal").classList.remove("open");
+				}
+			});
+		</script>
+	</body>
 </html>
