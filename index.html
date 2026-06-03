@@ -9,6 +9,13 @@
       rel="stylesheet"
     />
     <style>
+      @font-face {
+        font-family: "IBM VGA";
+        src: url("fonts/IBM_VGA_8x16.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+
       /* ===== CSS RESET & BASE ===== */
       *,
       *::before,
@@ -34,7 +41,7 @@
         --popup-fg: #ffffff;
         --shadow-light: #ffffff;
         --shadow-dark: #5a585b;
-        --font-mono: "Share Tech Mono", "JetBrains Mono", monospace;
+        --font-mono: "IBM VGA", "Share Tech Mono", "JetBrains Mono", monospace;
         --logo-green: #00ff41;
         --logo-amber: #ffd700;
       }
@@ -48,22 +55,6 @@
         overflow: hidden;
         cursor: default;
         user-select: none;
-      }
-
-      /* ===== SCANLINES OVERLAY ===== */
-      body::after {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 2px,
-          rgba(0, 0, 0, 0.03) 2px,
-          rgba(0, 0, 0, 0.03) 4px
-        );
-        pointer-events: none;
-        z-index: 9999;
       }
 
       /* ===== BOOT SCREEN ===== */
@@ -94,24 +85,6 @@
         top: 3vh;
         right: 4vw;
         text-align: right;
-        font-size: clamp(10px, 1.2vw, 13px);
-        line-height: 1.3;
-      }
-      .boot-logo .logo-line-green {
-        color: var(--logo-green);
-        font-weight: 700;
-        letter-spacing: 2px;
-      }
-      .boot-logo .logo-line-amber {
-        color: var(--logo-amber);
-        font-weight: 700;
-      }
-      .boot-logo .logo-box {
-        display: inline-block;
-        border: 1px solid var(--logo-green);
-        padding: 6px 14px;
-        margin-bottom: 4px;
-        box-shadow: 0 0 8px rgba(0, 255, 65, 0.3);
       }
 
       .boot-content {
@@ -120,33 +93,7 @@
       }
 
       .boot-line {
-        opacity: 0;
-        transform: translateX(-4px);
-        transition:
-          opacity 0.2s ease,
-          transform 0.2s ease;
         white-space: pre;
-      }
-      .boot-line.visible {
-        opacity: 1;
-        transform: translateX(0);
-      }
-      .boot-line.dim {
-        color: #cccccc;
-      }
-      .boot-line.bold {
-        color: #ffffff;
-        font-weight: 700;
-      }
-      .boot-line.blank {
-        height: 1.7em;
-      }
-
-      .boot-line .ok {
-        color: #ffffff;
-      }
-      .boot-line .dots {
-        color: #cccccc;
       }
 
       .boot-skip {
@@ -318,7 +265,7 @@
       }
       .panel-body {
         flex: 1;
-        padding: 12px 14px;
+        padding: 0;
         overflow-y: auto;
         font-size: clamp(11px, 1.3vw, 13px);
         line-height: 1.8;
@@ -354,7 +301,7 @@
         display: grid;
         grid-template-columns: 130px 1fr;
         gap: 0 8px;
-        padding: 2px 0;
+        padding: 4px 12px;
         align-items: start;
       }
       .bios-row:hover {
@@ -401,7 +348,7 @@
         display: grid;
         grid-template-columns: 130px 1fr 48px 80px;
         gap: 0 8px;
-        padding: 3px 4px;
+        padding: 4px 12px;
         align-items: center;
         cursor: pointer;
       }
@@ -447,7 +394,7 @@
 
       /* ===== PROJECTS ===== */
       .project-entry {
-        padding: 6px 8px;
+        padding: 6px 12px;
         cursor: pointer;
         border-bottom: 1px dotted #888;
         display: flex;
@@ -503,7 +450,7 @@
         display: grid;
         grid-template-columns: 110px 18px 1fr;
         gap: 0 4px;
-        padding: 4px 4px;
+        padding: 4px 12px;
         cursor: pointer;
         align-items: center;
       }
@@ -751,13 +698,7 @@
     <div id="boot-screen">
       <!-- Logo slot (top-right) -->
       <div class="boot-logo">
-        <div class="logo-box">
-          <div class="logo-line-green">DG.DEV</div>
-          <div class="logo-line-amber">v 1.0.0</div>
-        </div>
-        <div style="color: #666; font-size: 10px">
-          Full-Stack Portfolio BIOS
-        </div>
+        <img src="img/logo.png" alt="DG.DEV Logo" style="max-width: 150px; height: auto;" />
       </div>
 
       <!-- Boot lines -->
@@ -904,61 +845,24 @@
 
             <!-- ── SKILLS ── -->
             <div class="section" id="sec-skills">
-              <div class="dimtext" style="margin-bottom: 8px">
+              <div class="dimtext" style="margin-bottom: 8px; padding: 0 12px;">
                 ▸ INSTALLED COMPONENTS &amp; EXPERIENCE LEVEL
               </div>
 
-              <div class="skill-row selected" data-skill="react" tabindex="0">
-                <span class="skill-name">React</span>
-                <span class="skill-bar-wrap">
-                  <span class="skill-bar">████████░░</span>
-                </span>
-                <span class="skill-pct">80%</span>
-                <span class="skill-badge">[Enabled]</span>
-              </div>
-              <div class="skill-row" data-skill="php" tabindex="0">
-                <span class="skill-name">PHP</span>
-                <span class="skill-bar-wrap">
-                  <span class="skill-bar">███████░░░</span>
-                </span>
-                <span class="skill-pct">70%</span>
-                <span class="skill-badge">[Enabled]</span>
-              </div>
-              <div class="skill-row" data-skill="sql" tabindex="0">
-                <span class="skill-name">SQL</span>
-                <span class="skill-bar-wrap">
-                  <span class="skill-bar">███████░░░</span>
-                </span>
-                <span class="skill-pct">70%</span>
-                <span class="skill-badge">[Enabled]</span>
-              </div>
-              <div class="skill-row" data-skill="htmlcss" tabindex="0">
-                <span class="skill-name">HTML / CSS</span>
-                <span class="skill-bar-wrap">
-                  <span class="skill-bar">█████████░</span>
-                </span>
-                <span class="skill-pct">90%</span>
-                <span class="skill-badge">[Enabled]</span>
-              </div>
-              <div class="skill-row" data-skill="javascript" tabindex="0">
-                <span class="skill-name">JavaScript</span>
-                <span class="skill-bar-wrap">
-                  <span class="skill-bar">████████░░</span>
-                </span>
-                <span class="skill-pct">80%</span>
-                <span class="skill-badge">[Enabled]</span>
-              </div>
-              <div class="skill-row" data-skill="git" tabindex="0">
-                <span class="skill-name">Git</span>
-                <span class="skill-bar-wrap">
-                  <span class="skill-bar">███████░░░</span>
-                </span>
-                <span class="skill-pct">70%</span>
-                <span class="skill-badge">[Enabled]</span>
+              <div class="skill-category-buttons" style="display: flex; flex-wrap: wrap; gap: 8px; padding: 0 12px; margin-bottom: 12px;">
+                <button class="skill-cat-btn" data-cat="programming">Programação</button>
+                <button class="skill-cat-btn" data-cat="frontend">Front-end</button>
+                <button class="skill-cat-btn" data-cat="backend">Back-end</button>
+                <button class="skill-cat-btn" data-cat="tools">Ferramentas</button>
+                <button class="skill-cat-btn" data-cat="design">Design</button>
+                <button class="skill-cat-btn" data-cat="blockchain">Blockchain</button>
+                <button class="skill-cat-btn" data-cat="hardware">Hardware</button>
               </div>
 
+              <div id="skill-category-content" style="padding: 0 12px;"></div>
+
               <hr class="divider" />
-              <div class="dimtext">
+              <div class="dimtext" style="padding: 0 12px;">
                 ▸ MEMORY TESTING : All skills loaded... <strong>OK</strong>
               </div>
             </div>
@@ -1166,21 +1070,21 @@
       // BOOT SCREEN
       // ─────────────────────────────────────────────────
       const bootLines = [
-        { text: "", cls: "blank" },
-        { text: "Diego Gustavo Portfolio  —  v1.0.0", cls: "bold" },
-        { text: "Copyright (C) 2025, Diego Gustavo", cls: "dim" },
-        { text: "", cls: "blank" },
-        { text: "Full-stack Web Developer (Student)", cls: "" },
-        { text: "", cls: "blank" },
-        { text: "Main Stack        : React / PHP / SQL", cls: "dim" },
-        { text: "Memory Testing    : Skills loaded... OK", cls: "dim" },
-        { text: "Primary Master    : Projects (4 found)", cls: "dim" },
-        { text: "Primary Slave     : GitHub Repository", cls: "dim" },
-        { text: "", cls: "blank" },
-        { text: "Initializing interface............. OK", cls: "" },
-        { text: "Loading portfolio.................. OK", cls: "" },
-        { text: "", cls: "blank" },
-        { text: "[ Press any key or wait to continue ]", cls: "bold" },
+        { text: "" },
+        { text: "Diego Gustavo Portfolio  —  v1.0.0" },
+        { text: "Copyright (C) 2025, Diego Gustavo" },
+        { text: "" },
+        { text: "Full-stack Web Developer (Student)" },
+        { text: "" },
+        { text: "Main Stack        : React / PHP / SQL" },
+        { text: "Memory Testing    : Skills loaded... OK" },
+        { text: "Primary Master    : Projects (4 found)" },
+        { text: "Primary Slave     : GitHub Repository" },
+        { text: "" },
+        { text: "Initializing interface............. OK" },
+        { text: "Loading portfolio.................. OK" },
+        { text: "" },
+        { text: "[ Press any key or wait to continue ]" },
       ];
 
       const bootEl = document.getElementById("boot-screen");
@@ -1198,15 +1102,14 @@
         }, 650);
       }
 
-      // Render lines with stagger
+      // Render lines immediately without animation
       (function renderBootLines() {
-        bootLines.forEach((line, i) => {
+        bootLines.forEach((line) => {
           const el = document.createElement("div");
-          el.className = "boot-line " + (line.cls || "");
-          if (line.cls === "blank") {
+          el.className = "boot-line";
+          if (line.text === "") {
             el.innerHTML = "&nbsp;";
           } else {
-            // Colorize "OK" in status lines
             el.textContent = line.text;
             if (line.text.includes(": ") && line.text.endsWith("OK")) {
               const parts = line.text.split("OK");
@@ -1214,18 +1117,10 @@
             }
           }
           bootLinesEl.appendChild(el);
-
-          setTimeout(
-            () => {
-              el.classList.add("visible");
-            },
-            120 + i * 90,
-          );
         });
 
-        // Auto-advance after all lines + 1.5s
-        const totalDelay = 120 + bootLines.length * 90 + 1500;
-        setTimeout(launchMain, totalDelay);
+        // Auto-advance after a short delay
+        setTimeout(launchMain, 800);
       })();
 
       // Skip on key/click
@@ -1235,6 +1130,110 @@
       // ─────────────────────────────────────────────────
       // MAIN INTERFACE
       // ─────────────────────────────────────────────────
+      const skillCategories = {
+        programming: [
+          { name: "C#", desc: "Linguagem de programação desenvolvida pela Microsoft, amplamente utilizada para aplicações desktop, web, jogos e serviços corporativos na plataforma .NET." },
+          { name: "JavaScript", desc: "Linguagem de programação essencial para o desenvolvimento web, responsável por adicionar interatividade e dinamismo às páginas e aplicações." },
+          { name: "PHP", desc: "Linguagem de programação voltada principalmente para o desenvolvimento web no lado do servidor, muito utilizada em sistemas dinâmicos e CMSs." },
+          { name: "Python", desc: "Linguagem de programação de alto nível conhecida por sua simplicidade e versatilidade, utilizada em automação, ciência de dados, inteligência artificial, web e muito mais." },
+          { name: "Rust", desc: "Linguagem de programação focada em desempenho, segurança de memória e concorrência, amplamente adotada para sistemas de alta performance." },
+          { name: "TypeScript", desc: "Superset do JavaScript que adiciona tipagem estática, melhorando a organização, manutenção e escalabilidade de aplicações." }
+        ],
+        frontend: [
+          { name: "HTML5", desc: "Linguagem de marcação utilizada para estruturar o conteúdo de páginas e aplicações web modernas." },
+          { name: "React", desc: "Biblioteca JavaScript desenvolvida pelo Facebook para criação de interfaces de usuário reativas e componentes reutilizáveis." },
+          { name: "Next.js", desc: "Framework baseado em React que oferece renderização híbrida, roteamento avançado e otimizações para aplicações web modernas." },
+          { name: "CSS3", desc: "Linguagem utilizada para estilizar páginas web, controlando layout, cores, animações e responsividade." },
+          { name: "Bootstrap", desc: "Framework front-end que fornece componentes e estilos prontos para acelerar o desenvolvimento de interfaces responsivas." },
+          { name: "Sass", desc: "Pré-processador CSS que adiciona recursos como variáveis, mixins e organização modular aos estilos." }
+        ],
+        backend: [
+          { name: "Node.js", desc: "Ambiente de execução JavaScript no lado do servidor, permitindo criar APIs, aplicações web e serviços escaláveis." },
+          { name: "MySQL", desc: "Sistema de gerenciamento de banco de dados relacional amplamente utilizado em aplicações web e corporativas." },
+          { name: "Laravel", desc: "Framework PHP moderno que oferece ferramentas e recursos para o desenvolvimento rápido e organizado de aplicações web." }
+        ],
+        tools: [
+          { name: "Git", desc: "Sistema de controle de versão distribuído que permite rastrear alterações no código-fonte, facilitar o trabalho colaborativo e gerenciar diferentes versões de projetos." },
+          { name: "GNU Bash", desc: "Interpretador de comandos utilizado em sistemas Linux e Unix para automação de tarefas, administração de sistemas e execução de scripts." },
+          { name: "VS Code", desc: "Editor de código leve e extensível desenvolvido pela Microsoft, amplamente utilizado para desenvolvimento em diversas linguagens." },
+          { name: "Neovim", desc: "Editor de texto altamente configurável baseado no Vim, popular entre desenvolvedores que buscam produtividade e personalização." },
+          { name: "Sublime Text", desc: "Editor de código-fonte conhecido pela rapidez, interface minimalista e suporte a múltiplas linguagens de programação." },
+          { name: "WordPress", desc: "Sistema de gerenciamento de conteúdo (CMS) utilizado para criação de sites, blogs, lojas virtuais e portais." },
+          { name: "Docker", desc: "Plataforma de containerização que permite empacotar aplicações e suas dependências em ambientes isolados e portáveis." },
+          { name: "Kubernetes", desc: "Plataforma de orquestração de containers utilizada para automação de implantação, escalabilidade e gerenciamento de aplicações distribuídas." },
+          { name: "Linux", desc: "Sistema operacional de código aberto amplamente utilizado em servidores, desenvolvimento de software e infraestrutura de TI." }
+        ],
+        design: [
+          { name: "Photoshop", desc: "Software de edição e manipulação de imagens desenvolvido pela Adobe, referência no mercado de design gráfico." },
+          { name: "Figma", desc: "Plataforma colaborativa para design de interfaces, prototipação e criação de experiências digitais." },
+          { name: "Illustrator", desc: "Software vetorial da Adobe utilizado para criação de ilustrações, logotipos, ícones e materiais gráficos." }
+        ],
+        blockchain: [
+          { name: "MetaMask", desc: "Carteira digital para criptomoedas e aplicações descentralizadas, amplamente utilizada no ecossistema blockchain." },
+          { name: "Ethereum", desc: "Plataforma blockchain que permite a criação de contratos inteligentes e aplicações descentralizadas." }
+        ],
+        hardware: [
+          { name: "Arduino", desc: "Plataforma de prototipagem eletrônica baseada em hardware e software livre, muito utilizada em projetos de automação e Internet das Coisas." },
+          { name: "Raspberry Pi", desc: "Computador de placa única de baixo custo utilizado para educação, automação, servidores e projetos embarcados." }
+        ],
+        ai: [
+          { name: "PyTorch", desc: "Framework de aprendizado de máquina e inteligência artificial utilizado para desenvolvimento e treinamento de modelos de redes neurais." }
+        ]
+      };
+
+      let selectedCategory = null;
+      let showDescription = false;
+
+      function renderSkillCategory(catKey) {
+        const content = document.getElementById("skill-category-content");
+        const category = skillCategories[catKey];
+        
+        if (!category) {
+          content.innerHTML = "";
+          return;
+        }
+
+        let html = `<div class="skill-cat-title" style="font-weight:700;font-size:13px;margin:8px 0;">▸ ${catKey.charAt(0).toUpperCase() + catKey.slice(1)}</div>`;
+        
+        category.forEach((skill, idx) => {
+          html += `<div class="skill-item-box" style="border:1px solid #888;margin:4px 0;padding:8px;cursor:pointer;" data-skill-idx="${idx}" data-cat="${catKey}">
+            <div style="font-weight:700;font-size:12px;">${skill.name}</div>
+            ${showDescription && selectedCategory === catKey ? `<div style="font-size:11px;margin-top:4px;color:#333;">${skill.desc}</div>` : ""}
+          </div>`;
+        });
+
+        html += `<button class="close-skill-btn" style="position:absolute;top:8px;right:8px;background:var(--bg-header);color:#fff;border:none;padding:4px 8px;cursor:pointer;font-family:var(--font-mono);font-size:11px;">✕ Fechar</button>`;
+        
+        content.innerHTML = html;
+
+        // Add click handlers
+        content.querySelectorAll(".skill-item-box").forEach(box => {
+          box.addEventListener("click", () => {
+            const cat = box.dataset.cat;
+            const idx = parseInt(box.dataset.skillIdx);
+            
+            if (selectedCategory === cat && showDescription) {
+              selectedCategory = null;
+              showDescription = false;
+              renderSkillCategory(catKey);
+            } else {
+              selectedCategory = cat;
+              showDescription = true;
+              renderSkillCategory(catKey);
+            }
+          });
+        });
+
+        const closeBtn = content.querySelector(".close-skill-btn");
+        if (closeBtn) {
+          closeBtn.addEventListener("click", () => {
+            selectedCategory = null;
+            showDescription = false;
+            content.innerHTML = "";
+          });
+        }
+      }
+
       const helpTexts = {
         about: {
           title: "SYSTEM INFORMATION",
