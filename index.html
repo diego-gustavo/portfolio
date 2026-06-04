@@ -1,27 +1,27 @@
 <!doctype html>
-<html lang="pt-BR">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Portfolio - Diego Gustavo</title>
-		<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
-		<link rel="stylesheet" href="css/style.css" />
-		<meta
-			name="description"
-			content="Diego Gustavo - Portfolio de um Desenvolvedor Web Full-stack, contendo projetos, habilidades e contatos."
-		/>
-		<meta
-			name="keywords"
-			content="Diego Gustavo, Portfolio, Desenvolvedor Web, Full-stack, React, PHP, SQL, BIOS"
-		/>
-		<meta name="author" content="Diego Gustavo" />
-	</head>
-	<body>
-		<!-- ═══════════════════════════════ BOOT SCREEN ═══════════════════════════════ -->
-		<div id="boot-screen">
-			<!-- Logo slot (top-right) -->
-			<div class="boot-logo">
-				<pre class="boot-ascii-logo">
+<html lang="en">
+  <!-- Arquivo index.html: scripts e estilos com comentários explicativos adicionados. -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Diego Gustavo</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css" />
+    <meta
+      name="description"
+      content="Diego Gustavo - Portfolio de um Desenvolvedor Web Full-stack, contendo projetos, habilidades e contatos."
+    />
+    <meta
+      name="keywords"
+      content="Diego Gustavo, Portfolio, Desenvolvedor Web, Full-stack, React, PHP, SQL, BIOS"
+    />
+    <meta name="author" content="Diego Gustavo" />
+  </head>
+  <body>
+    <!-- BOOT SCREEN -->
+    <div id="boot-screen">
+      <div class="boot-logo">
+        <pre class="boot-ascii-logo">
                         @@@@@@@@@@@@@@@@@@%               @@@@@@@@@@@@@          
                   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@       @@@@@@@@@@@@@@@@@@@@       
                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  %@@@@@@@@@@@@* *@@@@@@@@      
@@ -48,1175 +48,183 @@
         @@@@@@@@@@@@@@@@@@@@@@@@                 @@@@@@@@@@@@%                   
              @@@@@@@@@@@%                                                        
         </pre>
-			</div>
+      </div>
+      <div id="boot-lines"></div>
+    </div>
 
-			<!-- Boot lines -->
-			<div class="boot-content" id="boot-lines"></div>
+    <div id="main-interface">
+      <div id="header">
+        <div class="header-logo">
+          <div class="logo-slot"></div>
+          <h1 data-i18n="header.made_by">MADE BY: DIEGO GUSTAVO</h1>
+        </div>
+        <button class="nav-tab" data-section="about">About</button>
+        <button class="nav-tab" data-section="skills">Skills</button>
+        <button class="nav-tab" data-section="projects">Projects</button>
+        <button class="nav-tab" data-section="contact">Contact</button>
+        <div class="header-right">
+          <button id="lang-toggle">EN</button>
+        </div>
+      </div>
 
-			<div class="boot-skip" id="boot-skip">
-				[ Press any key or click to skip ]
-			</div>
-		</div>
+      <div id="main-area">
+        <div id="left-panel" class="panel raised">
+          <div class="panel-title" id="left-panel-title">▸ SYSTEM INFORMATION</div>
+          <div class="panel-body" id="left-panel-body">
 
-		<!-- ═══════════════════════════════ MAIN INTERFACE ═══════════════════════════════ -->
-		<div id="main-interface">
-			<!-- HEADER -->
-			<div id="header">
-				<div class="header-logo">
-					<div class="logo-slot">
-						<svg
-							viewBox="0 0 20 20"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<rect width="20" height="20" rx="2" fill="none" />
-							<text
-								x="2"
-								y="15"
-								font-family="monospace"
-								font-size="12"
-								font-weight="bold"
-								fill="var(--logo-color, #00FF41)"
-							>
-								DG
-							</text>
-						</svg>
-					</div>
-					<h1>DIEGO.G</h1>
-				</div>
+            <!-- ── SKILLS ── -->
+            <div class="section" id="sec-skills">
+              <div class="dimtext mb-8 px-12" data-i18n="skills.header">▸ INSTALLED COMPONENTS &amp; EXPERIENCE LEVEL</div>
 
-				<button class="nav-tab active" data-section="about" tabindex="1">
-					<span class="bracket">[</span>&nbsp;About&nbsp;<span class="bracket"
-						>]</span
-					>
-				</button>
-				<button class="nav-tab" data-section="skills" tabindex="2">
-					<span class="bracket">[</span>&nbsp;Skills&nbsp;<span class="bracket"
-						>]</span
-					>
-				</button>
-				<button class="nav-tab" data-section="projects" tabindex="3">
-					<span class="bracket">[</span>&nbsp;Projects&nbsp;<span
-						class="bracket"
-						>]</span
-					>
-				</button>
-				<button class="nav-tab" data-section="contact" tabindex="4">
-					<span class="bracket">[</span>&nbsp;Contact&nbsp;<span class="bracket"
-						>]</span
-					>
-				</button>
-
-				<div class="header-right">
-					<span>SETUP UTILITY</span>
-					<span class="blink-cursor"></span>
-				</div>
-			</div>
-
-			<!-- MAIN AREA -->
-			<div id="main-area">
-				<!-- LEFT PANEL -->
-				<div class="panel" id="left-panel">
-					<div class="panel-title" id="left-panel-title">
-						▸ SYSTEM INFORMATION
-					</div>
-					<div class="panel-body" id="left-panel-body">
-						<!-- ── ABOUT ── -->
-						<div class="section active" id="sec-about">
-							<div class="about-content">
-								<div class="bios-row">
-									<span class="bios-label">Name</span>
-									<span class="bios-sep">:</span>
-									<span class="bios-value">Diego Gustavo</span>
-								</div>
-								<div class="bios-row">
-									<span class="bios-label">Role</span>
-									<span class="bios-sep">:</span>
-									<span class="bios-value"
-										>Full-stack Web Developer (Student)</span
-									>
-								</div>
-								<div class="bios-row">
-									<span class="bios-label">Location</span>
-									<span class="bios-sep">:</span>
-									<span class="bios-value">Brazil</span>
-								</div>
-
-								<hr class="divider" />
-
-								<div class="bios-row">
-									<span class="bios-label">Bio</span>
-									<span class="bios-sep">:</span>
-									<span class="bios-value">
-										Apaixonado por tecnologia e desenvolvimento web, estou em
-										jornada de aprendizado contínuo, construindo projetos reais
-										que combinam design e funcionalidade. Busco oportunidades
-										para crescer como desenvolvedor e contribuir com soluções
-										criativas e eficientes.
-									</span>
-								</div>
-
-								<hr class="divider" />
-
-								<div class="dimtext mt-8" style="padding: 0 12px">
-									Use &nbsp;<kbd
-										style="
-											background: var(--bg-header);
-											color: #fff;
-											padding: 0 4px;
-											font-family: var(--font-mono);
-											font-size: 10px;
-										"
-										>Tab</kbd
-									>&nbsp; ou as setas &larr; &rarr; para navegar entre seções.
-								</div>
-							</div>
-						</div>
-
-						<!-- ── SKILLS ── -->
-						<div class="section" id="sec-skills">
-							<div class="dimtext" style="margin-bottom: 8px; padding: 0 12px">
-								▸ INSTALLED COMPONENTS &amp; EXPERIENCE LEVEL
-							</div>
-
-							<div class="skill-category-buttons">
-								<button class="skill-cat-btn active" data-cat="programming">
-									Programação
-								</button>
-								<button class="skill-cat-btn" data-cat="frontend">
-									Front-end
-								</button>
-								<button class="skill-cat-btn" data-cat="backend">
-									Back-end
-								</button>
-								<button class="skill-cat-btn" data-cat="tools">
-									Ferramentas
-								</button>
-								<button class="skill-cat-btn" data-cat="design">Design</button>
-								<button class="skill-cat-btn" data-cat="blockchain">
-									Blockchain
-								</button>
-								<button class="skill-cat-btn" data-cat="hardware">
-									Hardware
-								</button>
-								<button class="skill-cat-btn" data-cat="ai">IA / ML</button>
-							</div>
-
-							<div id="skill-category-content"></div>
-
-							<hr class="divider" />
-							<div class="dimtext" style="padding: 0 12px">
-								▸ MEMORY TESTING : All skills loaded... <strong>OK</strong>
-							</div>
-						</div>
-
-						<!-- ── PROJECTS (rendered dynamically) ── -->
-						<div class="section" id="sec-projects">
-							<div
-								class="dimtext"
-								id="projects-header"
-								style="margin-bottom: 8px"
-							>
-								▸ PRIMARY MASTER : loading...
-							</div>
-							<div id="projects-container"></div>
-						</div>
-
-						<!-- ── CONTACT ── -->
-						<div class="section" id="sec-contact">
-							<div class="dimtext" style="margin-bottom: 12px">
-								▸ SYSTEM INTERFACES — select an item to open
-							</div>
-
-							<a
-								class="contact-row"
-								href="https://github.com/diego-rodrigues-git"
-								target="_blank"
-								rel="noopener"
-							>
-								<span class="contact-label">GitHub</span>
-								<span class="contact-sep">:</span>
-								<span class="contact-value"
-									>github.com/diego-rodrigues-git</span
-								>
-							</a>
-
-							<a
-								class="contact-row"
-								href="https://linkedin.com/in/diego-gustavo"
-								target="_blank"
-								rel="noopener"
-							>
-								<span class="contact-label">LinkedIn</span>
-								<span class="contact-sep">:</span>
-								<span class="contact-value">linkedin.com/in/diego-gustavo</span>
-							</a>
-
-							<a
-								class="contact-row"
-								href="mailto:diego.gda.rodrigues@gmail.com"
-							>
-								<span class="contact-label">Email</span>
-								<span class="contact-sep">:</span>
-								<span class="contact-value">diego.gda.rodrigues@gmail.com</span>
-							</a>
-
-							<hr class="divider" />
-							<div class="dimtext">
-								▸ All interfaces : <strong>Online</strong> — click to connect
-							</div>
-						</div>
-					</div>
-					<!-- /panel-body -->
-				</div>
-				<!-- /left-panel -->
-
-				<!-- RIGHT PANEL (HELP) -->
-				<div class="panel" id="right-panel">
-					<div class="panel-title">▸ ITEM HELP</div>
-					<div class="panel-body" id="help-body">
-						<!-- dynamic content -->
-					</div>
-				</div>
-			</div>
-			<!-- /main-area -->
-
-			<!-- FOOTER -->
-			<div id="footer">
-				<div class="footer-item footer-keep">
-					<span class="footer-key">↑↓</span>Navigate
-				</div>
-				<div class="footer-item footer-keep">
-					<span class="footer-key">Tab</span>Section
-				</div>
-				<div class="footer-item">
-					<span class="footer-key">Enter</span>Select
-				</div>
-				<div class="footer-item">
-					<a
-						class="footer-link"
-						href="https://github.com/diego-rodrigues-git"
-						target="_blank"
-						rel="noopener"
-					>
-						<span class="footer-key">F5</span>GitHub
-					</a>
-				</div>
-				<div class="footer-item">
-					<a
-						class="footer-link"
-						href="https://linkedin.com/in/diego-gustavo"
-						target="_blank"
-						rel="noopener"
-					>
-						<span class="footer-key">F6</span>LinkedIn
-					</a>
-				</div>
-				<div class="footer-right">
-					<span>Diego Gustavo Portfolio — v1.0.0</span>
-					<span>©&nbsp;2025</span>
-				</div>
-			</div>
-		</div>
-		<!-- /main-interface -->
-
-		<!-- MOBILE HAMBURGER -->
-		<button id="hamburger" aria-label="Menu">[ MENU ]</button>
-		<div id="mobile-menu">
-			<div class="mobile-menu-item active" data-section="about">[ About ]</div>
-			<div class="mobile-menu-item" data-section="skills">[ Skills ]</div>
-			<div class="mobile-menu-item" data-section="projects">[ Projects ]</div>
-			<div class="mobile-menu-item" data-section="contact">[ Contact ]</div>
-		</div>
-
-		<!-- DETAIL MODAL (mobile) -->
-		<div id="detail-modal">
-			<div class="modal-box">
-				<button class="modal-close" id="modal-close">✕</button>
-				<div id="modal-content"></div>
-			</div>
-		</div>
-
-		<script>
-			// ═══════════════════════════════════════════════════════════════
-			// BOOT SCREEN & HARDWARE PROGRESS ANIMATION
-			// ═══════════════════════════════════════════════════════════════
-			const bootLines = [
-				{ text: "" },
-				{ text: "Diego Gustavo Portfolio  —  v1.0.0" },
-				{ text: "Copyright (C) 2025, Diego Gustavo" },
-				{ text: "" },
-				{ text: "Full-stack Web Developer (Student)" },
-				{ text: "" },
-				{ text: "Memory Testing    : Skills loaded... OK" },
-				{ text: "Primary Master    : Projects loaded... OK" },
-				{ text: "Primary Slave     : GitHub Repository" },
-				{ text: "" },
-				{ text: "Initializing interface............. OK" },
-				{ text: "Loading portfolio.................. OK" },
-				{ text: "" },
-				{ text: "[ Press any key or wait to continue ]" },
-			];
-
-			const bootEl = document.getElementById("boot-screen");
-			const bootLinesEl = document.getElementById("boot-lines");
-			let booted = false;
-
-			function launchMain() {
-				if (booted) return;
-				booted = true;
-				bootEl.classList.add("fade-out");
-				setTimeout(() => {
-					bootEl.classList.add("hidden");
-					document.getElementById("main-interface").classList.add("visible");
-					initInterface();
-				}, 650);
-			}
-
-			// Progressive reveal bios hardware check
-			(function renderBootLines() {
-				let currentLine = 0;
-
-				function printNextLine() {
-					if (booted) return;
-					if (currentLine >= bootLines.length) {
-						setTimeout(launchMain, 600);
-						return;
-					}
-
-					const line = bootLines[currentLine];
-					const el = document.createElement("div");
-					el.className = "boot-line";
-
-					if (line.text === "") {
-						el.innerHTML = "&nbsp;";
-					} else {
-						if (line.text.includes("OK")) {
-							const parts = line.text.split("OK");
-							el.innerHTML =
-								parts[0] +
-								'<span style="color:#00ff41; font-weight:bold;">OK</span>' +
-								(parts[1] || "");
-						} else {
-							el.textContent = line.text;
-						}
-					}
-
-					bootLinesEl.appendChild(el);
-					currentLine++;
-
-					const delay = Math.random() * 80 + 40;
-					setTimeout(printNextLine, delay);
-				}
-
-				printNextLine();
-			})();
-
-			// Skip on key/click
-			document.addEventListener("keydown", launchMain, { once: true });
-			bootEl.addEventListener("click", launchMain, { once: true });
-
-			// ═══════════════════════════════════════════════════════════════
-			// SKILLS DATA AND DYNAMIC RENDERING
-			// ═══════════════════════════════════════════════════════════════
-			const skillCategories = {
-				programming: [
-					{
-						name: "C#",
-						desc: "Linguagem de programação desenvolvida pela Microsoft, amplamente utilizada para aplicações desktop, web, jogos e serviços corporativos na plataforma .NET.",
-						level: 50,
-						type: "Linguagem",
-					},
-					{
-						name: "JavaScript",
-						desc: "Linguagem de programação essencial para o desenvolvimento web, responsável por adicionar interatividade e dinamismo às páginas e aplicações.",
-						level: 80,
-						type: "Linguagem",
-					},
-					{
-						name: "PHP",
-						desc: "Linguagem de programação voltada principalmente para o desenvolvimento web no lado do servidor, muito utilizada em sistemas dinâmicos e CMSs.",
-						level: 70,
-						type: "Linguagem",
-					},
-					{
-						name: "Python",
-						desc: "Linguagem de programação de alto nível conhecida por sua simplicidade e versatilidade, utilizada em automação, ciência de dados, inteligência artificial, web e muito mais.",
-						level: 65,
-						type: "Linguagem",
-					},
-					{
-						name: "Rust",
-						desc: "Linguagem de programação focada em desempenho, segurança de memória e concorrência, amplamente adotada para sistemas de alta performance.",
-						level: 50,
-						type: "Linguagem",
-					},
-					{
-						name: "TypeScript",
-						desc: "Superset do JavaScript que adiciona tipagem estática, melhorando a organização, manutenção e escalabilidade de aplicações.",
-						level: 75,
-						type: "Linguagem",
-					},
-				],
-				frontend: [
-					{
-						name: "HTML5",
-						desc: "Linguagem de marcação utilizada para estruturar o conteúdo de páginas e aplicações web modernas.",
-						level: 95,
-						type: "Markup",
-					},
-					{
-						name: "React",
-						desc: "Biblioteca JavaScript desenvolvida pelo Facebook para criação de interfaces de usuário reativas e componentes reutilizáveis.",
-						level: 75,
-						type: "Biblioteca",
-					},
-					{
-						name: "Next.js",
-						desc: "Framework baseado em React que oferece renderização híbrida, roteamento avançado e otimizações para aplicações web modernas.",
-						level: 60,
-						type: "Framework",
-					},
-					{
-						name: "CSS3",
-						desc: "Linguagem utilizada para estilizar páginas web, controlando layout, cores, animações e responsividade.",
-						level: 90,
-						type: "Estilo",
-					},
-					{
-						name: "Bootstrap",
-						desc: "Framework front-end que fornece componentes e estilos prontos para acelerar o desenvolvimento de interfaces responsivas.",
-						level: 90,
-						type: "Biblioteca",
-					},
-					{
-						name: "Sass",
-						desc: "Pré-processador CSS que adiciona recursos como variáveis, mixins e organização modular aos estilos.",
-						level: 85,
-						type: "Pre-processador",
-					},
-				],
-				backend: [
-					{
-						name: "Node.js",
-						desc: "Ambiente de execução JavaScript no lado do servidor, permitindo criar APIs, aplicações web e serviços escaláveis.",
-						level: 85,
-						type: "Ambiente",
-					},
-					{
-						name: "MySQL",
-						desc: "Sistema de gerenciamento de banco de dados relacional amplamente utilizado em aplicações web e corporativas.",
-						level: 80,
-						type: "Banco Dados",
-					},
-					{
-						name: "Laravel",
-						desc: "Framework PHP moderno que oferece ferramentas e recursos para o desenvolvimento rápido e organizado de aplicações web.",
-						level: 65,
-						type: "Framework",
-					},
-				],
-				tools: [
-					{
-						name: "Git",
-						desc: "Sistema de controle de versão distribuído que permite rastrear alterações no código-fonte, facilitar o trabalho colaborativo e gerenciar diferentes versões de projetos.",
-						level: 95,
-						type: "Ferramenta",
-					},
-					{
-						name: "GNU Bash",
-						desc: "Interpretador de comandos utilizado em sistemas Linux e Unix para automação de tarefas, administração de sistemas e execução de scripts.",
-						level: 90,
-						type: "Shell",
-					},
-					{
-						name: "VS Code",
-						desc: "Editor de código leve e extensível desenvolvido pela Microsoft, amplamente utilizado para desenvolvimento em diversas linguagens.",
-						level: 90,
-						type: "Editor",
-					},
-					{
-						name: "Neovim",
-						desc: "Editor de texto altamente configurável baseado no Vim, popular entre desenvolvedores que buscam produtividade e personalização.",
-						level: 75,
-						type: "Editor",
-					},
-					{
-						name: "Sublime Text",
-						desc: "Editor de código-fonte conhecido pela rapidez, interface minimalista e suporte a múltiplas linguagens de programação.",
-						level: 85,
-						type: "Editor",
-					},
-					{
-						name: "WordPress",
-						desc: "Sistema de gerenciamento de conteúdo (CMS) utilizado para criação de sites, blogs, lojas virtuais e portais.",
-						level: 80,
-						type: "CMS",
-					},
-					{
-						name: "Docker",
-						desc: "Plataforma de containerização que permite empacotar aplicações e suas dependências em ambientes isolados e portáveis.",
-						level: 75,
-						type: "Container",
-					},
-					{
-						name: "Kubernetes",
-						desc: "Plataforma de orquestração de containers utilizada para automação de implantação, escalabilidade e gerenciamento de aplicações distribuídas.",
-						level: 60,
-						type: "Orquestrador de containers",
-					},
-					{
-						name: "Linux",
-						desc: "Sistema operacional de código aberto amplamente utilizado em servidores, desenvolvimento de software e infraestrutura de TI.",
-						level: 75,
-						type: "SO",
-					},
-				],
-				design: [
-					{
-						name: "Photoshop",
-						desc: "Software de edição e manipulação de imagens desenvolvido pela Adobe, referência no mercado de design gráfico.",
-						level: 90,
-						type: "Software",
-					},
-					{
-						name: "Figma",
-						desc: "Plataforma colaborativa para design de interfaces, prototipação e criação de experiências digitais.",
-						level: 85,
-						type: "Software",
-					},
-					{
-						name: "Illustrator",
-						desc: "Software vetorial da Adobe utilizado para criação de ilustrações, logotipos, ícones e materiais gráficos.",
-						level: 70,
-						type: "Software",
-					},
-				],
-				blockchain: [
-					{
-						name: "MetaMask",
-						desc: "Carteira digital para criptomoedas e aplicações descentralizadas, amplamente utilizada no ecossistema blockchain.",
-						level: 80,
-						type: "Carteira",
-					},
-					{
-						name: "Ethereum",
-						desc: "Plataforma blockchain que permite a criação de contratos inteligentes e aplicações descentralizadas.",
-						level: 60,
-						type: "Blockchain",
-					},
-				],
-				hardware: [
-					{
-						name: "Arduino",
-						desc: "Plataforma de prototipagem eletrônica baseada em hardware e software livre, muito utilizada em projetos de automação e Internet das Coisas.",
-						level: 70,
-						type: "Plataforma",
-					},
-					{
-						name: "Raspberry Pi",
-						desc: "Computador de placa única de baixo custo utilizado para educação, automação, servidores e projetos embarcados.",
-						level: 65,
-						type: "Computador",
-					},
-				],
-				ai: [
-					{
-						name: "PyTorch",
-						desc: "Framework de aprendizado de máquina e inteligência artificial utilizado para desenvolvimento e treinamento de modelos de redes neurais.",
-						level: 55,
-						type: "Biblioteca",
-					},
-				],
-			};
-
-			function getLevelLabel(level) {
-				if (level >= 90) return "Avançado";
-				if (level >= 75) return "Intermediário";
-				if (level >= 60) return "Básico-Intermediário";
-				return "Estudante / Iniciante";
-			}
-
-			function getProgressBar(pct) {
-				const total = 10;
-				const filled = Math.round(pct / 10);
-				return "█".repeat(filled) + "░".repeat(total - filled);
-			}
-
-			function getSkillHelpData(skill) {
-				return {
-					title: skill.name,
-					body: `${skill.desc}\n\nNível de Experiência: ${skill.level}% (${getLevelLabel(skill.level)})\nTipo de Componente: ${skill.type}`,
-					tip: "↑↓ para navegar nas skills",
-				};
-			}
-
-			function renderSkillCategory(catKey) {
-				const content = document.getElementById("skill-category-content");
-				const category = skillCategories[catKey];
-
-				if (!category) {
-					content.innerHTML = "";
-					return;
-				}
-
-				document.querySelectorAll(".skill-cat-btn").forEach((btn) => {
-					btn.classList.toggle("active", btn.dataset.cat === catKey);
-				});
-
-				let html = "";
-				category.forEach((skill, idx) => {
-					html += `
-            <div class="skill-row" data-cat="${catKey}" data-idx="${idx}" tabindex="0">
-              <span class="skill-name">${skill.name}</span>
-              <div class="skill-bar-wrap">
-                <span class="skill-bar">${getProgressBar(skill.level)}</span>
+              <div class="skill-category-buttons">
+                <button class="skill-cat-btn active" data-cat="programming" data-i18n="skills.cat.programming">Programming</button>
+                <button class="skill-cat-btn" data-cat="frontend" data-i18n="skills.cat.frontend">Front-end</button>
+                <button class="skill-cat-btn" data-cat="backend" data-i18n="skills.cat.backend">Back-end</button>
+                <button class="skill-cat-btn" data-cat="tools" data-i18n="skills.cat.tools">Tools</button>
+                <button class="skill-cat-btn" data-cat="design" data-i18n="skills.cat.design">Design</button>
+                <button class="skill-cat-btn" data-cat="blockchain" data-i18n="skills.cat.blockchain">Blockchain</button>
+                <button class="skill-cat-btn" data-cat="hardware" data-i18n="skills.cat.hardware">Hardware</button>
+                <button class="skill-cat-btn" data-cat="ai" data-i18n="skills.cat.ai">AI / ML</button>
               </div>
-              <span class="skill-pct">${skill.level}%</span>
-              <span class="skill-badge">${skill.type}</span>
+
+              <div id="skill-category-content"></div>
+
+              <hr class="divider" />
+              <div class="dimtext px-12" data-i18n="memory.testing">▸ MEMORY TESTING : All skills loaded... <strong>OK</strong></div>
             </div>
-          `;
-				});
 
-				content.innerHTML = html;
+            <!-- ── ABOUT ── -->
+            <div class="section active" id="sec-about">
+              <div class="about-content">
+                <div class="bios-row">
+                  <span class="bios-label" data-i18n="bios.label.name">Name</span>
+                  <span class="bios-sep">:</span>
+                  <span class="bios-value" data-i18n="bios.value.name">Diego Gustavo</span>
+                </div>
+                <div class="bios-row">
+                  <span class="bios-label" data-i18n="bios.label.role">Role</span>
+                  <span class="bios-sep">:</span>
+                  <span class="bios-value" data-i18n="bios.value.role">Full-stack Web Developer (Student)</span>
+                </div>
+                <div class="bios-row">
+                  <span class="bios-label" data-i18n="bios.label.location">Location</span>
+                  <span class="bios-sep">:</span>
+                  <span class="bios-value" data-i18n="bios.value.location">Brazil</span>
+                </div>
 
-				const rows = content.querySelectorAll(".skill-row");
-				rows.forEach((row) => {
-					row.addEventListener("click", () => {
-						rows.forEach((r) => r.classList.remove("selected"));
-						row.classList.add("selected");
-						const skill = skillCategories[row.dataset.cat][row.dataset.idx];
-						const helpData = getSkillHelpData(skill);
-						setHelp(buildHelp(helpData));
-						if (window.innerWidth <= 700) {
-							showModal(helpData);
-						}
-					});
+                <hr class="divider" />
 
-					row.addEventListener("mouseenter", () => {
-						rows.forEach((r) => r.classList.remove("selected"));
-						row.classList.add("selected");
-						const skill = skillCategories[row.dataset.cat][row.dataset.idx];
-						setHelp(buildHelp(getSkillHelpData(skill)));
-					});
-				});
+                <div class="bios-row">
+                  <span class="bios-label" data-i18n="bios.label.bio">Bio</span>
+                  <span class="bios-sep">:</span>
+                  <span class="bios-value" id="bios-bio" data-i18n="bios.value.bio">Passionate about technology and web development, continuously learning and building real projects that combine design and functionality. Seeking opportunities to grow as a developer and contribute creative, efficient solutions.</span>
+                </div>
 
-				if (rows.length > 0) {
-					rows[0].classList.add("selected");
-					setHelp(buildHelp(getSkillHelpData(category[0])));
-				}
-			}
+                <hr class="divider" />
 
-			// ═══════════════════════════════════════════════════════════════
-			// PROJECTS DATA
-			// ═══════════════════════════════════════════════════════════════
-			//
-			// Para adicionar um novo projeto, basta copiar um objeto abaixo
-			// e preencher: id, name, subtitle, link, description, techs.
-			// A interface se atualiza automaticamente.
-			//
-			const projectsData = [
-				{
-					id: "jornada",
-					name: "Jornada Viagens",
-					subtitle: "Alura — Carreira Full Stack com React",
-					link: "https://github.com/diego-rodrigues-git/jornada-viagens",
-					description:
-						"Projeto desenvolvido durante a trilha Full Stack com React na Alura.\n\nInterface de agência de viagens com componentes React funcionais, estilização CSS moderna e boas práticas de componentização.",
-					techs: "React, CSS, JavaScript",
-				},
-				{
-					id: "culturama",
-					name: "Pesquisa Culturama",
-					subtitle: "Alura — Carreira Full Stack com React",
-					link: "https://github.com/diego-rodrigues-git/pesquisa-culturama",
-					description:
-						"Aplicação de pesquisa cultural desenvolvida com React na Alura.\n\nFuncionalidades de busca e filtragem de conteúdo cultural com interface responsiva.",
-					techs: "React, JavaScript, CSS",
-				},
-				{
-					id: "tecboard",
-					name: "TecBoard",
-					subtitle: "Alura — Carreira Full Stack com React",
-					link: "https://github.com/diego-rodrigues-git/tecboard",
-					description:
-						"Board de organização de tarefas/conteúdos técnicos. Projeto desenvolvido durante a trilha Full Stack com React na Alura.",
-					techs: "React, JavaScript, CSS",
-				},
-				{
-					id: "galarts",
-					name: "GalArts",
-					subtitle:
-						"ETEC Fernando Prestes — Técnico de Informática para Internet",
-					link: "https://github.com/diego-rodrigues-git/galarts",
-					description:
-						"Galeria de artes desenvolvida no curso Técnico de Informática para Internet da ETEC Fernando Prestes.\n\nProjeto de conclusão com foco em design e apresentação visual de obras.",
-					techs: "HTML, CSS, JavaScript",
-				},
-			];
-
-			function renderProjects() {
-				const container = document.getElementById("projects-container");
-				const header = document.getElementById("projects-header");
-				header.textContent = `▸ PRIMARY MASTER : ${projectsData.length} entries found`;
-
-				let html = "";
-				projectsData.forEach((proj, idx) => {
-					html += `
-            <div class="project-entry${idx === 0 ? " selected" : ""}" data-project="${proj.id}" tabindex="0">
-              <span class="proj-arrow">▶</span>
-              <div class="proj-body">
-                <div class="proj-name">${proj.name}</div>
-                <div class="proj-sub">${proj.subtitle}</div>
-                <a class="proj-link" href="${proj.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">[ Ver no GitHub ]</a>
+                <div class="dimtext mt-8 px-12" data-i18n="about.navigation">Use <kbd>Tab</kbd> or the ← → arrows to switch sections.</div>
               </div>
             </div>
-          `;
-				});
-				container.innerHTML = html;
-			}
 
-			function getProjectHelpData(proj) {
-				return {
-					title: proj.name,
-					body: `${proj.description}\n\nTecnologias: ${proj.techs}`,
-					link: proj.link,
-				};
-			}
+            <!-- ── PROJECTS (rendered dynamically) ── -->
+            <div class="section" id="sec-projects">
+              <div class="dimtext mb-8 px-12" id="projects-header" data-i18n="projects.header">▸ PRIMARY MASTER : loading...</div>
+              <div id="projects-container"></div>
+            </div>
 
-			function getProjectById(id) {
-				return projectsData.find((p) => p.id === id);
-			}
+            <!-- ── CONTACT ── -->
+            <div class="section" id="sec-contact">
+              <div class="dimtext mb-12" data-i18n="contact.header">▸ SYSTEM INTERFACES — select an item to open</div>
 
-			// ═══════════════════════════════════════════════════════════════
-			// HELP PANEL SYSTEM
-			// ═══════════════════════════════════════════════════════════════
-			const helpTexts = {
-				about: {
-					title: "SYSTEM INFORMATION",
-					body: "Este painel exibe informações pessoais e profissionais do desenvolvedor.\n\nUse as setas ← → para navegar entre as seções do portfólio.\n\nUse as setas ↑ ↓ para explorar os itens de cada painel.",
-					tip: "← → ou Tab para mudar de seção",
-				},
-				contact: {
-					title: "CONTACT INTERFACES",
-					body: "Selecione um dos canais de comunicação abaixo para se conectar.\n\nDisponível para freelance, projetos open-source e propostas profissionais.",
-					tip: "Enter ou clique para abrir no navegador",
-				},
-			};
+              <a class="contact-row" data-contact="github" href="https://github.com/diego-rodrigues-git" target="_blank" rel="noopener">
+                <span class="contact-label" data-i18n="contact.label.github">GitHub</span>
+                <span class="contact-sep">:</span>
+                <span class="contact-value">github.com/diego-rodrigues-git</span>
+              </a>
 
-			const biosHelpData = [
-				{
-					title: "DEVELOPER NAME",
-					body: "Nome do desenvolvedor:\n\nDiego Gustavo.",
-					tip: "Use as setas ↑↓ para navegar nos itens",
-				},
-				{
-					title: "PROFESSIONAL ROLE",
-					body: "Atuação principal:\n\nDesenvolvedor Web Full-stack (Estudante). Foco em construir projetos reativos, dinâmicos e eficientes.",
-					tip: "Use as setas ↑↓ para navegar nos itens",
-				},
-				{
-					title: "GEOGRAPHIC LOCATION",
-					body: "Localização de residência:\n\nBrasil (Sorocaba - SP). Disponível para posições presenciais, híbridas ou remotas.",
-					tip: "Use as setas ↑↓ para navegar nos itens",
-				},
-				{
-					title: "BIOGRAPHY SUMMARY",
-					body: "Breve biografia:\n\nApaixonado por tecnologia e desenvolvimento web, buscando crescimento profissional contínuo por meio de desafios reais.",
-					tip: "Use as setas ↑↓ para navegar nos itens",
-				},
-			];
+              <a class="contact-row" data-contact="linkedin" href="https://linkedin.com/in/diego-gustavo" target="_blank" rel="noopener">
+                <span class="contact-label" data-i18n="contact.label.linkedin">LinkedIn</span>
+                <span class="contact-sep">:</span>
+                <span class="contact-value">linkedin.com/in/diego-gustavo</span>
+              </a>
 
-			const contactHelpData = {
-				github: {
-					title: "GitHub Interface",
-					body: "Acesse meu perfil do GitHub para conferir repositórios de código aberto, projetos pessoais e contribuições em andamento.\n\nLink: github.com/diego-rodrigues-git",
-					tip: "Enter ou clique para abrir no navegador",
-				},
-				linkedin: {
-					title: "LinkedIn Interface",
-					body: "Conecte-se comigo no LinkedIn para networking, discussões profissionais e oportunidades de carreira.\n\nLink: linkedin.com/in/diego-gustavo",
-					tip: "Enter ou clique para abrir no navegador",
-				},
-				email: {
-					title: "Email Interface",
-					body: "Envie uma mensagem direta para meu e-mail profissional para propostas de projetos, contratações ou dúvidas.\n\nEndereço: diego.gda.rodrigues@gmail.com",
-					tip: "Enter ou clique para enviar e-mail",
-				},
-			};
+              <a class="contact-row" data-contact="email" href="mailto:diego.gda.rodrigues@gmail.com">
+                <span class="contact-label" data-i18n="contact.label.email">Email</span>
+                <span class="contact-sep">:</span>
+                <span class="contact-value">diego.gda.rodrigues@gmail.com</span>
+              </a>
 
-			function getBiosHelpData(idx) {
-				return biosHelpData[idx] || helpTexts.about;
-			}
+              <hr class="divider" />
+              <div class="dimtext">
+                ▸ All interfaces : <strong>Online</strong> — click to connect
+              </div>
+            </div>
 
-			function setHelp(html) {
-				const helpEl = document.getElementById("help-body");
-				if (helpEl) helpEl.innerHTML = html;
-			}
+          </div>
+        </div>
 
-			function buildHelp(data) {
-				if (!data) return "";
-				let html = `<div class="help-content">`;
-				if (data.title)
-					html += `<div class="help-title">▸ ${data.title}</div><hr class="help-divider">`;
-				if (data.body)
-					html += `<div style="white-space:pre-wrap">${data.body}</div>`;
-				if (data.link)
-					html += `<br><a href="${data.link}" target="_blank" rel="noopener" style="color:var(--bg-header);text-decoration:none;font-size:11px">[ Ver no GitHub ↗ ]</a>`;
-				if (data.tip)
-					html += `<div class="help-tip"><span class="help-key">${data.tip}</span></div>`;
-				html += `</div>`;
-				return html;
-			}
+        <div id="right-panel" class="panel raised">
+          <div class="panel-title">▸ HELP</div>
+          <div class="panel-body" id="help-body">
+            <!-- help content populated by JS -->
+          </div>
+        </div>
+      </div>
 
-			// ═══════════════════════════════════════════════════════════════
-			// SECTION SWITCHING & INTERFACE INIT
-			// ═══════════════════════════════════════════════════════════════
-			let currentSection = "about";
+      <!-- FOOTER -->
+      <div id="footer">
+        <div class="footer-item footer-keep">
+          <span class="footer-key">↑↓</span>Navigate
+        </div>
+        <div class="footer-item footer-keep">
+          <span class="footer-key">Tab</span>Section
+        </div>
+        <div class="footer-item">
+          <span class="footer-key">Enter</span>Select
+        </div>
+        <div class="footer-item">
+          <a
+            class="footer-link"
+            href="https://github.com/diego-rodrigues-git"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="footer-key">F5</span>GitHub
+          </a>
+        </div>
+        <div class="footer-item">
+          <a
+            class="footer-link"
+            href="https://linkedin.com/in/diego-gustavo"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="footer-key">F6</span>LinkedIn
+          </a>
+        </div>
+        <div class="footer-right">
+          <span>Diego Gustavo Portfolio — v1.0.0</span>
+          <span>©&nbsp;2025</span>
+        </div>
+      </div>
+    </div>
 
-			function switchSection(section) {
-				currentSection = section;
+    <!-- MOBILE HAMBURGER -->
+    <button id="hamburger" aria-label="Menu">[ MENU ]</button>
+    <div id="mobile-menu">
+      <div class="mobile-menu-item active" data-section="about">[ About ]</div>
+      <div class="mobile-menu-item" data-section="skills">[ Skills ]</div>
+      <div class="mobile-menu-item" data-section="projects">[ Projects ]</div>
+      <div class="mobile-menu-item" data-section="contact">[ Contact ]</div>
+    </div>
 
-				document.querySelectorAll(".nav-tab").forEach((t) => {
-					t.classList.toggle("active", t.dataset.section === section);
-				});
-				document.querySelectorAll(".mobile-menu-item").forEach((t) => {
-					t.classList.toggle("active", t.dataset.section === section);
-				});
-
-				document.querySelectorAll(".section").forEach((s) => {
-					s.classList.toggle("active", s.id === "sec-" + section);
-				});
-
-				const titles = {
-					about: "▸ SYSTEM INFORMATION",
-					skills: "▸ INSTALLED COMPONENTS",
-					projects: "▸ PRIMARY MASTER — PROJECTS",
-					contact: "▸ CONTACT INTERFACES",
-				};
-				const titleEl = document.getElementById("left-panel-title");
-				if (titleEl) {
-					titleEl.textContent = titles[section] || "▸ " + section.toUpperCase();
-				}
-
-				if (section === "about") {
-					document
-						.querySelectorAll(".bios-row")
-						.forEach((r) => r.classList.remove("selected"));
-					const first = document.querySelector(".bios-row");
-					if (first) first.classList.add("selected");
-					setHelp(buildHelp(getBiosHelpData(0)));
-				}
-
-				if (section === "skills") {
-					const activeBtn = document.querySelector(".skill-cat-btn.active");
-					const cat = activeBtn ? activeBtn.dataset.cat : "programming";
-					renderSkillCategory(cat);
-				}
-
-				if (section === "projects") {
-					document
-						.querySelectorAll(".project-entry")
-						.forEach((r) => r.classList.remove("selected"));
-					const first = document.querySelector(".project-entry");
-					if (first) {
-						first.classList.add("selected");
-						const proj = getProjectById(first.dataset.project);
-						setHelp(buildHelp(getProjectHelpData(proj)));
-					}
-				}
-
-				if (section === "contact") {
-					document
-						.querySelectorAll(".contact-row")
-						.forEach((r) => r.classList.remove("selected"));
-					const first = document.querySelector(".contact-row");
-					if (first) first.classList.add("selected");
-					setHelp(buildHelp(helpTexts.contact));
-				}
-			}
-
-			function initInterface() {
-				// Render projects from data
-				renderProjects();
-
-				// Main tabs
-				document.querySelectorAll(".nav-tab").forEach((tab) => {
-					tab.addEventListener("click", () => {
-						switchSection(tab.dataset.section);
-						closeMobileMenu();
-					});
-				});
-
-				// Mobile menu
-				document.querySelectorAll(".mobile-menu-item").forEach((item) => {
-					item.addEventListener("click", () => {
-						switchSection(item.dataset.section);
-						closeMobileMenu();
-					});
-				});
-
-				// Skills category buttons
-				document.querySelectorAll(".skill-cat-btn").forEach((btn) => {
-					btn.addEventListener("click", () => {
-						renderSkillCategory(btn.dataset.cat);
-					});
-				});
-
-				// About bios rows
-				document.querySelectorAll(".bios-row").forEach((row, idx) => {
-					row.setAttribute("tabindex", "0");
-					row.addEventListener("mouseenter", () => {
-						document
-							.querySelectorAll(".bios-row")
-							.forEach((r) => r.classList.remove("selected"));
-						row.classList.add("selected");
-						setHelp(buildHelp(getBiosHelpData(idx)));
-					});
-				});
-
-				// Project rows
-				document.querySelectorAll(".project-entry").forEach((row) => {
-					row.addEventListener("click", (e) => {
-						if (
-							e.target.classList.contains("proj-link") ||
-							e.target.closest(".proj-link")
-						)
-							return;
-						document
-							.querySelectorAll(".project-entry")
-							.forEach((r) => r.classList.remove("selected"));
-						row.classList.add("selected");
-						const proj = getProjectById(row.dataset.project);
-						const data = getProjectHelpData(proj);
-						setHelp(buildHelp(data));
-						if (window.innerWidth <= 700) {
-							showModal(data);
-						}
-					});
-
-					row.addEventListener("mouseenter", () => {
-						document
-							.querySelectorAll(".project-entry")
-							.forEach((r) => r.classList.remove("selected"));
-						row.classList.add("selected");
-						const proj = getProjectById(row.dataset.project);
-						setHelp(buildHelp(getProjectHelpData(proj)));
-					});
-				});
-
-				// Contact rows
-				document.querySelectorAll(".contact-row").forEach((row) => {
-					row.addEventListener("mouseenter", () => {
-						document
-							.querySelectorAll(".contact-row")
-							.forEach((r) => r.classList.remove("selected"));
-						row.classList.add("selected");
-						const label = row
-							.querySelector(".contact-label")
-							.textContent.trim()
-							.toLowerCase();
-						if (contactHelpData[label]) {
-							setHelp(buildHelp(contactHelpData[label]));
-						}
-					});
-
-					row.addEventListener("mouseleave", () => {
-						setHelp(buildHelp(helpTexts.contact));
-					});
-				});
-
-				// Set default section
-				switchSection("about");
-
-				// Keyboard navigation
-				document.addEventListener("keydown", handleKeyboard);
-			}
-
-			// ═══════════════════════════════════════════════════════════════
-			// KEYBOARD NAVIGATION
-			// ═══════════════════════════════════════════════════════════════
-			function handleKeyboard(e) {
-				const key = e.key;
-
-				// Tab between main sections
-				if (key === "Tab") {
-					e.preventDefault();
-					const sections = ["about", "skills", "projects", "contact"];
-					const idx = sections.indexOf(currentSection);
-					const next =
-						sections[
-							(idx + (e.shiftKey ? sections.length - 1 : 1)) % sections.length
-						];
-					switchSection(next);
-					return;
-				}
-
-				// Arrow left/right to switch tabs
-				if (key === "ArrowLeft" || key === "ArrowRight") {
-					e.preventDefault();
-					const sections = ["about", "skills", "projects", "contact"];
-					const idx = sections.indexOf(currentSection);
-					const offset = key === "ArrowRight" ? 1 : -1;
-					const next =
-						sections[(idx + offset + sections.length) % sections.length];
-					switchSection(next);
-					return;
-				}
-
-				// Arrow up/down to navigate within sections
-				if (key === "ArrowDown" || key === "ArrowUp") {
-					e.preventDefault();
-					navigateRows(key);
-					return;
-				}
-
-				// Enter to activate selected items
-				if (key === "Enter") {
-					handleEnter(e);
-				}
-
-				// F5/F6 shortcuts
-				if (key === "F5") {
-					e.preventDefault();
-					window.open("https://github.com/diego-rodrigues-git", "_blank");
-				}
-				if (key === "F6") {
-					e.preventDefault();
-					window.open("https://linkedin.com/in/diego-gustavo", "_blank");
-				}
-			}
-
-			function navigateRows(key) {
-				let rows, sel, nextIdx;
-
-				if (currentSection === "about") {
-					rows = Array.from(document.querySelectorAll(".bios-row"));
-					sel = rows.findIndex((r) => r.classList.contains("selected"));
-					if (rows.length === 0) return;
-					nextIdx =
-						key === "ArrowDown"
-							? Math.min(sel + 1, rows.length - 1)
-							: Math.max(sel - 1, 0);
-					rows.forEach((r) => r.classList.remove("selected"));
-					rows[nextIdx].classList.add("selected");
-					rows[nextIdx].focus();
-					setHelp(buildHelp(getBiosHelpData(nextIdx)));
-				}
-
-				if (currentSection === "skills") {
-					rows = Array.from(document.querySelectorAll(".skill-row"));
-					sel = rows.findIndex((r) => r.classList.contains("selected"));
-					if (rows.length === 0) return;
-					nextIdx =
-						key === "ArrowDown"
-							? Math.min(sel + 1, rows.length - 1)
-							: Math.max(sel - 1, 0);
-					rows.forEach((r) => r.classList.remove("selected"));
-					rows[nextIdx].classList.add("selected");
-					rows[nextIdx].focus();
-					const cat = rows[nextIdx].dataset.cat;
-					const idx = parseInt(rows[nextIdx].dataset.idx);
-					const skill = skillCategories[cat][idx];
-					setHelp(buildHelp(getSkillHelpData(skill)));
-				}
-
-				if (currentSection === "projects") {
-					rows = Array.from(document.querySelectorAll(".project-entry"));
-					sel = rows.findIndex((r) => r.classList.contains("selected"));
-					if (rows.length === 0) return;
-					nextIdx =
-						key === "ArrowDown"
-							? Math.min(sel + 1, rows.length - 1)
-							: Math.max(sel - 1, 0);
-					rows.forEach((r) => r.classList.remove("selected"));
-					rows[nextIdx].classList.add("selected");
-					rows[nextIdx].focus();
-					const proj = getProjectById(rows[nextIdx].dataset.project);
-					setHelp(buildHelp(getProjectHelpData(proj)));
-				}
-
-				if (currentSection === "contact") {
-					rows = Array.from(document.querySelectorAll(".contact-row"));
-					sel = rows.findIndex((r) => r.classList.contains("selected"));
-					if (rows.length === 0) return;
-					nextIdx =
-						key === "ArrowDown"
-							? Math.min(sel + 1, rows.length - 1)
-							: Math.max(sel - 1, 0);
-					rows.forEach((r) => r.classList.remove("selected"));
-					rows[nextIdx].classList.add("selected");
-					rows[nextIdx].focus();
-					const label = rows[nextIdx]
-						.querySelector(".contact-label")
-						.textContent.trim()
-						.toLowerCase();
-					if (contactHelpData[label]) {
-						setHelp(buildHelp(contactHelpData[label]));
-					}
-				}
-			}
-
-			function handleEnter(e) {
-				if (currentSection === "projects") {
-					const activeProj = document.querySelector(".project-entry.selected");
-					if (activeProj) {
-						const link = activeProj.querySelector(".proj-link");
-						if (link) {
-							e.preventDefault();
-							window.open(link.href, "_blank");
-						}
-					}
-				}
-				if (currentSection === "contact") {
-					const activeContact = document.querySelector(".contact-row.selected");
-					if (activeContact) {
-						e.preventDefault();
-						window.open(activeContact.href, activeContact.target || "_self");
-					}
-				}
-			}
-
-			// ═══════════════════════════════════════════════════════════════
-			// MOBILE MENU & MODAL
-			// ═══════════════════════════════════════════════════════════════
-			const hamburger = document.getElementById("hamburger");
-			const mobileMenu = document.getElementById("mobile-menu");
-			hamburger.addEventListener("click", () => {
-				mobileMenu.classList.toggle("open");
-			});
-
-			function closeMobileMenu() {
-				mobileMenu.classList.remove("open");
-			}
-
-			document.addEventListener("click", (e) => {
-				if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-					closeMobileMenu();
-				}
-			});
-
-			function showModal(data) {
-				if (!data) return;
-				let html = "";
-				if (data.title)
-					html += `<div style="font-weight:700;margin-bottom:8px;font-size:13px;letter-spacing:1px">▸ ${data.title}</div>`;
-				if (data.body)
-					html += `<div style="font-size:12px;white-space:pre-wrap;line-height:1.9">${data.body}</div>`;
-				if (data.link)
-					html += `<br><a href="${data.link}" target="_blank" rel="noopener" style="color:#adf;font-size:11px">[ Ver no GitHub ↗ ]</a>`;
-				document.getElementById("modal-content").innerHTML = html;
-				document.getElementById("detail-modal").classList.add("open");
-			}
-
-			document.getElementById("modal-close").addEventListener("click", () => {
-				document.getElementById("detail-modal").classList.remove("open");
-			});
-			document.getElementById("detail-modal").addEventListener("click", (e) => {
-				if (e.target === document.getElementById("detail-modal")) {
-					document.getElementById("detail-modal").classList.remove("open");
-				}
-			});
-		</script>
-	</body>
+    <!-- DETAIL MODAL (mobile) -->
+    <div id="detail-modal">
+      <div class="modal-box">
+        <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+        <div id="modal-content"></div>
+      </div>
+    </div>
+    <script src="js/scripts.js"></script>
+  </body>
 </html>

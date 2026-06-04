@@ -1,0 +1,10 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "npx sass css/style.scss css/style.css --style=compressed",
+    "build": "npm run build:css"
+  },
+  "devDependencies": {}
+}
