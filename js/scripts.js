@@ -3,10 +3,56 @@
 
 const i18n = {
     en: {
+        meta: {
+            title: "Portfolio - Diego Gustavo",
+            description: "Diego Gustavo - Portfolio of a full-stack web developer with projects, skills and contact links.",
+            keywords: "Diego Gustavo, portfolio, full-stack web developer, JavaScript, TypeScript, React, Node.js, PHP, MySQL",
+            image_alt: "Diego Gustavo portfolio logo",
+            locale: "en_US",
+        },
+        seo: {
+            summary_title: "Diego Gustavo portfolio summary",
+            summary_body:
+                "Portfolio of Diego Gustavo, a full-stack web developer, with project links, skills and contact channels.",
+        },
+        a11y: {
+            skip_content: "Skip to main content",
+            sections_label: "Portfolio sections",
+            skill_categories_label: "Skill categories",
+            language_toggle: "Change language",
+            current_section: "Current section: {section}",
+        },
         header: { made_by: "MADE BY: DIEGO GUSTAVO" },
+        nav: {
+            about: "About",
+            skills: "Skills",
+            projects: "Projects",
+            contact: "Contact",
+            mobile: {
+                about: "[ About ]",
+                skills: "[ Skills ]",
+                projects: "[ Projects ]",
+                contact: "[ Contact ]",
+            },
+        },
+        boot: {
+            product: "Diego Gustavo Portfolio  —  v1.0.0",
+            copyright: "Copyright (C) 2025, Diego Gustavo",
+            role: "Full-stack Web Developer (Student)",
+            memory: "Memory Testing    : Skills loaded... OK",
+            projects: "Primary Master    : Projects loaded... OK",
+            repository: "Primary Slave     : GitHub Repository",
+            initializing: "Initializing interface............. OK",
+            loading: "Loading portfolio.................. OK",
+        },
         boot_skip: "[ Press any key or click to skip ]",
         modal_close: "Close",
-        about: { navigation: "Use Tab or the ← → arrows to switch sections." },
+        menu: "[ MENU ]",
+        menu_label: "Menu",
+        about: {
+            navigation: "Use Tab to switch sections. In Skills, use ← → to switch categories.",
+            contrast: { label: "Theme", toggle: "High Contrast", enabled: "Enabled", disabled: "Disabled" },
+        },
         skills: {
             header: "▸ INSTALLED COMPONENTS & EXPERIENCE LEVEL",
             cat: {
@@ -23,11 +69,15 @@ const i18n = {
         memory: { testing: "▸ MEMORY TESTING : All skills loaded... OK" },
         projects: {
             header: "▸ PRIMARY MASTER : {count} entries found",
+            panel_title: "▸ PRIMARY MASTER",
+            details: "[ Details ]",
+            tech_label: "Technologies",
             view_on_github: "[ View on GitHub ↗ ]",
         },
         contact: {
             header: "▸ SYSTEM INTERFACES — select an item to open",
             label: { github: "GitHub", linkedin: "LinkedIn", email: "Email" },
+            status: "▸ All interfaces : Online — click to connect",
         },
         bios: {
             label: { name: "Name", role: "Role", location: "Location", bio: "Bio" },
@@ -40,11 +90,12 @@ const i18n = {
             },
         },
         help: {
+            panel_title: "▸ HELP",
             about: {
                 title: "SYSTEM INFORMATION",
                 body:
-                    "This panel shows personal and professional information about the developer.\n\nUse the ← → arrows or Tab to switch portfolio sections.\n\nUse ↑ ↓ to explore items inside each panel.",
-                tip: "← → or Tab to switch sections",
+                    "This panel shows personal and professional information about the developer.\n\nUse Tab to switch portfolio sections.\n\nUse ↑ ↓ to explore items inside each panel.",
+                tip: "Tab to switch sections",
             },
             contact: {
                 title: "CONTACT INTERFACES",
@@ -66,13 +117,65 @@ const i18n = {
                 tip: "↑↓ to navigate skills",
             },
         },
-        footer: { navigate: "Navigate", section: "Section", select: "Select" },
+        footer: {
+            navigate: "Navigate",
+            section: "Section",
+            select: "Select",
+            right_text: "Diego Gustavo Portfolio — v1.0.0",
+            copyright: "© 2025",
+        },
     },
     pt: {
+        meta: {
+            title: "Portfólio - Diego Gustavo",
+            description: "Diego Gustavo - Portfólio de um desenvolvedor web full-stack com projetos, habilidades e contatos.",
+            keywords: "Diego Gustavo, portfólio, desenvolvedor web full-stack, JavaScript, TypeScript, React, Node.js, PHP, MySQL",
+            image_alt: "Logo do portfólio de Diego Gustavo",
+            locale: "pt_BR",
+        },
+        seo: {
+            summary_title: "Resumo do portfólio de Diego Gustavo",
+            summary_body:
+                "Portfólio de Diego Gustavo, desenvolvedor web full-stack, com links de projetos, habilidades e canais de contato.",
+        },
+        a11y: {
+            skip_content: "Ir para o conteúdo principal",
+            sections_label: "Seções do portfólio",
+            skill_categories_label: "Categorias de habilidades",
+            language_toggle: "Alternar idioma",
+            current_section: "Seção atual: {section}",
+        },
         header: { made_by: "FEITO POR: DIEGO GUSTAVO" },
+        nav: {
+            about: "Sobre",
+            skills: "Habilidades",
+            projects: "Projetos",
+            contact: "Contato",
+            mobile: {
+                about: "[ Sobre ]",
+                skills: "[ Habilidades ]",
+                projects: "[ Projetos ]",
+                contact: "[ Contato ]",
+            },
+        },
+        boot: {
+            product: "Portfólio Diego Gustavo  —  v1.0.0",
+            copyright: "Copyright (C) 2025, Diego Gustavo",
+            role: "Desenvolvedor Web Full-stack (Estudante)",
+            memory: "Teste de Memória  : Habilidades carregadas... OK",
+            projects: "Disco Primário    : Projetos carregados... OK",
+            repository: "Disco Secundário  : Repositório GitHub",
+            initializing: "Inicializando interface............ OK",
+            loading: "Carregando portfólio............... OK",
+        },
         boot_skip: "[ Pressione qualquer tecla ou clique para pular ]",
         modal_close: "Fechar",
-        about: { navigation: "Use Tab ou as setas ← → para alternar entre seções." },
+        menu: "[ MENU ]",
+        menu_label: "Menu",
+        about: {
+            navigation: "Use Tab para alternar seções. Em Habilidades, use ← → para alternar categorias.",
+            contrast: { label: "Tema", toggle: "Alto Contraste", enabled: "Ativado", disabled: "Desativado" },
+        },
         skills: {
             header: "▸ COMPONENTES INSTALADOS & NÍVEL DE EXPERIÊNCIA",
             cat: {
@@ -86,9 +189,19 @@ const i18n = {
                 ai: "IA / ML",
             },
         },
-        memory: { testing: "▸ MEMORY TESTING : All skills loaded... OK" },
-        projects: { header: "▸ PRIMARY MASTER : {count} entradas encontradas", view_on_github: "[ Ver no GitHub ↗ ]" },
-        contact: { header: "▸ SYSTEM INTERFACES — selecione um item para abrir", label: { github: "GitHub", linkedin: "LinkedIn", email: "Email" } },
+        memory: { testing: "▸ TESTE DE MEMÓRIA : Todas as skills carregadas... OK" },
+        projects: {
+            header: "▸ DISCO PRIMÁRIO : {count} entradas encontradas",
+            panel_title: "▸ DISCO PRIMÁRIO",
+            details: "[ Detalhes ]",
+            tech_label: "Tecnologias",
+            view_on_github: "[ Ver no GitHub ↗ ]",
+        },
+        contact: {
+            header: "▸ INTERFACES DO SISTEMA — selecione um item para abrir",
+            label: { github: "GitHub", linkedin: "LinkedIn", email: "Email" },
+            status: "▸ Todas as interfaces : Online — clique para conectar",
+        },
         bios: {
             label: { name: "Nome", role: "Função", location: "Localização", bio: "Bio" },
             value: {
@@ -100,11 +213,12 @@ const i18n = {
             },
         },
         help: {
+            panel_title: "▸ AJUDA",
             about: {
                 title: "INFORMAÇÕES DO SISTEMA",
                 body:
-                    "Este painel exibe informações pessoais e profissionais do desenvolvedor.\n\nUse as setas ← → ou Tab para mudar as seções do portfólio.\n\nUse ↑ ↓ para explorar os itens dentro de cada painel.",
-                tip: "← → ou Tab para mudar de seção",
+                    "Este painel exibe informações pessoais e profissionais do desenvolvedor.\n\nUse Tab para mudar as seções do portfólio.\n\nUse ↑ ↓ para explorar os itens dentro de cada painel.",
+                tip: "Tab para mudar de seção",
             },
             contact: {
                 title: "INTERFACES DE CONTATO",
@@ -115,9 +229,30 @@ const i18n = {
         },
         levels: { advanced: "Avançado", intermediate: "Intermediário", basic_intermediate: "Básico-Intermediário", beginner: "Estudante / Iniciante" },
         skill: { help: { experience_label: "Nível de Experiência", component_type_label: "Tipo de Componente", tip: "↑↓ para navegar nas skills" } },
-        footer: { navigate: "Navegar", section: "Seção", select: "Selecionar" },
+        footer: {
+            navigate: "Navegar",
+            section: "Seção",
+            select: "Selecionar",
+            right_text: "Portfólio Diego Gustavo — v1.0.0",
+            copyright: "© 2025",
+        },
     },
 };
+
+const SITE_URL = "https://diego-rodrigues-git.github.io/portfolio/";
+const SITE_IMAGE = `${SITE_URL}img/logo.png`;
+
+const STORAGE_KEYS = Object.freeze({
+    lang: "site_lang",
+    highContrast: "high_contrast",
+});
+
+const SECTION_ORDER = Object.freeze(["about", "skills", "projects", "contact"]);
+const DEFAULT_SECTION = "about";
+
+let currentSection = DEFAULT_SECTION;
+let interfaceInitialized = false;
+let lastFocusedElement = null;
 
 /*
   Recupera a linguagem atual do site.
@@ -125,7 +260,8 @@ const i18n = {
   - Valor padrão: 'en' (inglês) quando não há preferência salva.
 */
 function getCurrentLang() {
-    return localStorage.getItem("site_lang") || "en";
+    const lang = readStorage(STORAGE_KEYS.lang, "en");
+    return i18n[lang] ? lang : "en";
 }
 
 /*
@@ -135,11 +271,92 @@ function getCurrentLang() {
     (projetos, título da seção atual) para refletir o novo idioma.
 */
 function setCurrentLang(lang) {
-    localStorage.setItem("site_lang", lang);
+    if (!i18n[lang]) return;
+    writeStorage(STORAGE_KEYS.lang, lang);
     applyTranslations();
-    // re-render dynamic content
     renderProjects();
     switchSection(currentSection);
+}
+
+function readStorage(key, fallback = "") {
+    try {
+        return localStorage.getItem(key) || fallback;
+    } catch (error) {
+        return fallback;
+    }
+}
+
+function writeStorage(key, value) {
+    try {
+        localStorage.setItem(key, value);
+    } catch (error) {
+        // Private browsing and strict browser settings can block localStorage.
+    }
+}
+
+function setMeta(selector, attribute, value) {
+    const el = document.querySelector(selector);
+    if (el) el.setAttribute(attribute, value);
+}
+
+function getStructuredData() {
+    const lang = getCurrentLang();
+
+    return {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        name: t("meta.title"),
+        url: SITE_URL,
+        description: t("meta.description"),
+        inLanguage: lang === "pt" ? "pt-BR" : "en",
+        image: SITE_IMAGE,
+        mainEntity: {
+            "@type": "Person",
+            name: "Diego Gustavo",
+            jobTitle: lang === "pt" ? "Desenvolvedor Web Full-stack" : "Full-stack Web Developer",
+            url: SITE_URL,
+            image: SITE_IMAGE,
+            sameAs: [
+                "https://github.com/diego-rodrigues-git",
+                "https://linkedin.com/in/diego-gustavo",
+            ],
+            knowsAbout: [
+                "JavaScript",
+                "TypeScript",
+                "React",
+                "Node.js",
+                "PHP",
+                "MySQL",
+                "Web Development",
+            ],
+        },
+    };
+}
+
+function announceStatus(message) {
+    const status = document.getElementById("sr-status");
+    if (!status || !message) return;
+
+    status.textContent = "";
+    window.setTimeout(() => {
+        status.textContent = message;
+    }, 20);
+}
+
+function focusMainContent() {
+    const target = document.getElementById("left-panel-body");
+    if (!target || typeof target.focus !== "function") return;
+
+    try {
+        target.focus({ preventScroll: true });
+    } catch (error) {
+        target.focus();
+    }
+}
+
+function getSectionLabel(section) {
+    const tab = document.querySelector(`.nav-tab[data-section="${section}"]`);
+    return tab ? tab.textContent.trim() : section;
 }
 
 /*
@@ -166,6 +383,28 @@ function t(key) {
   - Projetado para ser idempotente: pode ser chamado sempre que a linguagem mudar.
 */
 function applyTranslations() {
+    const lang = getCurrentLang();
+    document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+    document.title = t("meta.title");
+
+    setMeta('meta[name="description"]', "content", t("meta.description"));
+    setMeta('meta[name="keywords"]', "content", t("meta.keywords"));
+    setMeta('link[rel="canonical"]', "href", SITE_URL);
+    setMeta('meta[property="og:title"]', "content", t("meta.title"));
+    setMeta('meta[property="og:description"]', "content", t("meta.description"));
+    setMeta('meta[property="og:url"]', "content", SITE_URL);
+    setMeta('meta[property="og:image"]', "content", SITE_IMAGE);
+    setMeta('meta[property="og:image:alt"]', "content", t("meta.image_alt"));
+    setMeta('meta[property="og:locale"]', "content", t("meta.locale"));
+    setMeta('meta[property="og:locale:alternate"]', "content", lang === "pt" ? "en_US" : "pt_BR");
+    setMeta('meta[name="twitter:title"]', "content", t("meta.title"));
+    setMeta('meta[name="twitter:description"]', "content", t("meta.description"));
+    setMeta('meta[name="twitter:image"]', "content", SITE_IMAGE);
+    setMeta('meta[name="twitter:image:alt"]', "content", t("meta.image_alt"));
+
+    const structuredData = document.getElementById("structured-data");
+    if (structuredData) structuredData.textContent = JSON.stringify(getStructuredData());
+
     document.querySelectorAll("[data-i18n]").forEach((el) => {
         const key = el.getAttribute("data-i18n");
         if (key) el.textContent = t(key);
@@ -178,25 +417,45 @@ function applyTranslations() {
     if (modalClose) modalClose.setAttribute("aria-label", t("modal_close"));
 
     const langToggle = document.getElementById("lang-toggle");
-    if (langToggle) langToggle.textContent = getCurrentLang().toUpperCase();
+    if (langToggle) {
+        langToggle.textContent = getCurrentLang().toUpperCase();
+        langToggle.setAttribute("aria-label", t("a11y.language_toggle"));
+    }
+
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenuEl = document.getElementById("mobile-menu");
+    if (hamburger) {
+        hamburger.setAttribute("aria-label", t("menu_label"));
+        hamburger.setAttribute("aria-controls", "mobile-menu");
+        hamburger.setAttribute("aria-expanded", mobileMenuEl && mobileMenuEl.classList.contains("open") ? "true" : "false");
+    }
+    if (mobileMenuEl) mobileMenuEl.setAttribute("aria-label", t("a11y.sections_label"));
+
+    const header = document.getElementById("header");
+    if (header) header.setAttribute("aria-label", t("a11y.sections_label"));
+
+    const skillCategoriesEl = document.querySelector(".skill-category-buttons");
+    if (skillCategoriesEl) skillCategoriesEl.setAttribute("aria-label", t("a11y.skill_categories_label"));
+
+    updateHighContrastControl(document.body.classList.contains("high-contrast") || readStorage(STORAGE_KEYS.highContrast) === "1");
 }
 
 // Boot animation lines
-const bootLines = [
-    { text: "" },
-    { text: "Diego Gustavo Portfolio  —  v1.0.0" },
-    { text: "Copyright (C) 2025, Diego Gustavo" },
-    { text: "" },
-    { text: "Full-stack Web Developer (Student)" },
-    { text: "" },
-    { text: "Memory Testing    : Skills loaded... OK" },
-    { text: "Primary Master    : Projects loaded... OK" },
-    { text: "Primary Slave     : GitHub Repository" },
-    { text: "" },
-    { text: "Initializing interface............. OK" },
-    { text: "Loading portfolio.................. OK" },
-    { text: "" },
-    { text: t("boot_skip") },
+const bootLineKeys = [
+    "",
+    "boot.product",
+    "boot.copyright",
+    "",
+    "boot.role",
+    "",
+    "boot.memory",
+    "boot.projects",
+    "boot.repository",
+    "",
+    "boot.initializing",
+    "boot.loading",
+    "",
+    "boot_skip",
 ];
 
 const bootEl = document.getElementById("boot-screen");
@@ -214,19 +473,20 @@ let booted = false;
     let currentLine = 0;
     function printNextLine() {
         if (booted) return;
-        if (currentLine >= bootLines.length) {
+        if (currentLine >= bootLineKeys.length) {
             setTimeout(launchMain, 600);
             return;
         }
-        const line = bootLines[currentLine];
+        const lineKey = bootLineKeys[currentLine];
+        const lineText = lineKey ? t(lineKey) : "";
         const el = document.createElement("div");
         el.className = "boot-line";
-        if (line.text === "") el.innerHTML = "&nbsp;";
+        if (lineText === "") el.innerHTML = "&nbsp;";
         else {
-            if (line.text.includes("OK")) {
-                const parts = line.text.split("OK");
+            if (lineText.includes("OK")) {
+                const parts = lineText.split("OK");
                 el.innerHTML = parts[0] + '<span class="status-ok">OK</span>' + (parts[1] || "");
-            } else el.textContent = line.text;
+            } else el.textContent = lineText;
         }
         if (bootLinesEl) bootLinesEl.appendChild(el);
         currentLine++;
@@ -235,6 +495,28 @@ let booted = false;
     }
     printNextLine();
 })();
+
+if (bootEl) {
+    bootEl.addEventListener("click", launchMain);
+}
+
+document.addEventListener(
+    "keydown",
+    () => {
+        if (!booted) launchMain();
+    },
+    { once: true }
+);
+
+const skipLink = document.querySelector(".skip-link");
+if (skipLink) {
+    skipLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        const wasBooted = booted;
+        if (!booted) launchMain();
+        window.setTimeout(focusMainContent, wasBooted ? 0 : 700);
+    });
+}
 
 /*
 Faz a transição da tela de boot para a interface principal.
@@ -249,22 +531,15 @@ function launchMain() {
     setTimeout(() => {
         if (bootEl) bootEl.classList.add("hidden");
         const main = document.getElementById("main-interface");
-        if (main) main.classList.add("visible");
+        if (main) {
+            main.classList.add("visible");
+            main.setAttribute("aria-hidden", "false");
+        }
         initInterface();
     }, 650);
 }
 
-// LANG TOGGLE
-{
-    const toggle = document.getElementById("lang-toggle");
-    if (toggle) {
-        toggle.addEventListener("click", () => {
-            const cur = getCurrentLang();
-            setCurrentLang(cur === "en" ? "pt" : "en");
-        });
-    }
-    applyTranslations();
-}
+applyTranslations();
 
 // ===== SKILLS DATA (each item now has desc_en + type_en where appropriate) =====
 const skillCategories = {
@@ -640,47 +915,43 @@ function renderSkillCategory(catKey) {
     const content = document.getElementById("skill-category-content");
     const category = skillCategories[catKey];
     if (!content) return;
+
     if (!category) {
         content.innerHTML = "";
         return;
     }
+
     document.querySelectorAll(".skill-cat-btn").forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.cat === catKey);
+        const isActive = btn.dataset.cat === catKey;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("role", "tab");
+        btn.setAttribute("aria-selected", isActive ? "true" : "false");
+        btn.setAttribute("aria-controls", "skill-category-content");
+        btn.setAttribute("tabindex", isActive ? "0" : "-1");
     });
-    let html = "";
-    category.forEach((skill, idx) => {
-        html += `
-      <div class="skill-row" data-cat="${catKey}" data-idx="${idx}" tabindex="0">
-        <span class="skill-name">${skill.name}</span>
-        <div class="skill-bar-wrap">
-          <span class="skill-bar">${getProgressBar(skill.level)}</span>
-        </div>
-        <span class="skill-pct">${skill.level}%</span>
-        <span class="skill-badge">${getCurrentLang() === 'en' ? (skill.type_en || skill.type) : skill.type}</span>
-      </div>
-    `;
-    });
-    content.innerHTML = html;
+
+    content.innerHTML = category
+        .map((skill, idx) => {
+            const type = getCurrentLang() === "en" ? skill.type_en || skill.type : skill.type;
+
+            return `
+                <div class="skill-row" data-cat="${catKey}" data-idx="${idx}" tabindex="0" role="listitem" aria-label="${escapeAttribute(`${skill.name}, ${skill.level}%, ${type}`)}">
+                    <span class="skill-name">${escapeHtml(skill.name)}</span>
+                    <div class="skill-bar-wrap">
+                        <span class="skill-bar">${getProgressBar(skill.level)}</span>
+                    </div>
+                    <span class="skill-pct">${skill.level}%</span>
+                    <span class="skill-badge">${escapeHtml(type)}</span>
+                </div>
+            `;
+        })
+        .join("");
+
     const rows = content.querySelectorAll(".skill-row");
-    rows.forEach((row) => {
-        row.addEventListener("click", () => {
-            rows.forEach((r) => r.classList.remove("selected"));
-            row.classList.add("selected");
-            const skill = skillCategories[row.dataset.cat][row.dataset.idx];
-            const helpData = getSkillHelpData(skill);
-            setHelp(buildHelp(helpData));
-            if (window.innerWidth <= 700) showModal(helpData);
-        });
-        row.addEventListener("mouseenter", () => {
-            rows.forEach((r) => r.classList.remove("selected"));
-            row.classList.add("selected");
-            const skill = skillCategories[row.dataset.cat][row.dataset.idx];
-            setHelp(buildHelp(getSkillHelpData(skill)));
-        });
-    });
-    if (rows.length > 0) {
+    if (rows.length) {
         rows[0].classList.add("selected");
-        setHelp(buildHelp(getSkillHelpData(category[0])));
+        rows[0].setAttribute("aria-current", "true");
+        setHelp(buildHelp(getSkillHelpData(category[0])), { forcePanel: true });
     }
 }
 
@@ -697,6 +968,7 @@ const projectsData = [
         description_en:
             "Project developed during the Full Stack with React track at Alura.\n\nA travel agency interface built with functional React components, modern CSS styling and good componentization practices.",
         techs: "React, CSS, JavaScript",
+        images: [],
     },
     {
         id: "culturama",
@@ -709,6 +981,7 @@ const projectsData = [
         description_en:
             "Cultural research application developed with React at Alura.\n\nIncludes search and filter features for cultural content with a responsive interface.",
         techs: "React, JavaScript, CSS",
+        images: [],
     },
     {
         id: "tecboard",
@@ -721,6 +994,7 @@ const projectsData = [
         description_en:
             "A technical tasks/content organization board. Project developed during the Full Stack with React track at Alura.",
         techs: "React, JavaScript, CSS",
+        images: [],
     },
     {
         id: "galarts",
@@ -733,6 +1007,7 @@ const projectsData = [
         description_en:
             "Art gallery developed during the Internet Computing Technician course at ETEC Fernando Prestes.\n\nFinal project focused on design and visual presentation of artworks.",
         techs: "HTML, CSS, JavaScript",
+        images: [],
     },
 ];
 
@@ -748,20 +1023,26 @@ function renderProjects() {
     const header = document.getElementById("projects-header");
     if (header) header.textContent = t("projects.header").replace("{count}", projectsData.length);
     if (!container) return;
-    let html = "";
-    projectsData.forEach((proj, idx) => {
-        html += `
-      <div class="project-entry${idx === 0 ? " selected" : ""}" data-project="${proj.id}" tabindex="0">
-        <span class="proj-arrow">▶</span>
-        <div class="proj-body">
-          <div class="proj-name">${proj.name}</div>
-          <div class="proj-sub">${getCurrentLang() === 'en' && proj.subtitle_en ? proj.subtitle_en : proj.subtitle}</div>
-          <a class="proj-link" href="${proj.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()">${t('projects.view_on_github')}</a>
-        </div>
-      </div>
-    `;
-    });
-    container.innerHTML = html;
+
+    container.innerHTML = projectsData
+        .map((proj, idx) => {
+            const subtitle = getCurrentLang() === "en" && proj.subtitle_en ? proj.subtitle_en : proj.subtitle;
+
+            return `
+                <div class="project-entry${idx === 0 ? " selected" : ""}" data-project="${escapeAttribute(proj.id)}" tabindex="0" role="listitem"${idx === 0 ? ' aria-current="true"' : ""} aria-label="${escapeAttribute(`${proj.name}. ${subtitle}. ${proj.techs}`)}">
+                    <span class="proj-arrow">▶</span>
+                    <div class="proj-body">
+                        <div class="proj-name">${escapeHtml(proj.name)}</div>
+                        <div class="proj-sub">${escapeHtml(subtitle)}</div>
+                        <div class="proj-actions">
+                            <button class="proj-action proj-details" type="button" aria-label="${escapeAttribute(`${t("projects.details")} ${proj.name}`)}">${t("projects.details")}</button>
+                            <a class="proj-action proj-link" href="${escapeAttribute(proj.link)}" target="_blank" rel="noopener" aria-label="${escapeAttribute(`${t("projects.view_on_github")} ${proj.name}`)}">${t("projects.view_on_github")}</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        })
+        .join("");
 }
 
 /*
@@ -770,13 +1051,28 @@ function renderProjects() {
   - Retorna um objeto com title, body e link usado por buildHelp/showModal.
 */
 function getProjectHelpData(proj) {
+    if (!proj) return null;
     const lang = getCurrentLang();
     const desc = lang === "en" && proj.description_en ? proj.description_en : proj.description;
     const subtitle = lang === "en" && proj.subtitle_en ? proj.subtitle_en : proj.subtitle;
     return {
         title: proj.name,
-        body: `${subtitle}\n\n${desc}\n\nTecnologias: ${proj.techs}`,
+        body: `${subtitle}\n\n${desc}\n\n${t("projects.tech_label")}: ${proj.techs}`,
         link: proj.link,
+    };
+}
+
+function getProjectDetailData(proj) {
+    if (!proj) return null;
+
+    const base = getProjectHelpData(proj);
+    const lang = getCurrentLang();
+    const details = lang === "en" && proj.details_en ? proj.details_en : proj.details;
+
+    return {
+        ...base,
+        body: details || base.body,
+        images: Array.isArray(proj.images) ? proj.images : [],
     };
 }
 
@@ -790,13 +1086,13 @@ function getProjectById(id) {
 // HELP content (PT originals)
 const helpTexts = {
     about: {
-        title: "SYSTEM INFORMATION",
+        title: "INFORMAÇÕES DO SISTEMA",
         body:
-            "Este painel exibe informações pessoais e profissionais do desenvolvedor.\n\nUse as setas ← → para navegar entre as seções do portfólio.\n\nUse as setas ↑ ↓ para explorar os itens de cada painel.",
-        tip: "← → ou Tab para mudar de seção",
+            "Este painel exibe informações pessoais e profissionais do desenvolvedor.\n\nUse Tab para navegar entre as seções do portfólio.\n\nUse as setas ↑ ↓ para explorar os itens de cada painel.",
+        tip: "Tab para mudar de seção",
     },
     contact: {
-        title: "CONTACT INTERFACES",
+        title: "INTERFACES DE CONTATO",
         body:
             "Selecione um dos canais de comunicação abaixo para se conectar.\n\nDisponível para freelance, projetos open-source e propostas profissionais.",
         tip: "Enter ou clique para abrir no navegador",
@@ -804,16 +1100,16 @@ const helpTexts = {
 };
 
 const biosHelpData = [
-    { title: "DEVELOPER NAME", body: "Nome do desenvolvedor:\n\nDiego Gustavo.", tip: "Use as setas ↑↓ para navegar nos itens" },
-    { title: "PROFESSIONAL ROLE", body: "Atuação principal:\n\nDesenvolvedor Web Full-stack (Estudante). Foco em construir projetos reativos, dinâmicos e eficientes.", tip: "Use as setas ↑↓ para navegar nos itens" },
-    { title: "GEOGRAPHIC LOCATION", body: "Localização de residência:\n\nBrasil (Sorocaba - SP). Disponível para posições presenciais, híbridas ou remotas.", tip: "Use as setas ↑↓ para navegar nos itens" },
-    { title: "BIOGRAPHY SUMMARY", body: "Breve biografia:\n\nApaixonado por tecnologia e desenvolvimento web, buscando crescimento profissional contínuo por meio de desafios reais.", tip: "Use as setas ↑↓ para navegar nos itens" },
+    { title: "NOME DO DESENVOLVEDOR", body: "Nome do desenvolvedor:\n\nDiego Gustavo.", tip: "Use as setas ↑↓ para navegar nos itens" },
+    { title: "ATUAÇÃO PROFISSIONAL", body: "Atuação principal:\n\nDesenvolvedor Web Full-stack (Estudante). Foco em construir projetos reativos, dinâmicos e eficientes.", tip: "Use as setas ↑↓ para navegar nos itens" },
+    { title: "LOCALIZAÇÃO GEOGRÁFICA", body: "Localização de residência:\n\nBrasil (Sorocaba - SP). Disponível para posições presenciais, híbridas ou remotas.", tip: "Use as setas ↑↓ para navegar nos itens" },
+    { title: "RESUMO BIOGRÁFICO", body: "Breve biografia:\n\nApaixonado por tecnologia e desenvolvimento web, buscando crescimento profissional contínuo por meio de desafios reais.", tip: "Use as setas ↑↓ para navegar nos itens" },
 ];
 
 const contactHelpData = {
-    github: { title: "GitHub Interface", body: "Acesse meu perfil do GitHub para conferir repositórios de código aberto, projetos pessoais e contribuições em andamento.\n\nLink: github.com/diego-rodrigues-git", tip: "Enter ou clique para abrir no navegador" },
-    linkedin: { title: "LinkedIn Interface", body: "Conecte-se comigo no LinkedIn para networking, discussões profissionais e oportunidades de carreira.\n\nLink: linkedin.com/in/diego-gustavo", tip: "Enter ou clique para abrir no navegador" },
-    email: { title: "Email Interface", body: "Envie uma mensagem direta para meu e-mail profissional para propostas de projetos, contratações ou dúvidas.\n\nEndereço: diego.gda.rodrigues@gmail.com", tip: "Enter ou clique para enviar e-mail" },
+    github: { title: "Interface GitHub", body: "Acesse meu perfil do GitHub para conferir repositórios de código aberto, projetos pessoais e contribuições em andamento.\n\nLink: github.com/diego-rodrigues-git", tip: "Enter ou clique para abrir no navegador" },
+    linkedin: { title: "Interface LinkedIn", body: "Conecte-se comigo no LinkedIn para networking, discussões profissionais e oportunidades de carreira.\n\nLink: linkedin.com/in/diego-gustavo", tip: "Enter ou clique para abrir no navegador" },
+    email: { title: "Interface de Email", body: "Envie uma mensagem direta para meu e-mail profissional para propostas de projetos, contratações ou dúvidas.\n\nEndereço: diego.gda.rodrigues@gmail.com", tip: "Enter ou clique para enviar e-mail" },
 };
 
 // English variants
@@ -843,14 +1139,36 @@ function getBiosHelpData(idx) {
     return getCurrentLang() === "en" ? biosHelpDataEn[idx] || helpTextsEn.about : biosHelpData[idx] || helpTexts.about;
 }
 
+function getPanelTitle(section) {
+    if (section === "about") return `▸ ${getHelpSlot("about").title}`;
+    if (section === "skills") return t("skills.header");
+    if (section === "projects") return t("projects.panel_title");
+    if (section === "contact") return `▸ ${getHelpSlot("contact").title}`;
+    return `▸ ${String(section).toUpperCase()}`;
+}
+
 /*
   Escapa texto para inserção segura em HTML.
   - Substitui caracteres especiais por entidades e converte quebras de linha em <br>.
   - Usada para evitar injeção simples quando construímos HTML dinamicamente.
 */
+function escapeText(s) {
+    if (s === null || s === undefined) return "";
+
+    return String(s)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
 function escapeHtml(s) {
-    if (!s) return "";
-    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\"/g, "&quot;").replace(/\'/g, "&#039;").replace(/\n/g, "<br>");
+    return escapeText(s).replace(/\n/g, "<br>");
+}
+
+function escapeAttribute(s) {
+    return escapeText(s);
 }
 
 /*
@@ -867,17 +1185,18 @@ function escapeHtml(s) {
   - Detectamos isso com isHelpMispositioned() e preferimos abrir um modal centrado,
     que é mais confiável e acessível em dispositivos com ponteiros 'coarse' (touch).
 */
-function setHelp(html) {
+function setHelp(html, options = {}) {
     const helpEl = document.getElementById("help-body");
-    const detailModal = document.getElementById("detail-modal");
-    // if the help panel is hidden, too small, or on touch devices, show help in modal
-    if (typeof isHelpMispositioned === "function" && isHelpMispositioned()) {
-        const modalContent = document.getElementById("modal-content");
-        if (modalContent) modalContent.innerHTML = html;
-        if (detailModal) detailModal.classList.add("open");
+    const forcePanel = !!options.forcePanel;
+    const allowModal = options.allowModal !== undefined ? !!options.allowModal : true;
+
+    if (!forcePanel && allowModal && isHelpMispositioned()) {
+        openModalHtml(html);
         return;
     }
+
     if (helpEl) helpEl.innerHTML = html;
+    closeModal({ restoreFocus: false });
 }
 
 /*
@@ -891,13 +1210,11 @@ function buildHelp(data) {
     let html = `<div class="help-content">`;
     if (data.title) html += `<div class="help-title">▸ ${escapeHtml(data.title)}</div><hr class="help-divider">`;
     if (data.body) html += `<div class="help-body">${escapeHtml(data.body)}</div>`;
-    if (data.link) html += `<br><a class="help-link" href="${data.link}" target="_blank" rel="noopener">${t('projects.view_on_github')}</a>`;
+    if (data.link) html += `<br><a class="help-link" href="${escapeAttribute(data.link)}" target="_blank" rel="noopener">${t("projects.view_on_github")}</a>`;
     if (data.tip) html += `<div class="help-tip"><span class="help-key">${escapeHtml(data.tip)}</span></div>`;
     html += `</div>`;
     return html;
 }
-
-let currentSection = "about";
 
 /*
   Alterna a seção visível do portfólio (about, skills, projects, contact).
@@ -916,24 +1233,41 @@ let currentSection = "about";
   outras rotinas de renderização quando necessário.
 */
 function switchSection(section) {
+    if (!SECTION_ORDER.includes(section)) return;
+
     currentSection = section;
-    document.querySelectorAll(".nav-tab").forEach((t) => t.classList.toggle("active", t.dataset.section === section));
-    document.querySelectorAll(".mobile-menu-item").forEach((t) => t.classList.toggle("active", t.dataset.section === section));
-    document.querySelectorAll(".section").forEach((s) => s.classList.toggle("active", s.id === "sec-" + section));
+    document.querySelectorAll(".nav-tab").forEach((tab) => {
+        const isActive = tab.dataset.section === section;
+        tab.classList.toggle("active", isActive);
+        tab.setAttribute("aria-selected", isActive ? "true" : "false");
+        tab.setAttribute("tabindex", isActive ? "0" : "-1");
+    });
+    document.querySelectorAll(".mobile-menu-item").forEach((item) => {
+        const isActive = item.dataset.section === section;
+        item.classList.toggle("active", isActive);
+        if (isActive) item.setAttribute("aria-current", "page");
+        else item.removeAttribute("aria-current");
+    });
+    document.querySelectorAll(".section").forEach((panel) => {
+        const isActive = panel.id === "sec-" + section;
+        panel.classList.toggle("active", isActive);
+        panel.setAttribute("aria-hidden", isActive ? "false" : "true");
+    });
     const titleEl = document.getElementById("left-panel-title");
-    if (titleEl) {
-        if (section === "about") titleEl.textContent = getHelpSlot("about").title;
-        else if (section === "skills") titleEl.textContent = t("skills.header");
-        else if (section === "projects") titleEl.textContent = t("projects.header").replace("{count}", projectsData.length);
-        else if (section === "contact") titleEl.textContent = getHelpSlot("contact").title;
-        else titleEl.textContent = "▸ " + section.toUpperCase();
-    }
+    if (titleEl) titleEl.textContent = getPanelTitle(section);
+    announceStatus(t("a11y.current_section").replace("{section}", getSectionLabel(section)));
 
     if (section === "about") {
-        document.querySelectorAll(".bios-row").forEach((r) => r.classList.remove("selected"));
+        document.querySelectorAll(".bios-row").forEach((r) => {
+            r.classList.remove("selected");
+            r.removeAttribute("aria-current");
+        });
         const first = document.querySelector(".bios-row");
-        if (first) first.classList.add("selected");
-        setHelp(buildHelp(getBiosHelpData(0)));
+        if (first) {
+            first.classList.add("selected");
+            first.setAttribute("aria-current", "true");
+        }
+        setHelp(buildHelp(getBiosHelpData(0)), { forcePanel: true });
     }
 
     if (section === "skills") {
@@ -943,21 +1277,161 @@ function switchSection(section) {
     }
 
     if (section === "projects") {
-        document.querySelectorAll(".project-entry").forEach((r) => r.classList.remove("selected"));
+        document.querySelectorAll(".project-entry").forEach((r) => {
+            r.classList.remove("selected");
+            r.removeAttribute("aria-current");
+        });
         const first = document.querySelector(".project-entry");
         if (first) {
             first.classList.add("selected");
+            first.setAttribute("aria-current", "true");
             const proj = getProjectById(first.dataset.project);
-            setHelp(buildHelp(getProjectHelpData(proj)));
+            setHelp(buildHelp(getProjectHelpData(proj)), { forcePanel: true });
         }
     }
 
     if (section === "contact") {
-        document.querySelectorAll(".contact-row").forEach((r) => r.classList.remove("selected"));
+        document.querySelectorAll(".contact-row").forEach((r) => {
+            r.classList.remove("selected");
+            r.removeAttribute("aria-current");
+        });
         const first = document.querySelector(".contact-row");
-        if (first) first.classList.add("selected");
-        setHelp(buildHelp(getHelpSlot("contact")));
+        if (first) {
+            first.classList.add("selected");
+            first.setAttribute("aria-current", "true");
+        }
+        setHelp(buildHelp(getHelpSlot("contact")), { forcePanel: true });
     }
+}
+
+function selectRow(row, selector, options = {}) {
+    if (!row) return;
+
+    document.querySelectorAll(selector).forEach((item) => {
+        item.classList.remove("selected");
+        item.removeAttribute("aria-current");
+    });
+    row.classList.add("selected");
+    row.setAttribute("aria-current", "true");
+
+    if (options.focus && typeof row.focus === "function") {
+        row.focus();
+    }
+}
+
+function getSkillFromRow(row) {
+    if (!row) return null;
+
+    const category = skillCategories[row.dataset.cat];
+    const index = Number.parseInt(row.dataset.idx, 10);
+    return category && Number.isInteger(index) ? category[index] : null;
+}
+
+function selectSkillRow(row, options = {}) {
+    const skill = getSkillFromRow(row);
+    if (!skill) return;
+
+    selectRow(row, ".skill-row", options);
+    setHelp(buildHelp(getSkillHelpData(skill)), { allowModal: options.allowModal !== false });
+}
+
+function selectProjectRow(row, options = {}) {
+    const project = getProjectById(row && row.dataset.project);
+    if (!project) return;
+
+    selectRow(row, ".project-entry", options);
+    setHelp(buildHelp(getProjectHelpData(project)), { allowModal: options.allowModal !== false });
+}
+
+function showProjectDetails(project) {
+    showModal(getProjectDetailData(project));
+}
+
+function selectBiosRow(row, idx, options = {}) {
+    selectRow(row, ".bios-row", options);
+    setHelp(buildHelp(getBiosHelpData(idx)), { allowModal: options.allowModal !== false });
+}
+
+function selectContactRow(row, options = {}) {
+    if (!row) return;
+
+    selectRow(row, ".contact-row", options);
+    const help = getContactHelp(row.dataset.contact);
+    if (help) setHelp(buildHelp(help), { allowModal: options.allowModal !== false });
+}
+
+function handleLanguageToggle() {
+    setCurrentLang(getCurrentLang() === "en" ? "pt" : "en");
+}
+
+function updateHighContrastControl(enabled) {
+    const hcToggle = document.getElementById("high-contrast-toggle");
+    if (!hcToggle) return;
+
+    const isEnabled = !!enabled;
+    const stateText = t(isEnabled ? "about.contrast.enabled" : "about.contrast.disabled");
+    const label = `${t("about.contrast.label")}: ${stateText}`;
+
+    hcToggle.textContent = stateText;
+    hcToggle.setAttribute("aria-pressed", isEnabled ? "true" : "false");
+    hcToggle.setAttribute("aria-label", label);
+    hcToggle.setAttribute("title", label);
+}
+
+function applyHighContrast(enabled) {
+    const isEnabled = !!enabled;
+
+    document.body.classList.toggle("high-contrast", isEnabled);
+    updateHighContrastControl(isEnabled);
+    writeStorage(STORAGE_KEYS.highContrast, isEnabled ? "1" : "0");
+}
+
+function toggleHighContrast() {
+    const hcToggle = document.getElementById("high-contrast-toggle");
+    const isPressed = hcToggle && hcToggle.getAttribute("aria-pressed") === "true";
+    applyHighContrast(!isPressed);
+}
+
+function getSkillCategoryButtons() {
+    return Array.from(document.querySelectorAll(".skill-cat-btn"));
+}
+
+function navigateSkillCategory(key, options = {}) {
+    const buttons = getSkillCategoryButtons();
+    if (!buttons.length) return;
+
+    const focusedIndex = buttons.indexOf(document.activeElement);
+    const activeIndex = buttons.findIndex((btn) => btn.classList.contains("active"));
+    const currentIndex = focusedIndex >= 0 ? focusedIndex : Math.max(activeIndex, 0);
+    let nextIndex = currentIndex;
+
+    if (key === "ArrowLeft") nextIndex = (currentIndex - 1 + buttons.length) % buttons.length;
+    if (key === "ArrowRight") nextIndex = (currentIndex + 1) % buttons.length;
+    if (key === "Home") nextIndex = 0;
+    if (key === "End") nextIndex = buttons.length - 1;
+
+    const nextButton = buttons[nextIndex];
+    if (!nextButton) return;
+
+    renderSkillCategory(nextButton.dataset.cat);
+    if (options.focus) nextButton.focus();
+}
+
+function handleSkillCategoryKeydown(e) {
+    const validKeys = ["ArrowLeft", "ArrowRight", "Home", "End", "Enter", " "];
+    if (!validKeys.includes(e.key)) return;
+
+    const currentButton = e.target.closest(".skill-cat-btn");
+    if (!currentButton) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (e.key === "Enter" || e.key === " ") {
+        renderSkillCategory(currentButton.dataset.cat);
+        return;
+    }
+    navigateSkillCategory(e.key, { focus: true });
 }
 
 /*
@@ -974,52 +1448,130 @@ function switchSection(section) {
   - Eventos keyboard são usados para navegação por seções e seleção de itens.
 */
 function initInterface() {
+    if (interfaceInitialized) {
+        switchSection(currentSection);
+        return;
+    }
+
+    interfaceInitialized = true;
     renderProjects();
-    document.querySelectorAll(".nav-tab").forEach((tab) => tab.addEventListener("click", () => { switchSection(tab.dataset.section); closeMobileMenu(); }));
-    document.querySelectorAll(".mobile-menu-item").forEach((item) => item.addEventListener("click", () => { switchSection(item.dataset.section); closeMobileMenu(); }));
-    document.querySelectorAll(".skill-cat-btn").forEach((btn) => btn.addEventListener("click", () => renderSkillCategory(btn.dataset.cat)));
+
+    const header = document.getElementById("header");
+    if (header) {
+        header.addEventListener("click", (e) => {
+            const tab = e.target.closest(".nav-tab[data-section]");
+            if (!tab) return;
+
+            switchSection(tab.dataset.section);
+            closeMobileMenu();
+        });
+    }
+
+    const langToggle = document.getElementById("lang-toggle");
+    if (langToggle) langToggle.addEventListener("click", handleLanguageToggle);
+
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener("click", () => setMobileMenuOpen(!mobileMenu.classList.contains("open")));
+    }
+
+    if (mobileMenu) {
+        mobileMenu.addEventListener("click", (e) => {
+            const item = e.target.closest(".mobile-menu-item[data-section]");
+            if (!item) return;
+
+            switchSection(item.dataset.section);
+            closeMobileMenu();
+        });
+    }
+
+    document.querySelectorAll(".skill-cat-btn").forEach((btn) => {
+        btn.setAttribute("tabindex", "0");
+        btn.setAttribute("role", "tab");
+    });
+
+    const catContainer = document.querySelector(".skill-category-buttons");
+    if (catContainer) {
+        catContainer.setAttribute("role", "tablist");
+        catContainer.addEventListener("click", (e) => {
+            const btn = e.target.closest(".skill-cat-btn");
+            if (btn) renderSkillCategory(btn.dataset.cat);
+        });
+        catContainer.addEventListener("keydown", handleSkillCategoryKeydown);
+    }
+
+    const skillContent = document.getElementById("skill-category-content");
+    if (skillContent) {
+        skillContent.addEventListener("click", (e) => {
+            const row = e.target.closest(".skill-row");
+            if (row) selectSkillRow(row);
+        });
+        skillContent.addEventListener("mouseover", (e) => {
+            const row = e.target.closest(".skill-row");
+            if (row && !row.contains(e.relatedTarget)) selectSkillRow(row, { allowModal: false });
+        });
+    }
 
     document.querySelectorAll(".bios-row").forEach((row, idx) => {
         row.setAttribute("tabindex", "0");
-        row.addEventListener("mouseenter", () => {
-            document.querySelectorAll(".bios-row").forEach((r) => r.classList.remove("selected"));
-            row.classList.add("selected");
-            setHelp(buildHelp(getBiosHelpData(idx)));
+        row.addEventListener("click", (e) => {
+            if (e.target.closest("a, button, [role='button']")) return;
+            selectBiosRow(row, idx);
         });
+        row.addEventListener("mouseenter", () => selectBiosRow(row, idx, { allowModal: false }));
     });
 
-    document.querySelectorAll(".project-entry").forEach((row) => {
-        row.addEventListener("click", (e) => {
-            if (e.target.classList.contains("proj-link") || e.target.closest(".proj-link")) return;
-            document.querySelectorAll(".project-entry").forEach((r) => r.classList.remove("selected"));
-            row.classList.add("selected");
-            const proj = getProjectById(row.dataset.project);
-            const data = getProjectHelpData(proj);
-            setHelp(buildHelp(data));
-            if (window.innerWidth <= 700) showModal(data);
+    const projectsContainer = document.getElementById("projects-container");
+    if (projectsContainer) {
+        projectsContainer.addEventListener("click", (e) => {
+            const detailsButton = e.target.closest(".proj-details");
+            if (detailsButton) {
+                const row = detailsButton.closest(".project-entry");
+                const project = getProjectById(row && row.dataset.project);
+                if (!project) return;
+
+                selectProjectRow(row, { allowModal: false });
+                showProjectDetails(project);
+                return;
+            }
+
+            if (e.target.closest(".proj-link")) return;
+
+            const row = e.target.closest(".project-entry");
+            if (row) selectProjectRow(row, { allowModal: false });
         });
-        row.addEventListener("mouseenter", () => { document.querySelectorAll(".project-entry").forEach((r) => r.classList.remove("selected")); row.classList.add("selected"); const proj = getProjectById(row.dataset.project); setHelp(buildHelp(getProjectHelpData(proj))); });
-    });
+        projectsContainer.addEventListener("mouseover", (e) => {
+            const row = e.target.closest(".project-entry");
+            if (row && !row.contains(e.relatedTarget)) selectProjectRow(row, { allowModal: false });
+        });
+    }
 
     document.querySelectorAll(".contact-row").forEach((row) => {
-        row.addEventListener("mouseenter", () => {
-            document.querySelectorAll(".contact-row").forEach((r) => r.classList.remove("selected"));
-            row.classList.add("selected");
-            const key = row.querySelector(".contact-label").textContent.trim().toLowerCase();
-            const ch = getContactHelp(key);
-            if (ch) setHelp(buildHelp(ch));
-        });
-        row.addEventListener("mouseleave", () => { setHelp(buildHelp(getHelpSlot("contact"))); });
+        row.setAttribute("tabindex", "0");
+        row.addEventListener("mouseenter", () => selectContactRow(row, { allowModal: false }));
+        row.addEventListener("mouseleave", () => { setHelp(buildHelp(getHelpSlot("contact")), { allowModal: false }); });
     });
 
-    switchSection("about");
+    const hcToggle = document.getElementById("high-contrast-toggle");
+    if (hcToggle) {
+        hcToggle.addEventListener("click", toggleHighContrast);
+        hcToggle.addEventListener("keydown", (e) => {
+            if (e.key !== "Enter" && e.key !== " ") return;
+
+            e.preventDefault();
+            e.stopPropagation();
+            toggleHighContrast();
+        });
+        applyHighContrast(readStorage(STORAGE_KEYS.highContrast) === "1");
+    }
+
+    switchSection(DEFAULT_SECTION);
     document.addEventListener("keydown", handleKeyboard);
 }
 
 /*
   Gerencia atalhos de teclado globais.
   - Tab: alterna entre seções (com Shift para ir para trás).
-  - ArrowLeft / ArrowRight: navega entre seções.
+  - ArrowLeft / ArrowRight: navega entre sub-abas quando Skills está ativa.
   - ArrowUp / ArrowDown: navega entre linhas dentro da seção atual.
   - Enter: aciona seleção/abertura dependendo da seção.
   - F5 / F6: atalhos rápidos para GitHub / LinkedIn (imitando chaves do footer).
@@ -1027,32 +1579,53 @@ function initInterface() {
   A função previne o comportamento padrão quando necessário (e.preventDefault()).
 */
 function handleKeyboard(e) {
+    if (e.defaultPrevented) return;
+
     const key = e.key;
+    if (isModalOpen()) {
+        if (key === "Escape") {
+            e.preventDefault();
+            closeModal();
+        }
+        if (key === "Tab") {
+            trapModalFocus(e);
+        }
+        return;
+    }
+
     if (key === "Tab") {
         e.preventDefault();
-        const sections = ["about", "skills", "projects", "contact"];
-        const idx = sections.indexOf(currentSection);
-        const next = sections[(idx + (e.shiftKey ? sections.length - 1 : 1)) % sections.length];
+        const idx = SECTION_ORDER.indexOf(currentSection);
+        const next = SECTION_ORDER[(idx + (e.shiftKey ? SECTION_ORDER.length - 1 : 1)) % SECTION_ORDER.length];
         switchSection(next);
         return;
     }
+
     if (key === "ArrowLeft" || key === "ArrowRight") {
+        if (currentSection !== "skills") return;
         e.preventDefault();
-        const sections = ["about", "skills", "projects", "contact"];
-        const idx = sections.indexOf(currentSection);
-        const offset = key === "ArrowRight" ? 1 : -1;
-        const next = sections[(idx + offset + sections.length) % sections.length];
-        switchSection(next);
+        navigateSkillCategory(key);
         return;
     }
+
     if (key === "ArrowDown" || key === "ArrowUp") {
         e.preventDefault();
         navigateRows(key);
         return;
     }
+
     if (key === "Enter") { handleEnter(e); }
     if (key === "F5") { e.preventDefault(); window.open("https://github.com/diego-rodrigues-git", "_blank"); }
     if (key === "F6") { e.preventDefault(); window.open("https://linkedin.com/in/diego-gustavo", "_blank"); }
+}
+
+function getNextSelectedIndex(rows, key) {
+    const currentIndex = rows.findIndex((row) => row.classList.contains("selected"));
+    if (currentIndex < 0) return 0;
+
+    return key === "ArrowDown"
+        ? Math.min(currentIndex + 1, rows.length - 1)
+        : Math.max(currentIndex - 1, 0);
 }
 
 /*
@@ -1069,66 +1642,58 @@ function handleKeyboard(e) {
     calcula o próximo índice (respeitando limites) e aplica foco/seleção.
 */
 function navigateRows(key) {
-    let rows, sel, nextIdx;
     if (currentSection === "about") {
-        rows = Array.from(document.querySelectorAll(".bios-row"));
-        sel = rows.findIndex((r) => r.classList.contains("selected"));
+        const rows = Array.from(document.querySelectorAll(".bios-row"));
         if (rows.length === 0) return;
-        nextIdx = key === "ArrowDown" ? Math.min(sel + 1, rows.length - 1) : Math.max(sel - 1, 0);
-        rows.forEach((r) => r.classList.remove("selected"));
-        rows[nextIdx].classList.add("selected");
-        rows[nextIdx].focus();
-        setHelp(buildHelp(getBiosHelpData(nextIdx)));
+        const nextIdx = getNextSelectedIndex(rows, key);
+        selectBiosRow(rows[nextIdx], nextIdx, { allowModal: false, focus: true });
+        return;
     }
+
     if (currentSection === "skills") {
-        rows = Array.from(document.querySelectorAll(".skill-row"));
-        sel = rows.findIndex((r) => r.classList.contains("selected"));
+        const rows = Array.from(document.querySelectorAll(".skill-row"));
         if (rows.length === 0) return;
-        nextIdx = key === "ArrowDown" ? Math.min(sel + 1, rows.length - 1) : Math.max(sel - 1, 0);
-        rows.forEach((r) => r.classList.remove("selected"));
-        rows[nextIdx].classList.add("selected");
-        rows[nextIdx].focus();
-        const cat = rows[nextIdx].dataset.cat;
-        const idx = parseInt(rows[nextIdx].dataset.idx);
-        const skill = skillCategories[cat][idx];
-        setHelp(buildHelp(getSkillHelpData(skill)));
+        selectSkillRow(rows[getNextSelectedIndex(rows, key)], { allowModal: false, focus: true });
+        return;
     }
+
     if (currentSection === "projects") {
-        rows = Array.from(document.querySelectorAll(".project-entry"));
-        sel = rows.findIndex((r) => r.classList.contains("selected"));
+        const rows = Array.from(document.querySelectorAll(".project-entry"));
         if (rows.length === 0) return;
-        nextIdx = key === "ArrowDown" ? Math.min(sel + 1, rows.length - 1) : Math.max(sel - 1, 0);
-        rows.forEach((r) => r.classList.remove("selected"));
-        rows[nextIdx].classList.add("selected");
-        rows[nextIdx].focus();
-        const proj = getProjectById(rows[nextIdx].dataset.project);
-        setHelp(buildHelp(getProjectHelpData(proj)));
+        selectProjectRow(rows[getNextSelectedIndex(rows, key)], { allowModal: false, focus: true });
+        return;
     }
+
     if (currentSection === "contact") {
-        rows = Array.from(document.querySelectorAll(".contact-row"));
-        sel = rows.findIndex((r) => r.classList.contains("selected"));
+        const rows = Array.from(document.querySelectorAll(".contact-row"));
         if (rows.length === 0) return;
-        nextIdx = key === "ArrowDown" ? Math.min(sel + 1, rows.length - 1) : Math.max(sel - 1, 0);
-        rows.forEach((r) => r.classList.remove("selected"));
-        rows[nextIdx].classList.add("selected");
-        rows[nextIdx].focus();
-        const label = rows[nextIdx].querySelector(".contact-label").textContent.trim().toLowerCase();
-        const ch = getContactHelp(label);
-        if (ch) setHelp(buildHelp(ch));
+        selectContactRow(rows[getNextSelectedIndex(rows, key)], { allowModal: false, focus: true });
     }
 }
 
 /*
   Aciona a ação de 'Enter' dependendo da seção atual.
+  - about: se a linha de tema estiver selecionada, alterna alto contraste.
   - projects: se houver link (proj-link) na entrada selecionada, abre em nova aba.
   - contact: abre o href do contato selecionado (pode ser mailto:, url, etc.).
 */
 function handleEnter(e) {
+    if (currentSection === "about") {
+        const activeRow = document.querySelector(".bios-row.selected");
+        if (activeRow && activeRow.id === "contrast-toggle-row") {
+            e.preventDefault();
+            toggleHighContrast();
+        }
+    }
+
     if (currentSection === "projects") {
         const activeProj = document.querySelector(".project-entry.selected");
         if (activeProj) {
-            const link = activeProj.querySelector(".proj-link");
-            if (link) { e.preventDefault(); window.open(link.href, "_blank"); }
+            const project = getProjectById(activeProj.dataset.project);
+            if (project) {
+                e.preventDefault();
+                showProjectDetails(project);
+            }
         }
     }
     if (currentSection === "contact") {
@@ -1139,13 +1704,125 @@ function handleEnter(e) {
 
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobile-menu");
-if (hamburger) hamburger.addEventListener("click", () => mobileMenu.classList.toggle("open"));
+
+function setMobileMenuOpen(open) {
+    if (!mobileMenu) return;
+
+    mobileMenu.classList.toggle("open", !!open);
+    mobileMenu.setAttribute("aria-hidden", open ? "false" : "true");
+    if (hamburger) hamburger.setAttribute("aria-expanded", open ? "true" : "false");
+}
+
 /*
   Fecha o menu mobile se ele estiver aberto.
   - Útil para garantir que, após selecionar uma seção via menu mobile,
     o menu seja ocultado e não sobreponha o conteúdo.
 */
-function closeMobileMenu() { if (mobileMenu) mobileMenu.classList.remove("open"); }
+function closeMobileMenu() { setMobileMenuOpen(false); }
+
+function isModalOpen() {
+    const detail = document.getElementById("detail-modal");
+    return !!detail && detail.classList.contains("open");
+}
+
+function getFocusableElements(root) {
+    if (!root) return [];
+    const selector = [
+        "a[href]",
+        "button:not([disabled])",
+        "input:not([disabled])",
+        "select:not([disabled])",
+        "textarea:not([disabled])",
+        "[tabindex]:not([tabindex='-1'])",
+    ].join(",");
+
+    return Array.from(root.querySelectorAll(selector)).filter((el) => {
+        const style = getComputedStyle(el);
+        return style.display !== "none" && style.visibility !== "hidden";
+    });
+}
+
+function trapModalFocus(e) {
+    const detail = document.getElementById("detail-modal");
+    const focusable = getFocusableElements(detail);
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+    }
+}
+
+function openModalHtml(html) {
+    const detail = document.getElementById("detail-modal");
+    const modalContent = document.getElementById("modal-content");
+    if (!detail || !modalContent) return;
+
+    const active = document.activeElement;
+    if (!isModalOpen() && active && active !== document.body && typeof active.focus === "function") {
+        lastFocusedElement = active;
+    }
+
+    modalContent.innerHTML = html;
+    const titleEl = modalContent.querySelector("#modal-title, .modal-title, .help-title");
+    if (titleEl) {
+        if (!titleEl.id) titleEl.id = "modal-title";
+        detail.setAttribute("aria-labelledby", titleEl.id);
+        detail.removeAttribute("aria-label");
+    } else {
+        detail.removeAttribute("aria-labelledby");
+        detail.setAttribute("aria-label", t("help.panel_title"));
+    }
+    const descriptionEl = modalContent.querySelector("#modal-description, .modal-body, .help-body");
+    if (descriptionEl) {
+        if (!descriptionEl.id) descriptionEl.id = "modal-description";
+        detail.setAttribute("aria-describedby", descriptionEl.id);
+    } else {
+        detail.removeAttribute("aria-describedby");
+    }
+    detail.classList.add("open");
+    detail.setAttribute("aria-hidden", "false");
+    const main = document.getElementById("main-interface");
+    if (main) main.setAttribute("inert", "");
+
+    const closeBtn = document.getElementById("modal-close");
+    if (closeBtn) {
+        try {
+            closeBtn.focus({ preventScroll: true });
+        } catch (error) {
+            closeBtn.focus();
+        }
+    }
+}
+
+function closeModal(options = {}) {
+    const restoreFocus = options.restoreFocus !== false;
+    const detail = document.getElementById("detail-modal");
+    if (!detail) return;
+
+    detail.classList.remove("open");
+    detail.setAttribute("aria-hidden", "true");
+    detail.removeAttribute("aria-labelledby");
+    detail.removeAttribute("aria-describedby");
+    const main = document.getElementById("main-interface");
+    if (main) main.removeAttribute("inert");
+
+    if (restoreFocus && lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        try {
+            lastFocusedElement.focus({ preventScroll: true });
+        } catch (error) {
+            lastFocusedElement.focus();
+        }
+    }
+
+    lastFocusedElement = null;
+}
 
 /*
   Exibe um modal de detalhe centralizado (usado principalmente em mobile).
@@ -1156,24 +1833,36 @@ function closeMobileMenu() { if (mobileMenu) mobileMenu.classList.remove("open")
 function showModal(data) {
     if (!data) return;
     let html = "";
-    if (data.title) html += `<div class="modal-title">▸ ${escapeHtml(data.title)}</div>`;
+    if (data.title) html += `<div class="modal-title" id="modal-title">▸ ${escapeHtml(data.title)}</div>`;
+    if (Array.isArray(data.images) && data.images.length) {
+        html += `<div class="modal-gallery">`;
+        data.images.forEach((image) => {
+            const src = typeof image === "string" ? image : image.src;
+            if (!src) return;
+
+            const alt = typeof image === "string" ? data.title || "" : image.alt || data.title || "";
+            const caption = typeof image === "string" ? "" : image.caption || "";
+
+            html += `
+                <figure class="modal-figure">
+                    <img src="${escapeAttribute(src)}" alt="${escapeAttribute(alt)}" />
+                    ${caption ? `<figcaption>${escapeHtml(caption)}</figcaption>` : ""}
+                </figure>
+            `;
+        });
+        html += `</div>`;
+    }
     if (data.body) html += `<div class="modal-body">${escapeHtml(data.body)}</div>`;
-    if (data.link) html += `<br><a class="modal-link" href="${data.link}" target="_blank" rel="noopener">${t('projects.view_on_github')}</a>`;
-    const modalContent = document.getElementById("modal-content");
-    if (modalContent) modalContent.innerHTML = html;
-    const detail = document.getElementById("detail-modal");
-    if (detail) detail.classList.add("open");
+    if (data.link) html += `<br><a class="modal-link" href="${escapeAttribute(data.link)}" target="_blank" rel="noopener">${t("projects.view_on_github")}</a>`;
+    openModalHtml(html);
 }
 
 const modalCloseBtn = document.getElementById("modal-close");
-if (modalCloseBtn) modalCloseBtn.addEventListener("click", () => { const d = document.getElementById("detail-modal"); if (d) d.classList.remove("open"); });
+if (modalCloseBtn) modalCloseBtn.addEventListener("click", () => closeModal());
 const detailModalEl = document.getElementById("detail-modal");
-if (detailModalEl) detailModalEl.addEventListener("click", (e) => { if (e.target === detailModalEl) detailModalEl.classList.remove("open"); });
+if (detailModalEl) detailModalEl.addEventListener("click", (e) => { if (e.target === detailModalEl) closeModal(); });
 
-// initial render if DOM already in place
-try { renderProjects(); } catch (e) { }
-
-// DPI / layout adjustments: scale UI by devicePixelRatio and fall back to modal for small/misaligned help
+// DPI / layout adjustments: scale text by viewport/DPI and fall back to modal for small/misaligned help
 /*
   Heurística para decidir se o painel de help está mal posicionado
   ou inadequado para exibir conteúdo diretamente (ex.: telas pequenas / touch).
@@ -1195,19 +1884,27 @@ function isHelpMispositioned() {
     return window.innerWidth < 980;
 }
 /*
-  Ajustes de escala baseados em devicePixelRatio (DPI):
-  - Lê window.devicePixelRatio e aplica um 'scale' razoavelmente limitado
-    para melhorar legibilidade em telas de alta densidade.
-  - Define a variável CSS --dpi-scale para possibilitar regras CSS dependentes
-    e tenta aplicar document.body.style.zoom como fallback (alguns navegadores).
+  Ajustes de escala baseados no viewport e em devicePixelRatio (DPI):
+  - Aumenta fontes em monitores muito grandes mantendo limites previsíveis.
+  - Define --dpi-scale e variáveis --font-* consumidas pelo CSS.
   - É acionada em resize e orientationchange para reagir a mudanças de tela.
 */
 function applyDpiScaling() {
     const dpr = window.devicePixelRatio || 1;
-    // reasonable clamp to avoid excessive scaling
-    const scale = Math.min(Math.max(dpr, 1), 1.6);
-    document.documentElement.style.setProperty("--dpi-scale", scale);
-    try { document.body.style.zoom = scale; } catch (e) { }
+    const width = window.innerWidth || 1366;
+    const height = window.innerHeight || 768;
+    const viewportFactor = Math.max(width / 1440, height / 900);
+    const dprFactor = dpr > 1 ? 1 + Math.min(dpr - 1, 2) * 0.12 : 1;
+    const scale = Math.min(Math.max(viewportFactor * dprFactor, 1), 1.85);
+    const rootStyle = document.documentElement.style;
+    const fontSizes = [4, 5, 10, 11, 12, 13, 14, 18];
+
+    rootStyle.setProperty("--dpi-scale", scale.toFixed(2));
+    fontSizes.forEach((size) => {
+        rootStyle.setProperty(`--font-${size}`, `${(size * scale).toFixed(2)}px`);
+    });
+
+    document.body.style.zoom = "";
 }
 window.addEventListener("resize", applyDpiScaling);
 window.addEventListener("orientationchange", applyDpiScaling);
