@@ -1,25 +1,85 @@
 <!doctype html>
 <html lang="en">
-  <!-- Arquivo index.html: scripts e estilos com comentários explicativos adicionados. -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - Diego Gustavo</title>
+    <link rel="canonical" href="https://diego-rodrigues-git.github.io/portfolio/" />
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="img/favicon.png" type="image/png" />
+    <link rel="preload" href="fonts/IBM_VGA_8x16.woff" as="font" type="font/woff" crossorigin />
     <link rel="stylesheet" href="css/style.css" />
     <meta
       name="description"
-      content="Diego Gustavo - Portfolio de um Desenvolvedor Web Full-stack, contendo projetos, habilidades e contatos."
+      content="Diego Gustavo - Portfolio of a full-stack web developer with projects, skills and contact links."
     />
     <meta
       name="keywords"
-      content="Diego Gustavo, Portfolio, Desenvolvedor Web, Full-stack, React, PHP, SQL, BIOS"
+      content="Diego Gustavo, portfolio, full-stack web developer, JavaScript, TypeScript, React, Node.js, PHP, MySQL"
     />
     <meta name="author" content="Diego Gustavo" />
+    <meta name="creator" content="Diego Gustavo" />
+    <meta name="publisher" content="Diego Gustavo" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#01019c" />
+    <meta name="color-scheme" content="light dark" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Portfolio - Diego Gustavo" />
+    <meta
+      property="og:description"
+      content="Diego Gustavo - Portfolio of a full-stack web developer with projects, skills and contact links."
+    />
+    <meta property="og:url" content="https://diego-rodrigues-git.github.io/portfolio/" />
+    <meta property="og:image" content="https://diego-rodrigues-git.github.io/portfolio/img/logo.png" />
+    <meta property="og:image:alt" content="Diego Gustavo portfolio logo" />
+    <meta property="og:site_name" content="Diego Gustavo Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Portfolio - Diego Gustavo" />
+    <meta
+      name="twitter:description"
+      content="Diego Gustavo - Portfolio of a full-stack web developer with projects, skills and contact links."
+    />
+    <meta name="twitter:image" content="https://diego-rodrigues-git.github.io/portfolio/img/logo.png" />
+    <meta name="twitter:image:alt" content="Diego Gustavo portfolio logo" />
+    <script type="application/ld+json" id="structured-data">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": "Portfolio - Diego Gustavo",
+        "url": "https://diego-gustavo.github.io/portfolio/",
+        "description": "Diego Gustavo - Portfolio of a full-stack web developer with projects, skills and contact links.",
+        "inLanguage": "en",
+        "image": "https://diego-gustavo.github.io/portfolio//img/logo.png",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Diego Gustavo",
+          "jobTitle": "Full-stack Web Developer",
+          "url": "https://diego-gustavo.github.io/portfolio/",
+          "image": "https://diego-gustavo.github.io/portfolio//img/logo.png",
+          "sameAs": [
+            "https://diego-gustavo.github.io/portfolio/",
+            "https://linkedin.com/in/diego-gustavo"
+          ],
+          "knowsAbout": [
+            "JavaScript",
+            "TypeScript",
+            "React",
+            "Node.js",
+            "PHP",
+            "MySQL",
+            "Web Development"
+          ]
+        }
+      }
+    </script>
   </head>
   <body>
+    <a class="skip-link" href="#left-panel-body" data-i18n="a11y.skip_content">Skip to main content</a>
+    <div id="sr-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
     <!-- BOOT SCREEN -->
-    <div id="boot-screen">
+    <div id="boot-screen" aria-hidden="true">
       <div class="boot-logo">
         <pre class="boot-ascii-logo">
                         @@@@@@@@@@@@@@@@@@%               @@@@@@@@@@@@@          
@@ -52,38 +112,50 @@
       <div id="boot-lines"></div>
     </div>
 
-    <div id="main-interface">
-      <div id="header" role="tablist">
-        <div class="header-logo">
-          <div class="logo-slot"></div>
-          <h1 data-i18n="header.made_by">MADE BY: DIEGO GUSTAVO</h1>
+    <div id="main-interface" aria-hidden="true">
+      <header id="site-header">
+        <div id="header" role="tablist" aria-label="Portfolio sections">
+          <div class="header-logo">
+            <div class="logo-slot" aria-hidden="true">
+              <img src="img/logo.svg" alt="" />
+            </div>
+            <h1 data-i18n="header.made_by">MADE BY: DIEGO GUSTAVO</h1>
+          </div>
+          <button class="nav-tab active" id="tab-about" data-section="about" data-i18n="nav.about" role="tab" aria-controls="sec-about" aria-selected="true">About</button>
+          <button class="nav-tab" id="tab-skills" data-section="skills" data-i18n="nav.skills" role="tab" aria-controls="sec-skills" aria-selected="false">Skills</button>
+          <button class="nav-tab" id="tab-projects" data-section="projects" data-i18n="nav.projects" role="tab" aria-controls="sec-projects" aria-selected="false">Projects</button>
+          <button class="nav-tab" id="tab-contact" data-section="contact" data-i18n="nav.contact" role="tab" aria-controls="sec-contact" aria-selected="false">Contact</button>
+          <div class="header-right">
+            <button id="lang-toggle" type="button" aria-label="Change language">EN</button>
+          </div>
         </div>
-        <button class="nav-tab" data-section="about" data-i18n="nav.about" role="tab">About</button>
-        <button class="nav-tab" data-section="skills" data-i18n="nav.skills" role="tab">Skills</button>
-        <button class="nav-tab" data-section="projects" data-i18n="nav.projects" role="tab">Projects</button>
-        <button class="nav-tab" data-section="contact" data-i18n="nav.contact" role="tab">Contact</button>
-        <div class="header-right">
-          <button id="lang-toggle">EN</button>
-        </div>
-      </div>
+      </header>
 
-      <div id="main-area">
-        <div id="left-panel" class="panel raised">
+      <main id="main-area">
+        <section class="sr-only" aria-labelledby="site-summary-title">
+          <h2 id="site-summary-title" data-i18n="seo.summary_title">Diego Gustavo portfolio summary</h2>
+          <p data-i18n="seo.summary_body">
+            Portfolio of Diego Gustavo, a full-stack web developer, with project links, skills and contact channels.
+          </p>
+        </section>
+
+        <section id="left-panel" class="panel raised" aria-labelledby="left-panel-title">
           <div class="panel-title" id="left-panel-title">
             ▸ SYSTEM INFORMATION
           </div>
-          <div class="panel-body" id="left-panel-body">
+          <div class="panel-body" id="left-panel-body" tabindex="-1">
             <!-- ── SKILLS ── -->
-            <div class="section" id="sec-skills">
+            <section class="section" id="sec-skills" role="tabpanel" aria-labelledby="tab-skills" aria-hidden="true">
               <div class="dimtext mb-8 px-12" data-i18n="skills.header">
                 ▸ INSTALLED COMPONENTS &amp; EXPERIENCE LEVEL
               </div>
 
-              <div class="skill-category-buttons">
+              <div class="skill-category-buttons" aria-label="Skill categories">
                 <button
                   class="skill-cat-btn active"
                   data-cat="programming"
                   data-i18n="skills.cat.programming"
+                  type="button"
                 >
                   Programming
                 </button>
@@ -91,6 +163,7 @@
                   class="skill-cat-btn"
                   data-cat="frontend"
                   data-i18n="skills.cat.frontend"
+                  type="button"
                 >
                   Front-end
                 </button>
@@ -98,6 +171,7 @@
                   class="skill-cat-btn"
                   data-cat="backend"
                   data-i18n="skills.cat.backend"
+                  type="button"
                 >
                   Back-end
                 </button>
@@ -105,6 +179,7 @@
                   class="skill-cat-btn"
                   data-cat="tools"
                   data-i18n="skills.cat.tools"
+                  type="button"
                 >
                   Tools
                 </button>
@@ -112,6 +187,7 @@
                   class="skill-cat-btn"
                   data-cat="design"
                   data-i18n="skills.cat.design"
+                  type="button"
                 >
                   Design
                 </button>
@@ -119,6 +195,7 @@
                   class="skill-cat-btn"
                   data-cat="blockchain"
                   data-i18n="skills.cat.blockchain"
+                  type="button"
                 >
                   Blockchain
                 </button>
@@ -126,6 +203,7 @@
                   class="skill-cat-btn"
                   data-cat="hardware"
                   data-i18n="skills.cat.hardware"
+                  type="button"
                 >
                   Hardware
                 </button>
@@ -133,21 +211,22 @@
                   class="skill-cat-btn"
                   data-cat="ai"
                   data-i18n="skills.cat.ai"
+                  type="button"
                 >
                   AI / ML
                 </button>
               </div>
 
-              <div id="skill-category-content"></div>
+              <div id="skill-category-content" role="list" aria-live="polite"></div>
 
               <hr class="divider" />
               <div class="dimtext px-12" data-i18n="memory.testing">
                 ▸ MEMORY TESTING : All skills loaded... <strong>OK</strong>
               </div>
-            </div>
+            </section>
 
             <!-- ── ABOUT ── -->
-            <div class="section active" id="sec-about">
+            <section class="section active" id="sec-about" role="tabpanel" aria-labelledby="tab-about" aria-hidden="false">
               <div class="about-content">
                 <div class="bios-row">
                   <span class="bios-label" data-i18n="bios.label.name"
@@ -201,7 +280,7 @@
                   <span class="bios-label" data-i18n="about.contrast.label">Theme</span>
                   <span class="bios-sep">:</span>
                   <span class="bios-value">
-                    <button id="high-contrast-toggle" aria-pressed="false" data-i18n="about.contrast.toggle">High Contrast</button>
+                    <span id="high-contrast-toggle" class="theme-state" role="button" tabindex="0" aria-pressed="false">Disabled</span>
                   </span>
                 </div>
 
@@ -211,10 +290,10 @@
                   Use <kbd>Tab</kbd> or the ← → arrows to switch sections.
                 </div>
               </div>
-            </div>
+            </section>
 
             <!-- ── PROJECTS (rendered dynamically) ── -->
-            <div class="section" id="sec-projects">
+            <section class="section" id="sec-projects" role="tabpanel" aria-labelledby="tab-projects" aria-hidden="true">
               <div
                 class="dimtext mb-8 px-12"
                 id="projects-header"
@@ -222,12 +301,12 @@
               >
                 ▸ PRIMARY MASTER : loading...
               </div>
-              <div id="projects-container"></div>
-            </div>
+              <div id="projects-container" role="list" aria-live="polite"></div>
+            </section>
 
             <!-- ── CONTACT ── -->
-            <div class="section" id="sec-contact">
-              <div class="dimtext mb-12" data-i18n="contact.header">
+            <section class="section" id="sec-contact" role="tabpanel" aria-labelledby="tab-contact" aria-hidden="true">
+              <div class="dimtext mb-8 px-12" data-i18n="contact.header">
                 ▸ SYSTEM INTERFACES — select an item to open
               </div>
 
@@ -274,23 +353,23 @@
               </a>
 
               <hr class="divider" />
-              <div class="dimtext">
-                ▸ All interfaces : <strong>Online</strong> — click to connect
+              <div class="dimtext px-12" data-i18n="contact.status">
+                ▸ All interfaces : Online — click to connect
               </div>
-            </div>
+            </section>
           </div>
-        </div>
+        </section>
 
-        <div id="right-panel" class="panel raised">
-          <div class="panel-title">▸ HELP</div>
-          <div class="panel-body" id="help-body">
+        <aside id="right-panel" class="panel raised" aria-labelledby="help-panel-title">
+          <div class="panel-title" id="help-panel-title" data-i18n="help.panel_title">▸ HELP</div>
+          <div class="panel-body" id="help-body" aria-live="polite">
             <!-- help content populated by JS -->
           </div>
-        </div>
-      </div>
+        </aside>
+      </main>
 
       <!-- FOOTER -->
-      <div id="footer">
+      <footer id="footer">
         <div class="footer-item footer-keep">
           <span class="footer-key">↑↓</span><span data-i18n="footer.navigate">Navigate</span>
         </div>
@@ -312,19 +391,19 @@
         </div>
         <div class="footer-right">
           <span data-i18n="footer.right_text">Diego Gustavo Portfolio — v1.0.0</span>
-          <span>©&nbsp;2025</span>
+          <span data-i18n="footer.copyright">© 2025</span>
         </div>
-      </div>
+      </footer>
     </div>
 
     <!-- MOBILE HAMBURGER -->
-    <button id="hamburger" aria-label="Menu">[ MENU ]</button>
-    <div id="mobile-menu">
-      <div class="mobile-menu-item active" data-section="about" data-i18n="nav.about">[ About ]</div>
-      <div class="mobile-menu-item" data-section="skills" data-i18n="nav.skills">[ Skills ]</div>
-      <div class="mobile-menu-item" data-section="projects" data-i18n="nav.projects">[ Projects ]</div>
-      <div class="mobile-menu-item" data-section="contact" data-i18n="nav.contact">[ Contact ]</div>
-    </div>
+    <button id="hamburger" type="button" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false" data-i18n="menu">[ MENU ]</button>
+    <nav id="mobile-menu" aria-label="Portfolio sections" aria-hidden="true">
+      <button type="button" class="mobile-menu-item active" data-section="about" data-i18n="nav.mobile.about">[ About ]</button>
+      <button type="button" class="mobile-menu-item" data-section="skills" data-i18n="nav.mobile.skills">[ Skills ]</button>
+      <button type="button" class="mobile-menu-item" data-section="projects" data-i18n="nav.mobile.projects">[ Projects ]</button>
+      <button type="button" class="mobile-menu-item" data-section="contact" data-i18n="nav.mobile.contact">[ Contact ]</button>
+    </nav>
 
     <!-- DETAIL MODAL (mobile) -->
     <div id="detail-modal" role="dialog" aria-modal="true" aria-hidden="true">
