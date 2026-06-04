@@ -690,7 +690,7 @@ function renderSkillCategory(catKey) {
             rows.forEach((r) => r.classList.remove("selected"));
             row.classList.add("selected");
             const skill = skillCategories[row.dataset.cat][row.dataset.idx];
-            setHelp(buildHelp(getSkillHelpData(skill)));
+            setHelp(buildHelp(getSkillHelpData(skill)), { allowModal: false });
         });
     });
     if (rows.length > 0) {
@@ -886,8 +886,9 @@ function setHelp(html, options = {}) {
     const helpEl = document.getElementById("help-body");
     const detailModal = document.getElementById("detail-modal");
     const forcePanel = !!options.forcePanel;
-    // if the help panel is hidden, too small, or on touch devices, show help in modal
-    if (!forcePanel && typeof isHelpMispositioned === "function" && isHelpMispositioned()) {
+    const allowModal = options.allowModal !== undefined ? !!options.allowModal : true;
+    // if the help panel is hidden, too small, or on touch devices, show help in modal when allowed
+    if (!forcePanel && allowModal && typeof isHelpMispositioned === "function" && isHelpMispositioned()) {
         const modalContent = document.getElementById("modal-content");
         if (modalContent) modalContent.innerHTML = html;
         if (detailModal) {
@@ -1031,7 +1032,7 @@ function initInterface() {
         row.addEventListener("mouseenter", () => {
             document.querySelectorAll(".bios-row").forEach((r) => r.classList.remove("selected"));
             row.classList.add("selected");
-            setHelp(buildHelp(getBiosHelpData(idx)));
+            setHelp(buildHelp(getBiosHelpData(idx)), { allowModal: false });
         });
     });
 
@@ -1045,7 +1046,12 @@ function initInterface() {
             setHelp(buildHelp(data));
             if (window.innerWidth <= 700) showModal(data);
         });
-        row.addEventListener("mouseenter", () => { document.querySelectorAll(".project-entry").forEach((r) => r.classList.remove("selected")); row.classList.add("selected"); const proj = getProjectById(row.dataset.project); setHelp(buildHelp(getProjectHelpData(proj))); });
+        row.addEventListener("mouseenter", () => {
+            document.querySelectorAll(".project-entry").forEach((r) => r.classList.remove("selected"));
+            row.classList.add("selected");
+            const proj = getProjectById(row.dataset.project);
+            setHelp(buildHelp(getProjectHelpData(proj)), { allowModal: false });
+        });
     });
 
     document.querySelectorAll(".contact-row").forEach((row) => {
@@ -1054,9 +1060,9 @@ function initInterface() {
             row.classList.add("selected");
             const key = row.querySelector(".contact-label").textContent.trim().toLowerCase();
             const ch = getContactHelp(key);
-            if (ch) setHelp(buildHelp(ch));
+            if (ch) setHelp(buildHelp(ch), { allowModal: false });
         });
-        row.addEventListener("mouseleave", () => { setHelp(buildHelp(getHelpSlot("contact"))); });
+        row.addEventListener("mouseleave", () => { setHelp(buildHelp(getHelpSlot("contact")), { allowModal: false }); });
     });
 
     // High-contrast toggle
@@ -1137,7 +1143,7 @@ function navigateRows(key) {
         rows.forEach((r) => r.classList.remove("selected"));
         rows[nextIdx].classList.add("selected");
         rows[nextIdx].focus();
-        setHelp(buildHelp(getBiosHelpData(nextIdx)));
+        setHelp(buildHelp(getBiosHelpData(nextIdx)), { allowModal: false });
     }
     if (currentSection === "skills") {
         rows = Array.from(document.querySelectorAll(".skill-row"));
@@ -1150,7 +1156,7 @@ function navigateRows(key) {
         const cat = rows[nextIdx].dataset.cat;
         const idx = parseInt(rows[nextIdx].dataset.idx);
         const skill = skillCategories[cat][idx];
-        setHelp(buildHelp(getSkillHelpData(skill)));
+        setHelp(buildHelp(getSkillHelpData(skill)), { allowModal: false });
     }
     if (currentSection === "projects") {
         rows = Array.from(document.querySelectorAll(".project-entry"));
@@ -1161,7 +1167,7 @@ function navigateRows(key) {
         rows[nextIdx].classList.add("selected");
         rows[nextIdx].focus();
         const proj = getProjectById(rows[nextIdx].dataset.project);
-        setHelp(buildHelp(getProjectHelpData(proj)));
+        setHelp(buildHelp(getProjectHelpData(proj)), { allowModal: false });
     }
     if (currentSection === "contact") {
         rows = Array.from(document.querySelectorAll(".contact-row"));
@@ -1173,7 +1179,7 @@ function navigateRows(key) {
         rows[nextIdx].focus();
         const label = rows[nextIdx].querySelector(".contact-label").textContent.trim().toLowerCase();
         const ch = getContactHelp(label);
-        if (ch) setHelp(buildHelp(ch));
+        if (ch) setHelp(buildHelp(ch), { allowModal: false });
     }
 }
 
