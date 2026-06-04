@@ -53,15 +53,15 @@
     </div>
 
     <div id="main-interface">
-      <div id="header">
+      <div id="header" role="tablist">
         <div class="header-logo">
           <div class="logo-slot"></div>
           <h1 data-i18n="header.made_by">MADE BY: DIEGO GUSTAVO</h1>
         </div>
-        <button class="nav-tab" data-section="about">About</button>
-        <button class="nav-tab" data-section="skills">Skills</button>
-        <button class="nav-tab" data-section="projects">Projects</button>
-        <button class="nav-tab" data-section="contact">Contact</button>
+        <button class="nav-tab" data-section="about" data-i18n="nav.about" role="tab">About</button>
+        <button class="nav-tab" data-section="skills" data-i18n="nav.skills" role="tab">Skills</button>
+        <button class="nav-tab" data-section="projects" data-i18n="nav.projects" role="tab">Projects</button>
+        <button class="nav-tab" data-section="contact" data-i18n="nav.contact" role="tab">Contact</button>
         <div class="header-right">
           <button id="lang-toggle">EN</button>
         </div>
@@ -196,6 +196,17 @@
 
                 <hr class="divider" />
 
+                <!-- High contrast theme toggle inserted below Bio -->
+                <div class="bios-row" id="contrast-toggle-row">
+                  <span class="bios-label" data-i18n="about.contrast.label">Theme</span>
+                  <span class="bios-sep">:</span>
+                  <span class="bios-value">
+                    <button id="high-contrast-toggle" aria-pressed="false" data-i18n="about.contrast.toggle">High Contrast</button>
+                  </span>
+                </div>
+
+                <hr class="divider" />
+
                 <div class="dimtext mt-8 px-12" data-i18n="about.navigation">
                   Use <kbd>Tab</kbd> or the ← → arrows to switch sections.
                 </div>
@@ -281,36 +292,26 @@
       <!-- FOOTER -->
       <div id="footer">
         <div class="footer-item footer-keep">
-          <span class="footer-key">↑↓</span>Navigate
+          <span class="footer-key">↑↓</span><span data-i18n="footer.navigate">Navigate</span>
         </div>
         <div class="footer-item footer-keep">
-          <span class="footer-key">Tab</span>Section
+          <span class="footer-key">Tab</span><span data-i18n="footer.section">Section</span>
         </div>
         <div class="footer-item">
-          <span class="footer-key">Enter</span>Select
+          <span class="footer-key">Enter</span><span data-i18n="footer.select">Select</span>
         </div>
         <div class="footer-item">
-          <a
-            class="footer-link"
-            href="https://github.com/diego-rodrigues-git"
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="footer-key">F5</span>GitHub
+          <a class="footer-link" href="https://github.com/diego-rodrigues-git" target="_blank" rel="noopener">
+            <span class="footer-key">F5</span><span data-i18n="contact.label.github">GitHub</span>
           </a>
         </div>
         <div class="footer-item">
-          <a
-            class="footer-link"
-            href="https://linkedin.com/in/diego-gustavo"
-            target="_blank"
-            rel="noopener"
-          >
-            <span class="footer-key">F6</span>LinkedIn
+          <a class="footer-link" href="https://linkedin.com/in/diego-gustavo" target="_blank" rel="noopener">
+            <span class="footer-key">F6</span><span data-i18n="contact.label.linkedin">LinkedIn</span>
           </a>
         </div>
         <div class="footer-right">
-          <span>Diego Gustavo Portfolio — v1.0.0</span>
+          <span data-i18n="footer.right_text">Diego Gustavo Portfolio — v1.0.0</span>
           <span>©&nbsp;2025</span>
         </div>
       </div>
@@ -319,14 +320,14 @@
     <!-- MOBILE HAMBURGER -->
     <button id="hamburger" aria-label="Menu">[ MENU ]</button>
     <div id="mobile-menu">
-      <div class="mobile-menu-item active" data-section="about">[ About ]</div>
-      <div class="mobile-menu-item" data-section="skills">[ Skills ]</div>
-      <div class="mobile-menu-item" data-section="projects">[ Projects ]</div>
-      <div class="mobile-menu-item" data-section="contact">[ Contact ]</div>
+      <div class="mobile-menu-item active" data-section="about" data-i18n="nav.about">[ About ]</div>
+      <div class="mobile-menu-item" data-section="skills" data-i18n="nav.skills">[ Skills ]</div>
+      <div class="mobile-menu-item" data-section="projects" data-i18n="nav.projects">[ Projects ]</div>
+      <div class="mobile-menu-item" data-section="contact" data-i18n="nav.contact">[ Contact ]</div>
     </div>
 
     <!-- DETAIL MODAL (mobile) -->
-    <div id="detail-modal">
+    <div id="detail-modal" role="dialog" aria-modal="true" aria-hidden="true">
       <div class="modal-box">
         <button class="modal-close" id="modal-close" aria-label="Close">
           ✕

@@ -264,6 +264,18 @@ function launchMain() {
         });
     }
     applyTranslations();
+
+    // injection for additional translations added at runtime
+    if (!i18n.en.nav) i18n.en.nav = { about: "About", skills: "Skills", projects: "Projects", contact: "Contact" };
+    if (!i18n.pt.nav) i18n.pt.nav = { about: "Sobre", skills: "Habilidades", projects: "Projetos", contact: "Contato" };
+    if (!i18n.en.about) i18n.en.about = {};
+    if (!i18n.pt.about) i18n.pt.about = {};
+    i18n.en.about.contrast = { label: "Theme", toggle: "High Contrast" };
+    i18n.pt.about.contrast = { label: "Tema", toggle: "Alto Contraste" };
+    if (!i18n.en.footer) i18n.en.footer = {};
+    if (!i18n.pt.footer) i18n.pt.footer = {};
+    i18n.en.footer.right_text = "Diego Gustavo Portfolio — v1.0.0";
+    i18n.pt.footer.right_text = "Portfólio Diego Gustavo — v1.0.0";
 }
 
 // ===== SKILLS DATA (each item now has desc_en + type_en where appropriate) =====
@@ -645,7 +657,10 @@ function renderSkillCategory(catKey) {
         return;
     }
     document.querySelectorAll(".skill-cat-btn").forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.cat === catKey);
+        const isActive = btn.dataset.cat === catKey;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-selected", isActive ? "true" : "false");
+        if (!btn.hasAttribute("tabindex")) btn.setAttribute("tabindex", "0");
     });
     let html = "";
     category.forEach((skill, idx) => {
@@ -680,7 +695,7 @@ function renderSkillCategory(catKey) {
     });
     if (rows.length > 0) {
         rows[0].classList.add("selected");
-        setHelp(buildHelp(getSkillHelpData(category[0])));
+        setHelp(buildHelp(getSkillHelpData(category[0])), { forcePanel: true });
     }
 }
 
@@ -867,17 +882,22 @@ function escapeHtml(s) {
   - Detectamos isso com isHelpMispositioned() e preferimos abrir um modal centrado,
     que é mais confiável e acessível em dispositivos com ponteiros 'coarse' (touch).
 */
-function setHelp(html) {
+function setHelp(html, options = {}) {
     const helpEl = document.getElementById("help-body");
     const detailModal = document.getElementById("detail-modal");
+    const forcePanel = !!options.forcePanel;
     // if the help panel is hidden, too small, or on touch devices, show help in modal
-    if (typeof isHelpMispositioned === "function" && isHelpMispositioned()) {
+    if (!forcePanel && typeof isHelpMispositioned === "function" && isHelpMispositioned()) {
         const modalContent = document.getElementById("modal-content");
         if (modalContent) modalContent.innerHTML = html;
-        if (detailModal) detailModal.classList.add("open");
+        if (detailModal) {
+            detailModal.classList.add("open");
+            detailModal.setAttribute("aria-hidden", "false");
+        }
         return;
     }
     if (helpEl) helpEl.innerHTML = html;
+    if (detailModal) detailModal.setAttribute("aria-hidden", "true");
 }
 
 /*
@@ -933,7 +953,7 @@ function switchSection(section) {
         document.querySelectorAll(".bios-row").forEach((r) => r.classList.remove("selected"));
         const first = document.querySelector(".bios-row");
         if (first) first.classList.add("selected");
-        setHelp(buildHelp(getBiosHelpData(0)));
+        setHelp(buildHelp(getBiosHelpData(0)), { forcePanel: true });
     }
 
     if (section === "skills") {
@@ -948,7 +968,7 @@ function switchSection(section) {
         if (first) {
             first.classList.add("selected");
             const proj = getProjectById(first.dataset.project);
-            setHelp(buildHelp(getProjectHelpData(proj)));
+            setHelp(buildHelp(getProjectHelpData(proj)), { forcePanel: true });
         }
     }
 
@@ -956,7 +976,7 @@ function switchSection(section) {
         document.querySelectorAll(".contact-row").forEach((r) => r.classList.remove("selected"));
         const first = document.querySelector(".contact-row");
         if (first) first.classList.add("selected");
-        setHelp(buildHelp(getHelpSlot("contact")));
+        setHelp(buildHelp(getHelpSlot("contact")), { forcePanel: true });
     }
 }
 
@@ -977,7 +997,34 @@ function initInterface() {
     renderProjects();
     document.querySelectorAll(".nav-tab").forEach((tab) => tab.addEventListener("click", () => { switchSection(tab.dataset.section); closeMobileMenu(); }));
     document.querySelectorAll(".mobile-menu-item").forEach((item) => item.addEventListener("click", () => { switchSection(item.dataset.section); closeMobileMenu(); }));
-    document.querySelectorAll(".skill-cat-btn").forEach((btn) => btn.addEventListener("click", () => renderSkillCategory(btn.dataset.cat)));
+
+    // setup category buttons with keyboard support
+    document.querySelectorAll(".skill-cat-btn").forEach((btn) => {
+        btn.setAttribute("tabindex", "0");
+        btn.setAttribute("role", "tab");
+        btn.addEventListener("click", () => renderSkillCategory(btn.dataset.cat));
+        btn.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); btn.click(); } });
+    });
+
+    const catContainer = document.querySelector('.skill-category-buttons');
+    if (catContainer) {
+        catContainer.setAttribute('role', 'tablist');
+        catContainer.addEventListener('keydown', (e) => {
+            if (!['ArrowLeft','ArrowRight','Home','End'].includes(e.key)) return;
+            e.preventDefault();
+            const buttons = Array.from(catContainer.querySelectorAll('.skill-cat-btn'));
+            const activeIndex = buttons.findIndex(b => b === document.activeElement);
+            let nextIndex = activeIndex;
+            if (e.key === 'ArrowLeft') nextIndex = Math.max(0, activeIndex - 1);
+            else if (e.key === 'ArrowRight') nextIndex = Math.min(buttons.length - 1, activeIndex + 1);
+            else if (e.key === 'Home') nextIndex = 0;
+            else if (e.key === 'End') nextIndex = buttons.length - 1;
+            if (buttons[nextIndex]) {
+                buttons[nextIndex].focus();
+                buttons[nextIndex].click();
+            }
+        });
+    }
 
     document.querySelectorAll(".bios-row").forEach((row, idx) => {
         row.setAttribute("tabindex", "0");
@@ -1011,6 +1058,18 @@ function initInterface() {
         });
         row.addEventListener("mouseleave", () => { setHelp(buildHelp(getHelpSlot("contact"))); });
     });
+
+    // High-contrast toggle
+    const hcToggle = document.getElementById("high-contrast-toggle");
+    if (hcToggle) {
+        const applyHighContrast = (enabled) => {
+            document.body.classList.toggle("high-contrast", !!enabled);
+            hcToggle.setAttribute("aria-pressed", !!enabled);
+            localStorage.setItem("high_contrast", !!enabled ? "1" : "0");
+        };
+        hcToggle.addEventListener("click", () => applyHighContrast(hcToggle.getAttribute("aria-pressed") !== "true"));
+        applyHighContrast(localStorage.getItem("high_contrast") === "1");
+    }
 
     switchSection("about");
     document.addEventListener("keydown", handleKeyboard);
@@ -1162,13 +1221,18 @@ function showModal(data) {
     const modalContent = document.getElementById("modal-content");
     if (modalContent) modalContent.innerHTML = html;
     const detail = document.getElementById("detail-modal");
-    if (detail) detail.classList.add("open");
+    if (detail) {
+        detail.classList.add("open");
+        detail.setAttribute("aria-hidden", "false");
+        const closeBtn = document.getElementById("modal-close");
+        if (closeBtn) closeBtn.focus();
+    }
 }
 
 const modalCloseBtn = document.getElementById("modal-close");
-if (modalCloseBtn) modalCloseBtn.addEventListener("click", () => { const d = document.getElementById("detail-modal"); if (d) d.classList.remove("open"); });
+if (modalCloseBtn) modalCloseBtn.addEventListener("click", () => { const d = document.getElementById("detail-modal"); if (d) { d.classList.remove("open"); d.setAttribute("aria-hidden", "true"); } });
 const detailModalEl = document.getElementById("detail-modal");
-if (detailModalEl) detailModalEl.addEventListener("click", (e) => { if (e.target === detailModalEl) detailModalEl.classList.remove("open"); });
+if (detailModalEl) detailModalEl.addEventListener("click", (e) => { if (e.target === detailModalEl) { detailModalEl.classList.remove("open"); detailModalEl.setAttribute("aria-hidden", "true"); } });
 
 // initial render if DOM already in place
 try { renderProjects(); } catch (e) { }
@@ -1204,8 +1268,9 @@ function isHelpMispositioned() {
 */
 function applyDpiScaling() {
     const dpr = window.devicePixelRatio || 1;
-    // reasonable clamp to avoid excessive scaling
-    const scale = Math.min(Math.max(dpr, 1), 1.6);
+    const base = Math.min(Math.max(dpr, 1), 1.6);
+    const vpFactor = Math.min(Math.max(window.innerWidth / 1366, 1), 1.6);
+    const scale = Math.min(base * vpFactor, 2.0);
     document.documentElement.style.setProperty("--dpi-scale", scale);
     try { document.body.style.zoom = scale; } catch (e) { }
 }
